@@ -1,0 +1,13 @@
+Depending on the size of the database determines the need for indexes
+For smaller scale databases (Edmonton.txt example provided in eclass), the use of index are less
+efficient compared to larger database. For the assignement (given the scale of the assignement)
+the implementation of the database indexs on subject/predicate would not provide enough
+additional efficiency to justify its inclusion and therefore in no included.  
+
+However, if the database was of significant, there would be indexes created based off subjects and 
+predicate. This is to speed up searches in the sqlite database, since we would no jump to the correct
+starting location of each subject/predicate and therefore we do not have the need to traverse the whole
+database in order to find the target subject/predicate.
+
+The reason for a lack of indexes is because there may be too many unique object for each combination of 
+subject and predicate (therefore having a index on all object may be redundant and not efficent).   

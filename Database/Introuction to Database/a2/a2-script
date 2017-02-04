@@ -1,0 +1,95 @@
+Script started on Thu 12 Feb 2015 08:56:17 PM MST
+kynan@uc13:~/Documents/291> script a2-scriptcat 1.sql 2.sql 3.sql 4.sql 5.sql 6.sql 7.sql 8.sql 9..sql > a2-query.sql[A[C[C[C[C[C[C[C[C[26Psqlplus kynan @a2-query.sql
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+SQL*Plus: Release 11.2.0.1.0 Production on Thu Feb 12 20:56:20 2015
+
+Copyright (c) 1982, 2009, Oracle.  All rights reserved.
+
+Enter password: 
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+Question 1 - kynan
+
+SERIAL_NO
+---------------
+000002
+000004
+000006
+
+Question 2 - kynan
+
+NAME
+----------------------------------------
+ADDR
+--------------------------------------------------
+Happy
+South Edmonton
+
+Sad
+Calgary
+
+
+Question 3 - kynan
+
+NAME					 LICENCE_NO
+---------------------------------------- ---------------
+Mad					 a101b101c
+
+Question 4 - kynan
+
+NAME
+----------------------------------------
+Happy
+
+Question 5 - kynan
+
+SU AVG(T.PRICE) TYPE
+-- ------------ ----------
+11	 100000 SUVs
+12	  10000 SUVs
+10	    100 Sport
+
+Question 6 - kynan
+
+NAME
+----------------------------------------
+Doom
+Rage
+
+Question 7 - kynan
+
+SIN		NAME
+--------------- ----------------------------------------
+ADDR
+--------------------------------------------------
+123456789	Happy
+South Edmonton
+
+
+Question 8 - kynan
+
+View dropped.
+
+
+View created.
+
+Question 9 - kynan
+
+SIN		NAME
+--------------- ----------------------------------------
+666666666	Calm
+555555555	Mad
+987654321	Sad
+123456789	Happy
+
+SQL> exit
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+kynan@uc13:~/Documents/291>exit
+exit
+
+Script done on Thu 12 Feb 2015 08:56:44 PM MST

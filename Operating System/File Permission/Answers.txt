@@ -1,0 +1,24 @@
+Question 1:
+	A) None of the files are unique/separate because the inode for File 1, 7 are the same as well as File 2, 8. Therefore they are not unique.
+	   Files 3,5 are soft links to File 1 and Files 4,6 are soft links to File 2 and therefore they are not separate. But Files 1,2 are different from
+	   eachother.
+	B) The reason it has 2 links is because one of those link is itself "./" the other is the parent "../" Therefore it has 2 
+	   Links instead of the one.
+	C) The "2" is still there because the file did not create a link to the directory in question.
+	D) When you create a new directory inside it, it changes the number of links from "2" to "3" because the new directory's
+	   ../ is linked to the previous directory therefore changing it from "2" to "3".
+
+Question 2:
+	A) It does not show any difference because it is a soft link not a hard link.
+	B) There is no indication that there was a link created because we created a soft link not a hard link.
+	C) It allows you to create the link / the link did not get deleted. Without giving an error message. 
+	D) It gives the error message of "too many level of symbolic links" because it tries to open itself forever.
+
+Question 3:
+	A) Now both the file created in 1.c and the newly created hard links has a total number of link count = 2. This is because 
+	   hard links has the same file content of the file it is a link to. Therefore since the new hardlink to file of 1.c has the same content as
+	   the file of 1.c (with 2 links) it therefore has 2 links as well.  
+	B) The orginal file and the hard link undergo the same changes.
+	C) There is no difference outside the file name that can be determinded from ls -l.
+	D) When the orginal is deleted the link remain because they are separate files. 
+	E) Hard links are not allowed for directories, and not possible with non-existent files. 

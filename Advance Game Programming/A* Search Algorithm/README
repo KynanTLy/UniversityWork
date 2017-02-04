@@ -1,0 +1,33 @@
+CMPUT 350  Assignment 3
+-----------------------
+
+Student Id:	1409258
+            ----------------
+
+
+I hereby acknowledge the following sources that helped me finish this
+assignment (fellow students, TAs, books, internet, ...) and how they
+contributed:
+
+Website:
+	https://en.wikipedia.org/wiki/A*_search_algorithm
+
+Dylan Ashley:
+	gave the Idea to have a helper function that checks if from (x,y) ->(x2,y2) is within 1 step
+	Discuss what generation counter could replace in A Star psedo code from wikiepdia
+	Discuss which heuristic cost would be most optimal
+	How to handle cache list of (objects that had the calculated table with the appropriate)
+
+Imran Ali:
+	Discuss which heuristic cost would be most optimal
+	Discussed using a helper function that checks if from (x,y) ->(x2,y2) is within 1 step
+
+Fellow Student who worked in labs:
+	Explained how the A*star wiki would be implmented into our assignment
+
+
+Your name in lieu of a signature:
+
+
+			Kynan Ly
+           -----------------------

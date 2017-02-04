@@ -1,0 +1,44 @@
+create table airports(
+	Airport_ID Integer Primary Key, 
+	Name String, 
+	City String, 
+	Country String, 
+	IATA_FAA varchar(3), 
+	ICAO varchar(4), 
+	Latitude Float, 
+	Longitude Float, 
+	Altitude Integer, 
+	Timezone Integer, 
+	DST String, 
+	tz_database_time_zone String);
+
+create table airlines(
+	Airline_ID Integer Primary Key, 
+	Name String, 
+	Allas String, 
+	IATA varchar(3), 
+	ICAO varchar(3), 
+	Callsign String, 
+	Country String, 
+	Active varchar(1));
+						
+create table routes(
+	Airline String, 
+	Airline_ID Integer, 
+	Source_airport String, 
+	Source_airport_ID Integer, 
+	Destination_airport String, 
+	Destination_airport_ID Integer, 
+	Codeshare String, 
+	Stops Integer, 
+	Equipment varchar(3), 
+	Foreign Key(Airline_ID) References airlines(Airline_ID), 
+	Foreign Key(Source_airport_ID) References airports(Airport_ID), 
+	Foreign Key(Destination_airport_ID)References airports(Airport_ID));
+
+.mode csv
+.import airports.dat airports
+.import airlines.dat airlines
+.import routes.dat routes
+
+

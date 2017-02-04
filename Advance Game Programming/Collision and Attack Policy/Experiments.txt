@@ -1,0 +1,69 @@
+Describe your experimental setup and your results.
+
+//====The Result for every Testcase ran at 100 times=====//
+
+Based off the testcases at different values, the policy
+of attack most dangerous seems to be the most dominate 
+policy winning out completely regardless of amount of 
+units and enemy policy. The attack policy of attacking the
+closest works extremely well with larger and very small amount of units
+, while attack weakest works beter with decent size numbers.
+amount of unit grow larger it is clear that attacking the 
+weakest proves to be more dominate. When fighting against
+your own policy attack_closest always result in a tie, while
+other policy it could go either way. 
+
+//===========20=============//
+Red Attack_weakest vs Blue Attack_closest
+		27w - 70w - 3t 
+Red Attack_weakest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_cloest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_weakest vs Blue Attack_weakest
+		49w - 47w - 4t
+Red Attack_closest vs Blue Attack_closest
+		0w - 0w - 100t
+Red Attack_most_dangerous vs Blue Attack_most_dangerous
+		51w - 48w - 1t
+//============50=============//
+Red Attack_weakest vs Blue Attack_closest
+		64w - 36w - 0t
+Red Attack_weakest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_cloest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_weakest vs Blue Attack_weakest
+		55w - 43w - 2t
+Red Attack_closest vs Blue Attack_closest
+		0w - 0w - 100t
+Red Attack_most_dangerous vs Blue Attack_most_dangerous
+		51w - 47w - 2t
+//===========100=============//
+Red Attack_weakest vs Blue Attack_closest
+		78w - 22w - 0t
+Red Attack_weakest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_closest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_weakest vs Blue Attack_weakest
+		53w - 47w - 0t
+Red Attack_closest vs Blue Attack_closest
+		0w - 0w - 100t
+Red Attack_most_dangerous vs Blue Attack_most_dangerous
+		56w - 44w - 0t
+//===========300=============//
+Red Attack_weakest vs Blue Attack_closest
+		0w - 100w - 0t
+Red Attack_weakest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_cloest vs Blue Attack_most_dangerous
+		0w - 100w - 0t
+Red Attack_weakest vs Blue Attack_weakest
+		56w - 44w - 0t 
+Red Attack_closest vs Blue Attack_closest
+		0w - 0w - 100t 
+Red Attack_most_dangerous vs Blue Attack_most_dangerous
+		52w - 48w - 0t
+
+

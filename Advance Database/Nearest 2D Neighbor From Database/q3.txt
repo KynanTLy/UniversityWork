@@ -1,0 +1,10 @@
+To see all the MBR of the database run the command line:
+	select * from Map_rowid;
+
+
+The result given back is that only 1 MBR. The reason this is different than the amount of MBR
+created in question 2, is that in question 2 we had a m=2 and M=4. While on the lab machines
+the max size of a MRB is how large a 'page' in memory is. Therefore since the size of question 2
+(11 elements) is smaller than a page size it all fits in one MBR.
+
+

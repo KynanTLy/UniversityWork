@@ -1,0 +1,11 @@
+int x = 4;
+if (x != 4) print(x);
+fi;
+if (x < 4) print(x);
+fi;
+loop( x < 7)
+    if (x == 6) print(1); fi;
+    if (x == 5) print(2); fi;
+    x = x + 1;
+    print(x);
+pool;  

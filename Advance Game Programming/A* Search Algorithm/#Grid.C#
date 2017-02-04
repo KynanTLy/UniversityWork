@@ -1,0 +1,311 @@
+#include "Grid.H"
+
+Grid::Grid(int _width, int _height): width(_width), height(_height){
+	//CREATE MATRIX FOR GRID/MATRIX FOR GENERATION COUNT/GENERATION COUNT
+	generatorCounter = 0;
+	for(auto i = 0; i < _width; ++i){
+		grid.push_back(std::vector<Tile>(_height));
+		genMap.push_back(std::vector<int>(_height, 0));
+	}//end for
+}//end Constructor
+
+Grid::~Grid(){
+	//THERE IS NOTHING TO BE DESTORIED
+}//end Destructor
+
+int Grid::findShortestPath(int size, int x1, int y1, int x2, int y2, std::vector<Direction> &path) const{
+	//IF YOU ARE YOURSELF RETURN 	
+	if(x1 == x2 && y1 == y2){
+		return 0;
+	}	
+	
+	//INIT VARIABLES
+	std::map<std::pair<int,int>, double > gScore;
+	std::map<std::pair<int,int>, double > fScore;
+	std::pair<int, int> goal = std::make_pair(x2,y2);	
+	std::pair<int, int> start = std::make_pair(x1,y1);	
+	std::set<std::pair<int,int>> openSet;
+	std::map<std::pair<int, int>, std::pair<std::pair<int,int>, Direction>> cameFrom;
+	
+	//INCREMENT GENERATION COUNTER
+	++generatorCounter;
+	
+	//INIT gScore/fScore WITH INIFINITY
+	for(int i = 0; i < getWidth(); ++i){
+		for(int k = 0; k < getHeight(); ++k){
+			std::pair<int,int> temp = std::make_pair(i,k);
+			gScore[temp] = std::numeric_limits<double>::infinity();
+			fScore[temp] = std::numeric_limits<double>::infinity();
+		}//end for loop inner
+	}//end for loop outer
+
+	//SET START NODE gScore/fScore
+	gScore[start] = 0 ;
+	fScore[start] = heuristic_cost(x1, x2, y1, y2);
+	
+	//INSERT STARTING NODE
+	openSet.insert(start);
+
+	//WHILE THERE ARE NODES TO VISIT
+	while(!openSet.empty()){
+
+		std::pair<int, int> current;		
+		
+		//FIND SMALLEST F SCORE AND ASSIGN TO CURRENT			
+		double lowest = std::numeric_limits<double>::infinity();	
+		for (auto it= begin(openSet); it != end(openSet); ++it ) {
+			if(fScore[*it] < lowest){    		
+				lowest = fScore[*it];
+				current = *it;	
+		 	} 
+		}
+		
+		//FOUND THE GOAL;
+		if(current == goal) return Reconstruct_path(cameFrom, path, current, gScore[goal] );	
+
+		//POP THE CURRENT FROM OPENSET AND UPDATE GENMAP WITH NEW GENCOUNTER
+		openSet.erase(openSet.find(current));		
+		genMap[current.first][current.second] = generatorCounter;		
+				
+		//GET THE X,Y OF THE CURRENT NODE			
+		int cx = current.first;
+		int cy = current.second;
+
+		//ITERATE THROUGH ALL POINTS AROUND THE CURRENT NODE
+		for(int x = cx-1; x < cx+2; ++x){
+			for(int y = cy-1; y < cy+2; ++y){
+				//CHECK TO SEE IF I CAN REACH SAID NEIGHBOR
+				if(canGetNext(cx, cy, x, y, size)){
+					std::pair<int, int> neighbor = std::make_pair(x,y);
+					//IF THE NEIGHBOR NODE IS IN GEN MAP AND MATCHES THE GENERATOR COUNTER					
+					if(genMap[neighbor.first][neighbor.second] == generatorCounter){
+						continue;
+					}
+
+					//CAL TENTATIVE gScore
+					auto tentative_gScore = gScore[current] + returnCost(getDisDir( current , neighbor)); 
+					
+					//IF I CAN'T FIND THE NEIGHBOR IN OPEN SET ADD IT
+					if(openSet.find(neighbor) == openSet.end()){
+						openSet.insert(neighbor);
+					//IF THE gScore TOO BIG SKIP
+					} else if (tentative_gScore >= gScore[neighbor]){
+						continue;
+					}
+					//UPDATE THE gScore/fScore OF NEIGHBOR AND ADD TO cameFrom SINCE IT IS THE BEST PATH WE FOUND
+					cameFrom[neighbor] = std::make_pair(current, getDisDir( current , neighbor));
+					gScore[neighbor] = tentative_gScore;
+					fScore[neighbor] = gScore[neighbor] + heuristic_cost(cx, x2, y, y2);
+				}//end if canGetToNext 
+			}//end for loop y
+		}//end for loop x 
+	}//end while loop
+	return 0;
+}//end findShortestPath
+
+int Grid::Reconstruct_path(std::map<std::pair<int, int>, std::pair<std::pair<int,int>, Direction>> cameFrom, std::vector<Direction> &path, std::pair<int,int> current, double cost) const{
+	//INIT VARIBLES
+	std::map<std::pair<int, int>, std::pair<std::pair<int,int>, Direction>> list = cameFrom;
+	std::pair<int,int> curr = current;
+	std::stack<Direction> returnPath;
+
+	//ITERATE THROUGH TO FIND THE PATH AND ADD TO STACK	
+	for(size_t i = 0; i < list.size(); ++i){
+		auto val = list.find(curr);
+		if(val != list.end()){		
+			curr = val->second.first;				
+			returnPath.push(val->second.second);
+		}
+	}
+		
+	//POP PATH FROM STACK AND PUSH TO PATH
+	while(!returnPath.empty()){
+		path.push_back(returnPath.top());
+		returnPath.pop();
+	}
+
+	return cost;
+}//end Reconstruct_path
+
+Grid::Direction Grid::getDisDir(std::pair<int, int> current, std::pair<int, int> target) const{
+	//CHECK THE DIRECTION
+	int sx = current.first;
+	int sy = current.second;
+	int tx = target.first;
+	int ty = target.second;
+	if( sx < tx && sy == ty) return Direction::E; 
+	if( sx > tx && sy == ty) return Direction::W; 
+	if( sx == tx && sy < ty) return Direction::S; 
+	if( sx == tx && sy > ty) return Direction::N; 
+	if( sx < tx && sy < ty) return Direction::SE; 
+	if( sx < tx && sy > ty) return Direction::NE; 
+	if( sx > tx && sy < ty) return Direction::SW; 
+	return Direction::NW; 
+}//end getDisDir
+
+int Grid::returnCost(Direction d) const{
+	//RETURN COST
+	if(d == Direction::W) return CARDINAL_COST;
+	if(d == Direction::N) return CARDINAL_COST;
+	if(d == Direction::S) return CARDINAL_COST;
+	if(d == Direction::E) return CARDINAL_COST;
+	if(d == Direction::NE) return DIAGONAL_COST;
+	if(d == Direction::SE) return DIAGONAL_COST;
+	if(d == Direction::NW) return DIAGONAL_COST;
+	return DIAGONAL_COST;
+}//end returnCost
+
+double Grid::heuristic_cost(int sx, int sy, int tx, int ty) const{
+	//CALCULATE HEURISTIC 
+	double min = std::min((std::abs(tx-sx)),(std::abs(ty-sy))) ;
+	double max = std::max((std::abs(tx-sx)),(std::abs(ty-sy))) ;
+	return (min*DIAGONAL_COST) + ((max-min)* CARDINAL_COST) ;    	
+}//end heuristic_cost
+
+bool Grid::isConnected(int size, int sx, int sy, int tx, int ty) const{
+	//INIT VALUES
+	std::vector<std::vector<bool>> getTo;
+	std::stack<std::pair<int, int>> visit;
+	
+	//CHECK IF IN BOUND
+	if(!checkBound(tx, ty) || !checkBound(sx, sy)){
+		return false;
+	}
+	
+	//CHECK TO SEE IF THERE IS CACHE ENTRY IF SO RETURN RESULT
+	int cacheIndex = indexCache(size, sx, sy);
+	if(cacheIndex >= 0){
+		return getEntryCache(cacheIndex, tx, ty);
+	}
+
+	//IF THERE IS NO CACHE INIT getTo AS FALSE
+	for(auto i = 0; i < getWidth(); ++i){
+		getTo.push_back(std::vector<bool>(getHeight(), false));
+	}
+
+	//PREPARE START NODE, ADD TO STACK AND SET THAT VALUE IN getTo AS TRUE
+	std::pair<int, int> startnode = std::make_pair(sx, sy);
+	visit.push(startnode);
+	getTo[sx][sy] = true;	
+	std::pair<int, int> currentNode;
+
+	//THE STACK KEEPS TRACKS NODES WE STILL NEED TO VISIT 
+	while(!visit.empty()){
+		//ASSIGN CURRENT NODE TO TOP OF STACK
+		currentNode = visit.top();
+		//POP THAT VALUE IN STACK
+		visit.pop();
+	
+		//GET THE X,Y OF CURRENT
+		int cx = currentNode.first;
+		int cy = currentNode.second;
+	
+		//ITERATE THROUGH ALL NEIGHBOR	
+		for(int x = cx-1; x < cx+2; ++x){
+			for(int y = cy-1; y < cy+2; ++y){
+				//IF I CAN GET THERE IN 1 MOVE
+				if(canGetNext(cx, cy, x, y, size)){
+					//IF THE VALUE WAS FALSE BEFORE MAKE IT TRUE AND PUSH IT TO STACK TO VISIT LATER
+					if(getTo[x][y] == false){
+						getTo[x][y] = true;								
+						visit.push(std::make_pair(x, y));
+					}
+				}//end canGetNext
+			}//end for loop y
+		}//end for loop x 
+	}//end while visit is not empty
+
+	//INSERT getTo INTO CACHE AND RETURN
+	insertCache(size, getTo);
+	return getEntryCache(inCache.size()-1, tx, ty);
+}//end isConnected
+
+bool Grid::canGetNext(int sx, int sy, int tx, int ty, int objectsize) const{
+	//CHECK WITHIN BOUND
+	if(!checkBound(tx, ty)){
+		return false;
+	}
+
+	//CHECK TO SEE IF YOU ARE 1 POINT AWAY FROM SOURCE
+	if(std::abs(sx -tx) > 1 || std::abs(sy - ty) > 1){
+		return false;
+	}
+
+	//CHECK TO SEE IF YOU ARE YOURSELF
+	if(sx == tx && sy == ty){
+		return true;
+	}
+
+	//FIND THE MIN/MAX OF X,Y 
+	int minx = std::min(sx, tx);
+	int maxx = std::max(sx, tx) + (objectsize + 1);
+	int miny = std::min(sy, ty);
+	int maxy = std::max(sy, ty) + (objectsize + 1);
+	
+	//TILE TYPE OF SOURCE
+	Tile source = grid[sx][sy];
+	
+	//CHECK TO SEE IF ALL VALUES MATCH TILE OF SOURCE
+	for(auto x = minx; x < maxx; ++x){
+		for(auto y = miny; y < maxy; ++y){
+			//IF DOES NOT MATCH OR OUT OF RANGE BREAK
+			if(!checkBound(x,y) || grid[x][y] != source){
+				return false;
+			} 
+		}//end for loop y		
+	}//end for loop x
+	return true;
+}//end canGetNext
+
+void Grid::insertCache(int size, std::vector<std::vector<bool>> newRegion)const{
+	//PUSH CACHE ENTRY	
+	inCache.push_back(cache(size, newRegion));
+}//end insertCache
+
+
+int Grid::indexCache(int size, int sx, int sy)const{
+	//RETURN INDEX OF CACHE
+	for(size_t i = 0; i < inCache.size(); ++i){
+		if(inCache[i].objectsize == size){
+			if(inCache[i].cachedTile[sx][sy] == true){
+				return i;
+			}	
+		} 
+	}//end for loop
+	//THERE IS NOT ENTRY
+	return -1;
+}//end indexCache
+
+bool Grid::getEntryCache(int index, int ts, int ty) const{
+	//RETURN CACHE ENTRY AT INDEX	
+	return inCache[index].cachedTile[ts][ty];
+}//end getEntryCache
+
+bool Grid::checkBound(int x, int y) const{
+	//CHECK WITHIN BOUND OF X,Y	
+	if(x < 0 || x >= getWidth()){
+		return false;
+	}
+	if(y < 0 || y >= getHeight()){
+		return false;
+	}	
+	return true;
+}//end checkBound
+
+Grid::Tile Grid::getTile(int x, int y) const{
+	return grid[x][y];
+}//end getTile
+
+void Grid::setTile(int x, int y, Tile tile){
+	//CLEAR CACHE EVERYTIME THERE IS A NEW SET TILE	
+	inCache.clear();
+	grid[x][y] = tile;
+}//end setTile
+
+int Grid::getWidth() const{
+	return width;
+}//end getWidth
+
+int Grid::getHeight() const{
+	return height;
+}//end getHeight

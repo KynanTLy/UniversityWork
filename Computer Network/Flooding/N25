@@ -1,0 +1,275 @@
+
+wan-probframeloss        = 1
+
+host host00 {
+    x=50.0, y=50.0
+
+    wan to host01 {	/* wan0 */
+    }
+}
+
+host host01 {
+    x=125.0, y=50.0
+
+    wan to host00 {	/* wan0 */
+    }
+    wan to host05 {	/* wan1 */
+    }
+    wan to host02 {	/* wan2 */
+    }
+}
+
+host host02 {
+    x=200.0, y=50.0
+
+    wan to host08 {	/* wan0 */
+    }
+    wan to host06 {	/* wan1 */
+    }
+    wan to host01 {	/* wan2 */
+    }
+}
+
+host host03 {
+    x=275.0, y=50.0
+
+    wan to host04 {	/* wan0 */
+    }
+}
+
+host host04 {
+    x=350.0, y=50.0
+
+    wan to host08 {	/* wan0 */
+    }
+    wan to host03 {	/* wan1 */
+    }
+}
+
+host host05 {
+    x=50.0, y=125.0
+
+    wan to host10 {	/* wan0 */
+    }
+    wan to host01 {	/* wan1 */
+    }
+    wan to host06 {	/* wan2 */
+    }
+}
+
+host host06 {
+    x=125.0, y=125.0
+
+    wan to host11 {	/* wan0 */
+    }
+    wan to host12 {	/* wan1 */
+    }
+    wan to host02 {	/* wan2 */
+    }
+    wan to host05 {	/* wan3 */
+    }
+}
+
+host host07 {
+    x=200.0, y=125.0
+
+    wan to host08 {	/* wan0 */
+    }
+    wan to host12 {	/* wan1 */
+    }
+    wan to host13 {	/* wan2 */
+    }
+}
+
+host host08 {
+    x=275.0, y=125.0
+
+    wan to host02 {	/* wan0 */
+    }
+    wan to host07 {	/* wan1 */
+    }
+    wan to host04 {	/* wan2 */
+    }
+    wan to host09 {	/* wan3 */
+    }
+}
+
+host host09 {
+    x=350.0, y=125.0
+
+    wan to host08 {	/* wan0 */
+    }
+}
+
+host host10 {
+    x=50.0, y=200.0
+
+    wan to host05 {	/* wan0 */
+    }
+    wan to host15 {	/* wan1 */
+    }
+}
+
+host host11 {
+    x=125.0, y=200.0
+
+    wan to host12 {	/* wan0 */
+    }
+    wan to host17 {	/* wan1 */
+    }
+    wan to host06 {	/* wan2 */
+    }
+    wan to host16 {	/* wan3 */
+    }
+}
+
+host host12 {
+    x=200.0, y=200.0
+
+    wan to host11 {	/* wan0 */
+    }
+    wan to host06 {	/* wan1 */
+    }
+    wan to host18 {	/* wan2 */
+    }
+    wan to host07 {	/* wan3 */
+    }
+}
+
+host host13 {
+    x=275.0, y=200.0
+
+    wan to host14 {	/* wan0 */
+    }
+    wan to host19 {	/* wan1 */
+    }
+    wan to host07 {	/* wan2 */
+    }
+}
+
+host host14 {
+    x=350.0, y=200.0
+
+    wan to host13 {	/* wan0 */
+    }
+    wan to host19 {	/* wan1 */
+    }
+    wan to host18 {	/* wan2 */
+    }
+}
+
+host host15 {
+    x=50.0, y=275.0
+
+    wan to host16 {	/* wan0 */
+    }
+    wan to host20 {	/* wan1 */
+    }
+    wan to host10 {	/* wan2 */
+    }
+}
+
+host host16 {
+    x=125.0, y=275.0
+
+    wan to host20 {	/* wan0 */
+    }
+    wan to host22 {	/* wan1 */
+    }
+    wan to host15 {	/* wan2 */
+    }
+    wan to host11 {	/* wan3 */
+    }
+}
+
+host host17 {
+    x=200.0, y=275.0
+
+    wan to host11 {	/* wan0 */
+    }
+    wan to host18 {	/* wan1 */
+    }
+    wan to host22 {	/* wan2 */
+    }
+    wan to host23 {	/* wan3 */
+    }
+}
+
+host host18 {
+    x=275.0, y=275.0
+
+    wan to host17 {	/* wan0 */
+    }
+    wan to host12 {	/* wan1 */
+    }
+    wan to host22 {	/* wan2 */
+    }
+    wan to host14 {	/* wan3 */
+    }
+}
+
+host host19 {
+    x=350.0, y=275.0
+
+    wan to host24 {	/* wan0 */
+    }
+    wan to host14 {	/* wan1 */
+    }
+    wan to host13 {	/* wan2 */
+    }
+    wan to host23 {	/* wan3 */
+    }
+}
+
+host host20 {
+    x=50.0, y=350.0
+
+    wan to host16 {	/* wan0 */
+    }
+    wan to host21 {	/* wan1 */
+    }
+    wan to host15 {	/* wan2 */
+    }
+}
+
+host host21 {
+    x=125.0, y=350.0
+
+    wan to host20 {	/* wan0 */
+    }
+}
+
+host host22 {
+    x=200.0, y=350.0
+
+    wan to host17 {	/* wan0 */
+    }
+    wan to host16 {	/* wan1 */
+    }
+    wan to host18 {	/* wan2 */
+    }
+    wan to host23 {	/* wan3 */
+    }
+}
+
+host host23 {
+    x=275.0, y=350.0
+
+    wan to host24 {	/* wan0 */
+    }
+    wan to host17 {	/* wan1 */
+    }
+    wan to host22 {	/* wan2 */
+    }
+    wan to host19 {	/* wan3 */
+    }
+}
+
+host host24 {
+    x=350.0, y=350.0
+
+    wan to host23 {	/* wan0 */
+    }
+    wan to host19 {	/* wan1 */
+    }
+}

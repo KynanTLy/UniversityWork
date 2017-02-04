@@ -1,0 +1,103 @@
+/* ======= Relation schema ======== */
+
+/* Entry */
+
+CREATE TABLE Entry (
+	subject 	TEXT,
+	predicate       TEXT, 
+	object          TEXT,
+	type  	        TEXT
+);
+
+/* ======= Strategy ======== */
+
+Read through each line in the datafile, and save each element as a subject, predicate, object and the object type
+To do this we will save the prefixes as a list where (during parsing) we would replace them and save the whole link
+into the database. This is done so that we can parse queries by repeating the same tactic (replacing use of the 
+prefix with the whole link). We would also during parsing check if the subject/predicate have changed therefore knowing
+when only the object has changed but the predicate did not (such as encountering a new @prefix). Saving this result into
+a file where at the end we will import into our SQL database.
+
+For Datatypes decimals values are treated as floats, int (no decimals) as int, and everything else is consider as a string 
+We would also use the end token ('.', ';' ,etc) to determine if there is already a declaration of subject/predicate therefore
+we can used the previously declared subject/predicate if needed. 
+
+/* ======= Triples ======== */
+@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbr:	<http://dbpedia.org/resource/> .
+@prefix yago:	<http://dbpedia.org/class/yago/> .
+dbr:Edmonton	rdf:type	yago:WikicatTownsInAlberta ,
+		yago:Town108665504 ,
+		yago:GeographicalArea108574314 .
+@prefix wikidata:	<http://www.wikidata.org/entity/> .
+dbr:Edmonton	rdf:type	wikidata:Q486972 ,
+		yago:Artifact100021939 ,
+		yago:Municipality108626283 .
+@prefix dbo:	<http://dbpedia.org/ontology/> .
+dbr:Edmonton	rdf:type	dbo:City ,
+		dbo:PopulatedPlace ,
+		wikidata:Q515 ,
+		yago:AdministrativeDistrict108491826 ,
+		yago:Way104564698 ,
+		yago:WikicatRoadsInEdmonton ,
+		yago:PhysicalEntity100001930 ,
+		yago:Object100002684 ,
+		dbo:Settlement .
+@prefix umbel-rc:	<http://umbel.org/umbel/rc/> .
+dbr:Edmonton	rdf:type	umbel-rc:City ,
+		yago:WikicatPopulatedPlacesEstablishedIn1795 .
+@prefix geo:	<http://www.w3.org/2003/01/geo/wgs84_pos#> .
+dbr:Edmonton	rdf:type	geo:SpatialThing ,
+		yago:YagoGeoEntity ,
+		yago:YagoPermanentlyLocatedEntity ,
+		yago:UrbanArea108675967 ,
+		yago:YagoLegalActorGeo ,
+		yago:Whole100003553 ,
+		yago:Location100027167 ,
+		yago:Road104096066 .
+@prefix dbp:	<http://dbpedia.org/property/> .
+dbr:Edmonton	dbp:areaMetroKm	9426.7299999999995634 ;
+	dbp:areaTotalKm	684.37000000000000455 ;
+
+/* ========= Result in DataBase ======== */
+	SUBJECT										PREDICATE						               OBJECT					OBJECTTYPE
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/WikicatTownsInAlberta	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/Town108665504	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/GeographicalArea108574314	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://www.wikidata.org/entity/Q486972
+other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/Artifact100021939	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/Municipality108626283 	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/ontology/City	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/ontology/PopulatedPlace	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://www.wikidata.org/entity/Q515
+other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/AdministrativeDistrict108491826 	other 		
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/Way104564698 	other 										
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/WikicatRoadsInEdmonton 	other 
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/PhysicalEntity100001930 other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/class/yago/Object100002684 other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type   http://dbpedia.org/ontology/Settlement	other
+
+http://dbpedia.org/resource/Edmonton 	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	  http://umbel.org/umbel/rc/City	other
+
+http://dbpedia.org/resource/Edmonton	http://dbpedia.org/property/areaMetroKm 	9426.7299999999995634	float
+
+http://dbpedia.org/resource/Edmonton	http://dbpedia.org/property/areaTotalKm 	684.37000000000000455	float
+
+
+

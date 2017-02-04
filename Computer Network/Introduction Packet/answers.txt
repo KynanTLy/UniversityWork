@@ -1,0 +1,95 @@
+Name: Kynan Ly
+ID: 1409258
+﻿Lab 1: 
+PART 1:
+#1: 
+typedef int32_t			CnetAddr;
+typedef char *			CnetColour;
+typedef	intptr_t		CnetData;
+typedef	void *		CnetRandom;
+typedef	int64_t		CnetTime;
+typedef	int32_t		CnetTimerID;
+
+Types not equivalent to int data on lab machine:
+typedef	int64_t		CnetTime;
+typedef	void *		CnetRandom;
+
+#2:
+To obtain a node's current simulation time you need to access CnetTime time_in_usecs;
+to print the time we would use the line:
+	printf("time = %lld usecs\n", value);
+	
+#3
+Cnet does not specify the format the message generated must follow. All Cnet does is passes a number of bytes, pointed to by msg, to the application layer. With len indicating the number of bytes to taken from message, although Cnet can set a max/min message size with
+	MIN_MESSAGE_SIZE 48 
+	MAX_MESSAGE_SIZE 32768
+
+#4
+The "CHECK" macro is used to check if there is an errors in a line of code being run in Cnet that normally you would not see. Depending on the type of error Cnet report a different one. In the example of CHECK(CNET_write_physical....) with an non-existing link. Cnet would report an ER_BADLINK. With the first part (ER) is used to indicate there is an error, and the (BADLINK) is use to indicate an "Invalid link number passed to a function. 
+
+#5
+They are not the same. To calcualte sizeof(f) it looks for the MAX_MESSAGE_SIZE of (f). Therefore sizeof(f) find the largest amount of btyes (f) can be. While FRAME_SIZE(f) is the combination of FRAME_HEADER_SIZE + f.len (or the actual message size). and to calculate FRAME_HEADER_SIZE it is (sizeof(FRAME) - sizeof(MSG)), Which is the max byte of FRAME minus the max bytes of the message. It means that if you call sizeof() it gets you the bytes for the maximum size it can be, while FRAME_SIZE finds the amount of bytes needed for the message + the bytes needed for the header.  
+
+#6
+stopandwait.c does detect corrupted frames, but it chooses to ignore them 
+using the line of code:
+checksum    = f.checksum;
+    f.checksum  = 0;
+    if(CNET_ccitt((unsigned char *)&f, (int)len) != checksum) {
+        printf("\t\t\t\tBAD checksum - frame ignored\n");
+        return;           // bad checksum, ignore frame
+    }
+Where it ignores the corrupt field and does not sends the packet. 
+
+#7
+stopandwait.c requests using CNET_stop_timer to stop the timer with the timerID of lasttimer. Using the line:
+ 	    printf("\t\t\t\tACK received, seq=%d\n", f.seq);
+            CNET_stop_timer(lasttimer);
+            ackexpected = 1-ackexpected;
+            CNET_enable_application(ALLNODES);
+
+Program Report:
+	Design Overview:
+		EVENT_HANDLER(application_ready) (changed)
+			Which read the application layer and then process to 						write the message to the physical layer.
+		EVENT_HANDLER(physical_ready) (newly added)
+			Which read the physical layer and then process to 						write the message to the application layer.
+		EVENT_HANDLER(reboot_node) (changed)
+			Which calls the handlers for physical/application 						layers as well as limit the messages to only to directed to the 				server
+
+	Program Status:
+		The current lab1.c is fulling working, with no unforeseen 					error appearing
+		
+	Findings:
+		#1 (with probframecorrupt = 1)
+		For WAN-1 it received 3 messages successful. Doubling the 					bandwidth does not change the total amount of messages 					received successfully. 
+
+		#2  (with probframecorrupt = 1)
+		Yes, when tracing the program it reveals the errors are being 				reported:
+			ER_CORRUPTFRAME
+			ER_NOTFORME		
+
+		#3 (with probframecorrupt = 1)
+		For WLAN-1 it received 5 messages successfully, and 						doubling the bandwidth does not change the amount of 						messages received correctly. For errors, using WLAN-1, cnet 				still reports the same errors of:
+			ER_CORRUPTFRAME
+			ER_NOTFORME 
+
+		#1 (with probframecorrupt = 0)
+		For WAN-1 it received 517 messages successful. Doubling the 					bandwidth does not change the total amount of messages 					received successfully. 
+
+		#2  (with probframecorrupt = 0)
+		Yes, when tracing the program it reveals the errors are being 				reported are the same as before:
+			ER_CORRUPTFRAME
+			ER_NOTFORME
+		
+		#3 (with probframecorrupt = 0)
+		For WLAN-1 it received 378 messages successfully, and 					doubling the bandwidth does not change the amount of 						messages received correctly. For errors, using WLAN-1, cnet 				still reports the same errors of:
+			ER_CORRUPTFRAME
+			ER_NOTFORME 
+
+	Acknowledgements:
+			http://webdocs.cs.ualberta.ca/~c313/cnet-3.3.1-html/faq.html#printtime
+			https://cs.nyu.edu/courses/fall03/G22.2262-001/cnet/DOC/walkthrough.html
+
+
+

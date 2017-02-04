@@ -1,0 +1,92 @@
+//=======GROUP========//
+Kynan Ly
+Gaylord Mbuyi Konji
+
+//========COLLAB===========//
+	Other classmates in 391 lab
+	TA, eclass, forums, Paper's presented in lab and notes
+	Showned other classmates how to use strok to parse datablob (Imran Ali)
+	How to exactly what they wanted to prune in the paper (Imran Ali, Avery Tan)
+	
+
+//=======REQUIRED FILES======//
+The files that are needed in addition are (included in package): 
+	poi.tsv, poi_tag.tsv, assignment2.db (empty at start)
+	
+
+//========Question 0=========//
+RUN in terminal:
+   'python3 q0.py'
+	
+OUTPUT = poiConvert.tsv 
+	That file contains the converted lat/long cost to 1000x1000 grid
+
+The lines requried for the basic poi.tsv and poi_tag tsv tables that are needed
+the table with poiConvert.tsv is listed in question1.txt or down below
+
+Run create table that the new data needs to be imported into:
+	CREATE TABLE poi(
+		id INT,
+		uid INT,
+		lat FLOAT,
+		lon FLOAT
+	);
+
+	CREATE TABLE poi_tag(
+		id INT,
+		key TEXT,
+		value TEXT
+	);
+
+To import new value:
+	.separator "\t"
+	.import poi.tsv poi
+	.import poi.tsv poi_tag
+
+//========Question 1==========//
+TO ADD THE COVERTED DATA INTO THE RTREE
+
+Run create table that the new data needs to be imported into:
+	CREATE VIRTUAL TABLE Map USING rtree(
+	   id,              -- Integer primary key
+	   minX, maxX,      -- Minimum and maximum X coordinate	
+	   minY, maxY       -- Minimum and maximum Y coordinate
+	);
+
+To import new value:
+	.separator "\t"
+	.import poiConvert.tsv Map
+
+//=============QUESTION 5===============//
+Create the same table as Map without the rtree sued for question 5
+	CREATE TABLE Map1(
+		id INT,
+		minX FLOAT,
+		maxX FLOAT,
+		minY FLOAT,
+		maxY FLOAT
+	);
+	
+Import into Map1
+	.separator "\t"
+	.import poiConvert.tsv Map1
+
+//=========Question 4-5,7,8=============//
+To run the .c files for both q4, q5, q7, q8 run the line:
+
+	gcc -g -std=c99 -o q<question#> q<question#>.c sqlite3.c -lpthread -ldl -DSQLITE_ENABLE_RTREE 
+	replacing <question#> with the corresponding number	
+	
+	All question require a database as an arguement
+	q4 arguments: <database file> <x1> <y1> <x2> <y2> <class>
+	q6 arguments: <database file> <length>
+	q7 arguments: <database file> <x1> <y1> 
+	q8 arguments: <database file> <x1> <y1> <k>
+
+Question 7-8 have all code taken from online listed at the top of both files
+
+
+
+
+
+

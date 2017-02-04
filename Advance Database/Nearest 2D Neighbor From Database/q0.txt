@@ -1,0 +1,37 @@
+//======NOTE BEFORE START======//
+A new .tsv file is needed to create poiConvert.tsv
+To create the .tsv file run the line:
+   python3 q0.py
+	
+OUTPUT = poiConvert.tsv 
+	That file contains the converted lat/long cost to 1000x1000 grid
+	
+//======CREATE TABLES AND IMPORT=====//
+Run each of the following line in order in terminal
+
+CREATE TABLE poi(
+	id INT,
+	uid INT,
+	lat FLOAT,
+	lon FLOAT
+);
+
+CREATE TABLE poi_tag(
+	id INT,
+	key TEXT,
+	value TEXT
+);
+
+CREATE TABLE Map1(
+	id INT,
+	minX FLOAT,
+	maxX FLOAT,
+	minY FLOAT,
+	maxY FLOAT
+);
+
+
+.separator "\t"
+.import poi.tsv poi
+.import poi_tag.tsv poi_tag
+.import poiConvert.tsv Map1

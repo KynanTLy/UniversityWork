@@ -1,0 +1,112 @@
+
+wan-probframeloss        = 1
+
+host host0 {
+    x=125.0, y=50.0
+
+    wan to host1 {	/* wan0 */
+    }
+    wan to host3 {	/* wan1 */
+    }
+}
+
+host host1 {
+    x=200.0, y=50.0
+
+    wan to host3 {	/* wan0 */
+    }
+    wan to host0 {	/* wan1 */
+    }
+    wan to host4 {	/* wan2 */
+    }
+}
+
+host host2 {
+    x=125.0, y=125.0
+
+    wan to host3 {	/* wan0 */
+    }
+    wan to host6 {	/* wan1 */
+    }
+    wan to host5 {	/* wan2 */
+    }
+}
+
+host host3 {
+    x=200.0, y=125.0
+
+    wan to host1 {	/* wan0 */
+    }
+    wan to host2 {	/* wan1 */
+    }
+    wan to host7 {	/* wan2 */
+    }
+    wan to host0 {	/* wan3 */
+    }
+}
+
+host host4 {
+    x=275.0, y=125.0
+
+    wan to host7 {	/* wan0 */
+    }
+    wan to host1 {	/* wan1 */
+    }
+}
+
+host host5 {
+    x=50.0, y=200.0
+
+    wan to host6 {	/* wan0 */
+    }
+    wan to host8 {	/* wan1 */
+    }
+    wan to host2 {	/* wan2 */
+    }
+}
+
+host host6 {
+    x=125.0, y=200.0
+
+    wan to host5 {	/* wan0 */
+    }
+    wan to host9 {	/* wan1 */
+    }
+    wan to host8 {	/* wan2 */
+    }
+    wan to host2 {	/* wan3 */
+    }
+}
+
+host host7 {
+    x=275.0, y=200.0
+
+    wan to host9 {	/* wan0 */
+    }
+    wan to host4 {	/* wan1 */
+    }
+    wan to host3 {	/* wan2 */
+    }
+}
+
+host host8 {
+    x=125.0, y=275.0
+
+    wan to host6 {	/* wan0 */
+    }
+    wan to host9 {	/* wan1 */
+    }
+    wan to host5 {	/* wan2 */
+    }
+}
+
+host host9 {
+    x=200.0, y=275.0
+
+    wan to host6 {	/* wan0 */
+    }
+    wan to host7 {	/* wan1 */
+    }
+    wan to host8 {	/* wan2 */
+    }
+}

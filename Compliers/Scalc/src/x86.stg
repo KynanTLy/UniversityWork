@@ -1,0 +1,95 @@
+StartData() ::= <<
+global main
+extern printf
+section .data
+_format_string: DB "%d",0xA,0
+>>
+
+StartText() ::= <<
+section .text
+main:
+>>
+
+Exit() ::= <<
+mov eax, 0
+ret
+>>
+
+Int(stack, val) ::= <<
+mov <stack>, <val>
+>>
+
+InitVal(varName, val) ::= <<
+<varName>:  DD <val>
+>>
+
+LoadVar(varName, stack) ::= <<
+mov <stack>, [<varName>]
+>>
+
+StoreVar(varName, stack) ::= <<
+mov [<varName>], <stack>
+>>
+
+StartLoop(Loopnum) ::= <<
+loopStart<Loopnum>:
+>>
+
+ReLoop(Loopnum) ::= <<
+jmp  loopStart<Loopnum>
+>>
+
+EndLoop(Loopnum) ::= <<
+loopEnd<Loopnum>:
+>>
+
+EndIf(ifnum) ::= <<
+if<ifnum>:
+>>
+
+
+Print(stack) ::= <<
+push <stack>
+push _format_string
+call printf
+add esp, 8
+>>
+
+Mul(stack, A, B) ::= <<
+IMUL <A>, <B>
+>>
+
+Div(stack, A, B) ::= <<
+xor edx, edx
+mov eax, <A>
+mov ebx, <B>
+div ebx
+>>
+
+Sub(stack, A, B) ::= <<
+sub  <A>, <B>
+>>
+
+Add(stack,A,B) ::= <<
+add  <A>, <B>
+>>
+
+Great(A,B, type, typenum) ::= <<
+CMP <A>, <B>
+JLE <type><typenum>
+>>
+
+Less(A, B, type, typenum) ::= <<
+CMP <A>, <B>
+JGE <type><typenum>
+>>
+
+Equal(A, B, type, typenum) ::= <<
+CMP <A>, <B>
+JNE <type><typenum>
+>>
+
+NotEqual(A, B, type, typenum) ::= <<
+CMP <A>, <B>
+JE <type><typenum>
+>>

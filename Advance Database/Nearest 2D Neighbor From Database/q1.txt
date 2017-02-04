@@ -1,0 +1,11 @@
+To create rtree table run the following set of line:
+	CREATE VIRTUAL TABLE Map USING rtree(
+	   id,              -- Integer primary key
+	   minX, maxX,      -- Minimum and maximum X coordinate	
+	   minY, maxY       -- Minimum and maximum Y coordinate
+	);	
+
+To import new value:
+	.separator "\t"
+	.import poiConvert.tsv Map
+

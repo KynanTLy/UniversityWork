@@ -1,0 +1,21 @@
+int x = 43;
+int z = 3;
+loop(x > 40)
+	if(x == 41)
+		print(12);
+		int y = 14;
+		print(y);
+	fi;
+	if(x < 42)
+		print(1/2);
+		print(2*2);
+	fi;
+	loop(z < 5)
+		print(z + 1);
+		z = z +1;
+	pool;
+	z = 3;
+	x = x - 1;
+	print(x - 3*11);
+pool;
+print(100-5*100);	

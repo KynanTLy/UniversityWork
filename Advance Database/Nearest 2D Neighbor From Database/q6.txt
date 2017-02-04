@@ -1,0 +1,32 @@
+//======25=======//
+Parameter l: 25 
+Average runtime with r-tree: 0.230854 ms
+Average runtime without r-tree: 17.474604 ms
+
+//======50=======//
+Parameter l: 50 
+Average runtime with r-tree: 0.327197 ms
+Average runtime without r-tree: 17.593614 ms
+
+//======75=======//
+Parameter l: 75 
+Average runtime with r-tree: 0.465263 ms
+Average runtime without r-tree: 18.015816 ms
+
+//======100=======//
+Parameter l: 100 
+Average runtime with r-tree: 0.622536 ms
+Average runtime without r-tree: 18.659119 ms
+
+//======125=======//
+Parameter l: 100 
+Average runtime with r-tree: 0.622536 ms
+Average runtime without r-tree: 18.659119 ms
+
+//=====Explaination====//
+Based off the results given for the different length we can see that 
+over time the longer the length the longer it takes on average for
+the rtree to compute all the results. This is because with each increase
+of length, we need to traverse more MBRs and that comes with an associated 
+overhead. Therefore resulting in a longer average time while without r-tree
+does not see a clear significant increase.

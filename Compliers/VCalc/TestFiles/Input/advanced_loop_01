@@ -1,0 +1,5 @@
+int i = 0;
+loop (10 -  i)
+	print(i);
+	i = i + 1;
+pool;

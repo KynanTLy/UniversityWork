@@ -1,0 +1,17 @@
+# Find the number of World Cup Final matches played by every national 
+# soccer team who has played in more than 3 finals.
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbc: <http://dbpedia.org/resource/Category:>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+SELECT ?team (COUNT(?team) AS ?num_times) WHERE {
+   ?final rdf:type dbo:FootballMatch ;
+          dct:subject dbc:FIFA_World_Cup_finals ;
+          dbo:team ?team .
+}
+GROUP BY (?team)
+HAVING (COUNT(?team) > 3)
+ORDER BY DESC(?num_times)
