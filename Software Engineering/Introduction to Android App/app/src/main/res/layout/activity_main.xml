@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Welcome to Buzz Trainer 2015"
+        android:id="@+id/textView"
+        android:textSize="50sp"
+        android:gravity="center"
+        android:layout_weight="0.37" />
+
+    <Button
+        android:id="@+id/SP"
+        android:layout_width="300sp"
+        android:layout_height="90sp"
+        android:layout_gravity="center"
+        android:text="Single Player"
+        android:onClick="singlePlayer" />
+
+    <Button
+        android:id="@+id/MP"
+        android:layout_width="300sp"
+        android:layout_height="90sp"
+        android:layout_gravity="center"
+        android:text="Multiplayer"
+        android:onClick="MultiPlayer"
+        android:nestedScrollingEnabled="true" />
+
+    <Button
+        android:id="@+id/Record"
+        android:layout_width="300sp"
+        android:layout_height="90sp"
+        android:layout_gravity="center"
+        android:text="Statistic"
+        android:onClick="Stat" />
+
+    <Button
+        android:id="@+id/email"
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Email"
+        android:onClick="Email"
+        android:layout_weight="0.37" />
+
+</LinearLayout>

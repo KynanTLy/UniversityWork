@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+bin/
+gen/
+*.jar
+tmp*
+*.tmp
+*.o
+*.ll
+libruntime.a
+out/
+.nfs00000000000186f700000026

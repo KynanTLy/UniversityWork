@@ -1,0 +1,8 @@
+procedure main() returns integer {
+integer x = 12;
+integer y = 24;
+real u = 0.0;
+real u_42nmf24Ge = 1.2e5;
+return 0;
+}
+

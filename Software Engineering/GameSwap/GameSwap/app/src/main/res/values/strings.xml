@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">GameSwap</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_menu">main_menu</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="title_activity_create_profile">create_profile</string>
+    <string name="email">E-Mail</string>
+    <string name="city">City</string>
+    <string name="phone_num">Phone Number</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="title_activity_click_inventory">Game Swap</string>
+    <string name="title_activity_my_inventory">Inventory</string>
+    <string name="title_activity_select_task">Game Swap</string>
+    <string name="gameTitle">Game Title</string>
+    <string name="image">Add Image</string>>
+    <string name="new_image">Add New Image</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="save_profile">Save Profile</string>
+    <string name="cancel">Cancel</string>
+    <string name="save_game">Save Game</string>
+    <string name="title_activity_new_game_entry">NewGameEntry</string>
+    <string name="New_Game">New Game</string>
+    <string name="searchFriend">Search Friend</string>
+    <string name="searchTraders">Search Traders</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_friends__n__trading_">Friends_N_Trading_Activity</string>
+    <string name="title_activity_friends_ntrading">FriendsNTradingActivity</string>
+    <string name="title_activity_trades">TradesActivity</string>
+    <string name="title_activity_search_friend">SearchFriendActivity</string>
+    <string name="title_activity_search_people">SearchPeopleActivity</string>
+    <string name="title_activity_view_friend_inventory">ViewFriendInventoryActivity</string>
+    <string name="release_date">Release Date</string>
+    <string name="quality">Quality</string>
+    <string name="platform">Platform</string>
+    <string name="private_public">Private/Public</string>
+    <string name="description">Description</string>
+    <string name="title_activity_friend_profile">FriendProfile</string>
+    <string name="my_profile">My Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="edit_game">Edit Game</string>
+    <string name="title_activity_my_profile">MyProfile</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="changeName">Name</string>
+    <string name="viewFriends">Friends</string>
+    <string name="title_activity_edit_item">EditItemActivity</string>
+    <string name="title_activity_add_item">AddItemActivity</string>
+    <string name="title_activity_delete_item">DeleteItemActivity</string>
+    <string name="dd_mm_yyyy">dd mm yyyy</string>
+    <string name="Location">Location</string>
+    <string name="LocationButton">Add Item Location</string>
+
+    <string-array name="Console">
+        <item>Playstation 4</item>
+        <item>Xbox ONE</item>
+        <item>PC</item>
+        <item>Wii U</item>
+        <item>Nintendo 3DS</item>
+        <item>Playstation 3</item>
+        <item>Playstation Vita</item>
+        <item>Xbox 360</item>
+        <item>Nintendo Wii</item>
+        <item>Nintendo DS</item>
+        <item>PlayStation 2</item>
+        <item>Xbox</item>
+        <item>Nintendo Gamecube</item>
+        <item>Game Boy Advanced</item>
+        <item>Playstation Portable</item>
+        <item>PlayStation</item>
+        <item>Nintendo 64</item>
+        <item>Game Boy</item>
+        <item>SNES</item>
+        <item>NES</item>
+    </string-array>
+
+    <string-array name="Quality">
+        <item>5-Perfect Condition/Unopened/Download Code</item>
+        <item>4-Opened No Scratches/Damage</item>
+        <item>3-Light Scratches/Damage</item>
+        <item>2-Decent Scratches/Damage</item>
+        <item>1-Heavy Scratches/Damage</item>
+    </string-array>
+
+    <string-array name="Public_or_Private">
+        <item>Public</item>
+        <item>Private</item>
+    </string-array>
+
+
+    <string-array name="Image">
+        <item>Capture</item>
+        <item>Gallery</item>
+    </string-array>
+    <string name="title_activity_top_trades">TopTradesActivity</string>
+    <string name="title_activity_view_item">ViewItemActivity</string>
+    <string name="title_activity_add_friend">AddFriendActivity</string>
+    <string name="title_activity_offer_trade">OfferTradeActivity</string>
+    <string name="title_activity_friend_inventory">FriendInventoryActivity</string>
+    <string name="title_activity_mine_inventory">MineInventoryActivity</string>
+    <string name="title_activity_custom_adapter">CustomAdapter</string>
+    <string name="title_activity_select_from_friend">SelectFromFriendActivity</string>
+    <string name="title_activity_select_from_friend_inventory">SelectFromFriendInventoryActivity
+    </string>
+    <string name="title_activity_decide_trade">DecideTradeActivity</string>
+    <string name="title_activity_cancel_create_trade">CancelCreateTradeActivity</string>
+    <string name="title_activity_counter_trade">CounterTradeActivity</string>
+
+</resources>

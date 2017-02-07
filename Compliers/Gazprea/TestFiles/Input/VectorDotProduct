@@ -1,0 +1,16 @@
+procedure main() returns integer {
+var out = std_output();
+integer vector x = [1, 2, 3];
+integer vector y = [4, 5, 6];
+integer v = x ** y;
+v -> out;
+'\n' -> out;
+
+real vector rx = [1.0, 2.3, 1.0];
+real vector ry = [6.7, 4.3, 2.0];
+real rv = rx ** ry;
+rv -> out;
+'\n' -> out;
+
+return 0;
+}

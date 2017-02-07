@@ -1,0 +1,34 @@
+procedure main() returns integer {
+    var out = std_output();
+    integer i= 3;
+    i -> out;
+    if(i == 3){
+        real i = 3e4;
+        i -> out;
+    } else {
+        real i = as<real>(i) + 2.3;
+        i -> out;
+    }
+
+    i -> out;
+    if(i == 2){
+        real i = 3e4;
+        i -> out;
+    } else {
+        i -> out;
+        '\n' -> out;
+        real i = i + 12;
+        i -> out;
+    }
+
+
+    integer x = 3;
+    if(x == 3){
+        '\n' -> out;
+        integer x = x + 2;
+        x -> out;
+    }
+
+
+    return 0;
+}

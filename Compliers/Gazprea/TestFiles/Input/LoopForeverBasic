@@ -1,0 +1,24 @@
+procedure main() returns integer {
+    integer x = 2;
+    var out = std_output();
+
+    loop {
+        x = x + 1;
+        x -> out;
+        if(x == 4){
+            break;
+        }
+
+        if(x == 3){
+            loop{
+                break;
+                99 -> out;
+            }
+            continue;
+            99 -> out;
+        }
+        
+    }
+    99 -> out;
+    return 0;
+}

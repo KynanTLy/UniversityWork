@@ -1,0 +1,62 @@
+procedure main() returns integer {
+    integer x = 1;
+    integer y = 2;
+
+    boolean z;
+    integer r;
+    var out = std_output();
+
+    z = x == y;
+    z -> out;
+    z = x >= y;
+    z -> out;
+    z = x <= y;
+    z -> out;
+    z = x != y;
+    z -> out;
+    z = x > y;
+    z -> out;
+    z = x < y;
+    z -> out;
+    '\n' -> out;
+
+    r = x % y;
+    r -> out;
+    r = y % x;
+    r -> out;
+
+    r = x ^ y;
+    r -> out;
+    r = y ^ x;
+    r -> out;
+    '\n' -> out;
+    r = -x;
+    r -> out;
+    r = -y;
+    r -> out;
+    r = -+-x;
+    r -> out;
+    r = -+-y;
+    r -> out;
+
+    '\n' -> out;
+    r = x + y;
+     r -> out;
+    r = y - x;
+     r -> out;
+    r = x * y;
+     r -> out;
+    r = y / x;
+     r -> out;
+
+    '\n' -> out;
+
+    integer e_ee = 1___4;
+    integer xe_3 = 3_3___2;
+    e_ee -> out;
+    '\n' -> out;
+    xe_3 -> out;
+
+    return 0;
+}
+

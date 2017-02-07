@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cmput301t4.gameswap.Activities.TradesActivity"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:textSize="@dimen/activity_horizontal_margin"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Current Trades"
+        android:gravity="center"
+        android:id="@+id/currentTrades" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="228dp"
+        android:id="@+id/pendingtradeListView"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:textSize="@dimen/activity_horizontal_margin"
+        android:text="Past Trades"
+        android:id="@+id/pastTrades"
+        android:gravity="center"
+
+
+         />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pasttradeListView"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+procedure main() returns integer {
+integer x = 12;  //Comment
+integer y = 24;  //MORE
+real u = 0.0;
+/* This is a block comment. I can span as many lines as we want, and
+   only ends when the closing sequence is encountered.
+ */
+real u_42nmf24Ge = 1.2e5;
+return 0;
+}
+

@@ -1,0 +1,24 @@
+procedure returnOne(integer a, integer b) returns integer {
+	return a+b;
+}
+
+procedure returnBOOL(boolean a, boolean b) returns boolean {
+	return a or b;
+}
+
+procedure returnIntReal(integer a, real b) returns real{
+    return a + b;
+}
+
+
+procedure main() returns integer {
+    var out = std_output();
+    integer s = returnOne(1,2);
+    boolean z = returnBOOL(true,false);
+    real g = 1e3;
+    real dd = returnIntReal(1, g);
+    s -> out;
+    z -> out;
+    dd -> out;
+    return 0;
+}

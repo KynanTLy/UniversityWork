@@ -1,0 +1,30 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p = 2..(10+1);
+p->out;
+'\n' -> out;
+
+integer v = (2..(10+1))[9];
+v->out;
+'\n' -> out;
+
+
+interval x = 2..(10+1);
+x->out;
+'\n' -> out;
+
+interval g = -5..-2;
+g->out;
+'\n' -> out;
+
+interval vv = null..null;
+vv->out;
+'\n' -> out;
+
+interval vav = identity..identity;
+vav->out;
+'\n' -> out;
+
+return 0;
+}

@@ -1,0 +1,6 @@
+procedure main() returns integer {
+var out = std_output();
+integer x =  (1 + 1) * 5;
+x->out;
+return 0;
+}

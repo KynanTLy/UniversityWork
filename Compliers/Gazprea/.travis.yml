@@ -1,0 +1,19 @@
+sudo: true
+language: python
+python:
+  - "3.4"
+jdk:
+  - oraclejdk8
+before_install:
+  - cd /usr/local/lib
+  - sudo curl -O http://www.antlr.org/download/antlr-4.5-complete.jar
+  - export ANTLR4="/usr/local/lib/antlr-4.5-complete.jar"
+  - export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"
+script:
+  - cd -
+  - make
+  - make test | tee /dev/tty | python3 countfails.py
+branches:
+  only:
+    - master
+    - stable

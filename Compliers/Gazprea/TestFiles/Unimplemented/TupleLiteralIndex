@@ -1,0 +1,10 @@
+procedure main() returns integer {
+var out = std_out();
+
+    integer i = (1,2,3,4).1;  // <------ Testing this
+
+    i -> out;
+
+    return 0;
+
+}

@@ -1,0 +1,26 @@
+procedure main() returns integer {
+var out = std_output();
+
+vector x = [9,8]; //Vector type inf
+x -> out;
+'\n' -> out;
+
+integer y[*] = [9,9];
+y -> out;
+'\n' -> out;
+
+integer z[2] = [9,9];
+z -> out;
+'\n' -> out;
+
+
+integer v[5] = [1,2,3,4,5];
+
+
+integer m[5] = v + [5,5,5,5,5];
+
+ m -> out;
+
+
+return 0;
+}

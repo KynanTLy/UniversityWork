@@ -1,0 +1,23 @@
+procedure copy(var integer x, var integer y){
+    x = x + 1;
+    y = y + 1;
+}
+
+procedure copy(var integer x){
+    x = x + 1;
+}
+
+
+procedure main() returns integer {
+    integer x = 3;
+    integer y = 2;
+    var out = std_output();
+    call copy(x, y);
+    x -> out;
+    y -> out;
+    call copy(x);
+    x -> out;
+    return 0;
+
+}
+

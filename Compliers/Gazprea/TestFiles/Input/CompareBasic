@@ -1,0 +1,15 @@
+procedure main() returns integer {
+    integer y = 3;
+    integer z = 3;
+    var out = std_output();
+
+    y < z -> out;
+    y <= z -> out;
+    y == z -> out;
+    y != z -> out;
+    y > z -> out;
+    y >= z -> out;
+
+    return 0;
+
+}

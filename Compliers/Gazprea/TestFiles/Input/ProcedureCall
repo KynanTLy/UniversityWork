@@ -1,0 +1,13 @@
+
+procedure voidfunction(var integer first, var integer hello) {
+    integer x = first + hello;
+}
+
+
+
+procedure main() returns integer {
+call voidfunction(1 ,2);
+return 0;
+
+}
+

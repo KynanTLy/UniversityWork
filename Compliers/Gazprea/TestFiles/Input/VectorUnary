@@ -1,0 +1,20 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector i = [ 1 , 2 ];
++i -> out;
+'\n' -> out;
+-i -> out;
+'\n' -> out;
+
+real vector r = [1.1, 2.2];
++r -> out;
+'\n' -> out;
+-r -> out;
+'\n' -> out;
+
+-[4.2, 5.6] -> out;
+'\n' -> out;
+
+return 0;
+}

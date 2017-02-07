@@ -1,0 +1,14 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    var b = true;
+    var i = 12;
+    var r = 1.0;
+    var c = 'a';
+
+    b -> out;
+    i -> out;
+    r -> out;
+    c -> out;
+    return 0;
+}

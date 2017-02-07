@@ -1,0 +1,8 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p = 1..2;
+p->out;
+
+return 0;
+}

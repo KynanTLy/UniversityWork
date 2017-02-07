@@ -1,0 +1,18 @@
+
+function fib(integer n) returns integer{
+    if(n == 0) {
+        return 0;
+    } else if (n == 1){
+        return 1;
+    } else {
+        return fib(n-1) + fib(n-2);
+    }
+}
+
+
+procedure main() returns integer {
+    var out = std_output();
+    integer we = fib(5);
+    we -> out;
+    return 0;
+}

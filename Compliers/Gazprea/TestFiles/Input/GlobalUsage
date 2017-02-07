@@ -1,0 +1,14 @@
+const integer i = 9;
+const integer a = i * i;
+
+
+procedure main() returns integer {
+    var out = std_output();
+    var integer l = a + 3;
+    l -> out;
+    var integer a = 1;
+    a -> out;
+    integer b = a + 3;
+    b -> out;
+    return 0;
+}

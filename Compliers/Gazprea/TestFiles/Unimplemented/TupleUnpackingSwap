@@ -1,0 +1,12 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    integer a = 1;
+    integer b = 2;
+
+    a , b = ( a , b );
+
+    a -> out;
+    b -> out;
+    return 0;
+}

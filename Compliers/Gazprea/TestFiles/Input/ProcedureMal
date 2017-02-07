@@ -1,0 +1,19 @@
+procedure returnOne(integer a)  {
+	a = a + 1;
+}
+
+procedure change(var integer a){
+	a = a + 1;
+}
+
+procedure main() returns integer {
+    var out = std_output();
+    integer s = 1;
+    s -> out;
+    call returnOne(s);
+    s -> out;
+    call change(s);
+    s -> out;
+
+    return 0;
+}

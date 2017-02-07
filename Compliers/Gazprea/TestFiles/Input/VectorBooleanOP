@@ -1,0 +1,23 @@
+procedure main() returns integer {
+    var out = std_output();
+
+
+    boolean vector u[*] = [true, false, true, false];
+    boolean vector o[*] = [false, true, true, false];
+
+
+    u -> out;
+    '\n' -> out;
+    not u -> out;
+    '\n' -> out;
+    u or o -> out;
+    '\n' -> out;
+    u xor o -> out;
+    '\n' -> out;
+    u and o -> out;
+
+
+
+    return 0;
+}
+

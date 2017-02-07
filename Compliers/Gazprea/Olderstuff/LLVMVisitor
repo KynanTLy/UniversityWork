@@ -1,0 +1,1079 @@
+import org.antlr.v4.runtime.tree.TerminalNode;
+import org.stringtemplate.v4.STGroup;
+
+import org.stringtemplate.v4.*;
+import java.util.*;
+
+import static java.lang.Integer.max;
+import static java.lang.Integer.parseInt;
+
+
+/**
+ * Created by kynan on 10/9/16.
+ */
+public class LLVMVisitor extends GrammerBaseVisitor {
+
+    //==========DATA============//
+
+    //GLOBAL REG COUNTER
+    int RegCounter = 1;
+
+    //TEMP VAR COUNTER FOR GENERATOR
+    int tempCounter = 0;
+    int returnCounter =0;
+
+    STGroup template = new STGroupFile("src/LLVM.stg");
+    private Scope scope;
+    ST st;
+
+    ArrayList<ST> prog = new ArrayList<ST>();
+
+    //==========HELPER FUNCTIONS ===============//
+
+    /**CHECK IF VECTOR IS NULL */
+    public int checkNull(ArrayList value){
+        ArrayList<Integer> returnVec = new ArrayList<>();
+        if(value== null){
+            return  0;
+        } else {
+            return value.size();
+        }
+    }//END CHECK NULL
+
+
+    /**TYPE CASE
+     * 1: INT V INT
+     * 2: INT V VEC
+     * 3: VEC V INT
+     * 4: VEC V VEC
+     */
+    public Integer typeCase(Object left, Object right) {
+        if (left instanceof Integer) {
+            if (right instanceof Integer) {
+                return 1;
+            } else {
+                return 2;
+            }//END IF LEFT INT
+        } else {
+            if (right instanceof Integer) {
+                return 3;
+            } else {
+                return 4;
+            }//END IF LEFT VEC
+        }//end if
+    }//end typeCase
+
+    /**CHECK IF RETURN VALUE FROM COMPARE IS BOOL OR INT*/
+    public void checkINT(){
+        st = template.getInstanceOf("CHECKINT");
+        st.add("regC", RegCounter);
+        st.add("regP", RegCounter-1);
+        prog.add(st);
+        RegCounter++;
+    }//END CHECK INT
+
+    /**INT PROMOTION*/
+    public void intPromotion(int regV, int regI){
+        st = template.getInstanceOf("CalIntP");
+        st.add("regC", RegCounter);
+        st.add("regV", regV);
+        st.add("regI", regI);
+        prog.add(st);
+        RegCounter++;
+    }//INT PROMOTION
+
+    /**GET VECTOR SIZE*/
+    public void getSize(int regV){
+        st = template.getInstanceOf("CalVecS");
+        st.add("regC", RegCounter);
+        st.add("regP", regV);
+        prog.add(st);
+        RegCounter++;
+    }//END GETSIZE
+
+    /**SEE WHICH VECTOR IS BIGGER*/
+    public void bigger(int regL, int regR){
+        st = template.getInstanceOf("CalBig");
+        st.add("regC", RegCounter);
+        st.add("regL", regL);
+        st.add("regR", regR);
+        prog.add(st);
+        RegCounter++;
+    }//END BIGGER
+
+    /**VECTOR EXTEND*/
+    public void vecExtend(int regV, int type){
+        st = template.getInstanceOf("CalVecE");
+        st.add("regC", RegCounter);
+        st.add("regV", regV);
+        st.add("regS", RegCounter-1);
+        st.add("type", type);
+        prog.add(st);
+        RegCounter++;
+    }//END VECTOR EXTEND
+
+    /**MATH OPERATION HELPER
+     *
+     * CHECK TYPECASE STORE-> TEMP
+     * MATHOP
+     * 1 ADD
+     * 2 SUB
+     * 3 MUL
+     * 4 DIV
+     */
+    public Object mathOp(Object left, Object right, int mathOp, int regL, int regR){
+        ArrayList<Integer> returnVec = new ArrayList<>();
+        int size, size2;
+        int cregL = regL;
+        int cregR = regR;
+        int temp = typeCase(left, right);
+        switch (temp){
+            case 1:
+                switch (mathOp){
+                    case 1:
+                        st = template.getInstanceOf("AddII");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 2:
+                        st = template.getInstanceOf("SubII");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 3:
+                        st = template.getInstanceOf("MulII");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    default:
+                        st = template.getInstanceOf("DivII");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                }//END INT V INT
+            case 2:
+                getSize(regR);
+                intPromotion(regL, RegCounter);
+                switch (mathOp){
+                    case 1:
+                        st = template.getInstanceOf("AddV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    case 2:
+                        st = template.getInstanceOf("SubV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    case 3:
+                        st = template.getInstanceOf("MulV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    default:
+                        st = template.getInstanceOf("DivV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                }//END INT V VEC
+            case 3:
+                getSize(regL);
+                intPromotion(regR, RegCounter);
+                switch (mathOp){
+                    case 1:
+                        st = template.getInstanceOf("AddV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    case 2:
+                        st = template.getInstanceOf("SubV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    case 3:
+                        st = template.getInstanceOf("MulV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    default:
+                        st = template.getInstanceOf("DivV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                }//END INT V VEC
+            default:
+                bigger(regR, regL);
+                size = checkNull((ArrayList<Integer>) left);
+                size2 = checkNull((ArrayList<Integer>) right);
+                switch (mathOp){
+                    case 1:
+                        if(size > size2){
+                            vecExtend(regR, 0);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 0);
+                            cregL = RegCounter-1;
+                        }//END IF 0 OR 1 EXTEND
+                        st = template.getInstanceOf("AddV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+                        for(int i = 0; i< max(size, size2); ++i){
+                            returnVec.add(0);
+                        }
+                        return returnVec;
+                    case 2:
+                        if(size > size2){
+                            vecExtend(regR, 0);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 0);
+                            cregL = RegCounter-1;
+                        }//END IF 0 OR 1 EXTEND
+                        for(int i = 0; i< max(size, size2); ++i){
+                            returnVec.add(0);
+                        }
+                        st = template.getInstanceOf("SubV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+                        return returnVec;
+                    case 3:
+                        if(size > size2){
+                            vecExtend(regR, 0);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 0);
+                            cregL = RegCounter-1;
+                        }//END IF 0 OR 1 EXTEND
+                        st = template.getInstanceOf("MulV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+                        for(int i = 0; i< max(size, size2); ++i){
+                            returnVec.add(0);
+                        }
+                        return returnVec;
+                    default:
+                        if(size > size2){
+                            vecExtend(regR, 1);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 1);
+                            cregL = RegCounter-1;
+                        }//END IF 0 OR 1 EXTEND
+                        st = template.getInstanceOf("DivV");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+                        for(int i = 0; i< max(size, size2); ++i){
+                            returnVec.add(0);
+                        }
+                        return returnVec;
+                }//END VEC V VEC
+        }//end switchcase
+    }//end mathop
+
+    /**MATH COMPARE HELPER
+     *
+     * CHECK TYPECASE STORE-> TEMP
+     * MATHOP
+     * 1 <
+     * 2 >
+     * 3 ==
+     * 4 !=
+     */
+    public Object mathCmp(Object left, Object right, int mathOp, int regL, int regR){
+        ArrayList<Integer> returnVec = new ArrayList<>();
+        int size, size2;
+        int cregL = regL;
+        int cregR = regR;
+        int temp = typeCase(left, right);
+        switch (temp){
+            case 1:
+                switch (mathOp){
+                    case 1:
+                        st = template.getInstanceOf("LES");
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        st.add("regC", RegCounter);
+                        st.add("regC2", RegCounter+1);
+                        prog.add(st);
+                        RegCounter += 2;
+                        return 0;
+                    case 2:
+                        st = template.getInstanceOf("GRE");
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        st.add("regC", RegCounter);
+                        st.add("regC2", RegCounter+1);
+                        prog.add(st);
+                        RegCounter += 2;
+                        return 0;
+                    case 3:
+                        st = template.getInstanceOf("EQ");
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        st.add("regC", RegCounter);
+                        st.add("regC2", RegCounter+1);
+                        prog.add(st);
+                        RegCounter += 2;
+                        return 0;
+                    default:
+                        st = template.getInstanceOf("NEQ");
+                        st.add("regL", regL);
+                        st.add("regR", regR);
+                        st.add("regC", RegCounter);
+                        st.add("regC2", RegCounter+1);
+                        prog.add(st);
+                        RegCounter += 2;
+                        return 0;
+                }//END INT V INT
+            case 2:
+                getSize(regR);
+                intPromotion(regL, RegCounter);
+                switch (mathOp){
+                    case 1:
+                        st = template.getInstanceOf("VLES");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 2:
+                        st = template.getInstanceOf("VGRE");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 3:
+                        st = template.getInstanceOf("VEQ");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    default:
+                        st = template.getInstanceOf("VNEQ");
+                        st.add("regC", RegCounter);
+                        st.add("regL", RegCounter-1);
+                        st.add("regR", regR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                }//END INT V VEC
+            case 3:
+                getSize(regL);
+                intPromotion(regR, RegCounter);
+                switch (mathOp){
+                    case 1:
+                        st = template.getInstanceOf("VLES");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 2:
+                        st = template.getInstanceOf("VGRE");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 3:
+                        st = template.getInstanceOf("VEQ");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    default:
+                        st = template.getInstanceOf("VNEQ");
+                        st.add("regC", RegCounter);
+                        st.add("regL", regL);
+                        st.add("regR", RegCounter-1);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                }//END VEC V INT
+            default:
+                bigger(regR, regL);
+                size = checkNull((ArrayList<Integer>) left);
+                size2 = checkNull((ArrayList<Integer>) right);
+                switch (mathOp){
+                    case 1:
+                        if(size > size2){
+                            vecExtend(regR, 0);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 0);
+                            cregL = RegCounter-1;
+                        }
+                        st = template.getInstanceOf("VLES");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+
+                        return 0;
+                    case 2:
+                        if(size > size2){
+                            vecExtend(regR, 0);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 0);
+                            cregL = RegCounter-1;
+                        }
+                        for(int i = 0; i< max(size, size2); ++i){
+                            returnVec.add(0);
+                        }
+                        st = template.getInstanceOf("VGRE");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+                        return 0;
+                    case 3:
+                        if(size > size2){
+                            vecExtend(regR, 0);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 0);
+                            cregL = RegCounter-1;
+                        }
+                        st = template.getInstanceOf("VEQ");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+
+                        return 0;
+                    default:
+                        if(size > size2){
+                            vecExtend(regR, 1);
+                            cregR = RegCounter-1;
+                        } else if (size2 > size){
+                            vecExtend(regL, 1);
+                            cregL = RegCounter-1;
+                        }
+                        st = template.getInstanceOf("VNEQ");
+                        st.add("regC", RegCounter);
+                        st.add("regL", cregL);
+                        st.add("regR", cregR);
+                        prog.add(st);
+                        RegCounter++;
+
+                        return 0;
+                }//END VEC V VEC
+        }//end switchcase
+    }//end mathop
+
+    //==========END HELPER FUNCTIONS============//
+
+    @Override
+    //========VISIT PROGRAM===========//
+    public Integer visitProg(GrammerParser.ProgContext ctx) {
+        scope = new Scope(null);
+        st = template.getInstanceOf("StartProg");
+        prog.add(st);
+        visitChildren(ctx);
+        st = template.getInstanceOf("EndProg");
+        prog.add(st);
+        for (int i = 0; i <= prog.size() - 1; ++i) {
+            System.out.println(prog.get(i).render());
+
+        }//end for loop prog
+        return 0;
+    }//end visitProg
+
+    //========VISIT STATEMENT/ASSIGNEMENT ==========//
+    /**If Statement*/
+    public Integer visitIF(GrammerParser.IFContext ctx){
+        scope = new Scope(scope);
+        Object type = visit(ctx.mathexpr());
+        int regCmp;
+        if(type instanceof Boolean){
+            regCmp = RegCounter -2;
+        } else {
+            checkINT();
+            regCmp = RegCounter -1;
+        }//END IF CHECK IF WE NEED BOOL INT OR VAL
+        int placement = prog.size();
+        int regC = RegCounter;
+        st = template.getInstanceOf("IFHOLDER");
+        prog.add(st);
+        RegCounter++;
+
+        for (GrammerParser.StateContext state : ctx.state()) {
+            this.visit(state);
+        }//end for loop
+
+        st = template.getInstanceOf("IF");
+        st.add("regCmp", regCmp);
+        st.add("regC", regC);
+        st.add("regE", RegCounter);
+        prog.set(placement, st);
+
+        st = template.getInstanceOf("ENDIF");
+        st.add("regC", regC);
+        st.add("regE", RegCounter);
+        prog.add(st);
+        RegCounter++;
+        scope = scope.enclosingScope;
+        return 0;
+    }//end visitIF
+
+    /**visitLOOP*/
+    public Integer visitLOOP(GrammerParser.LOOPContext ctx){
+        scope = new Scope(scope);
+        int regLS = RegCounter;
+        int placement1 = prog.size();
+        st = template.getInstanceOf("LOOPHOLDER");
+        RegCounter++;
+        prog.add(st);
+        int regP, regC;
+        Object type = visit(ctx.mathexpr());
+        if(type instanceof Boolean){
+            regP = RegCounter -2;
+        } else {
+            checkINT();
+            regP = RegCounter -1;
+        }
+        int placement2 = prog.size();
+        regC =RegCounter;
+        st = template.getInstanceOf("LOOPHOLDER");
+        prog.add(st);
+        RegCounter++;
+        for (GrammerParser.StateContext state : ctx.state()) {
+            //System.out.println(state.getText());
+            this.visit(state);
+        }//end for loop
+
+        st = template.getInstanceOf("LOOP");
+        st.add("regC", regLS);
+        st.add("regCE", regC);
+        prog.set(placement1, st);
+
+        st = template.getInstanceOf("CONDLOOP");
+        st.add("regP", regP);
+        st.add("regC", regC);
+        st.add("regLE", RegCounter);
+        st.add("regLS", regLS);
+        prog.set(placement2, st);
+
+        st = template.getInstanceOf("ENDLOOP");
+        st.add("regLS", regLS);
+        st.add("regC", RegCounter);
+        prog.add(st);
+        RegCounter++;
+
+        scope = scope.enclosingScope;
+        return 0;
+    }//end visitLOOP
+
+    /**
+     * Assign a variable
+     */
+    public Object visitASSIGN(GrammerParser.ASSIGNContext ctx) {
+        String id = ctx.ID().getText();
+        Object value = visit(ctx.mathexpr());
+        if(value instanceof ArrayList){
+            st = template.getInstanceOf("AssignVec");
+            st.add("name", id);
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+            scope.setVar(id, value);
+            return value;
+        } else {
+            st = template.getInstanceOf("AssignInt");
+            st.add("name", id);
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+            scope.setVar(id, value);
+            return 0;
+        }//END IF VEC OR INT
+    }//end visitINIT
+
+    /**
+     * Init a INT
+     * BY DEFAULT SET NULL
+     */
+    public Integer visitINITI(GrammerParser.INITIContext ctx) {
+        String id = ctx.ID().getText();
+        if (id.matches("if|fi|loop|pool|int|print|vector")) {
+            throw new IllegalArgumentException("That word is reserved");
+        }//END RESERVE WORD
+        st = template.getInstanceOf("DeclareInt");
+        st.add("name", id);
+        prog.add(st);
+        scope.define(id, "int", null);
+        if (ctx.mathexpr() != null) {
+            Object value = visit(ctx.mathexpr());
+            st = template.getInstanceOf("AssignInt");
+            st.add("name", id);
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+            scope.setVar(id, value);
+        }//END IF THERE WAS A VALUE GIVEN
+        return 0;
+    }//end visitINITV
+
+    /**Init a Vector
+     * BY DEFAULT SET NULL
+     * */
+    public Integer visitINITV(GrammerParser.INITVContext ctx){
+        String id = ctx.ID().getText();
+        if(id.matches("if|fi|loop|pool|int|print|vector")){
+            throw new IllegalArgumentException("That word is reserved");
+        }
+        st = template.getInstanceOf("DeclareVec");
+        st.add("name",id);
+        prog.add(st);
+        this.scope.define(id, "vector", new ArrayList<Integer>());
+        if (ctx.mathexpr() != null) {
+            Object value = visit(ctx.mathexpr());
+            st = template.getInstanceOf("AssignVec");
+            st.add("name", id);
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+            scope.setVar(id, value);
+        }//END IF THERE WAS VALUE GIVEN
+        return 0;
+    }//end visitINITV
+
+    /**
+     * visitPRINT
+     */
+    public Integer visitPRINT(GrammerParser.PRINTContext ctx) {
+        Object temp = visit(ctx.mathexpr());
+        if (temp instanceof Integer) {
+            st = template.getInstanceOf("PrintInt");
+            st.add("regC", RegCounter);
+            st.add("regV", RegCounter - 1);
+            RegCounter++;
+            prog.add(st);
+        } else if (temp instanceof Boolean){
+            //IF THE VALUE IS A BOOL VALUE
+            st = template.getInstanceOf("PrintInt");
+            st.add("regC", RegCounter);
+            st.add("regV", RegCounter - 1);
+            RegCounter++;
+            prog.add(st);
+        } else {
+            st = template.getInstanceOf("PrintVec");
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+        }//END END PRINT
+        return 0;
+    }//end visitPRINT
+
+    /**
+     * INT Rule
+     */
+    public Integer visitINT(GrammerParser.INTContext ctx) {
+        st = template.getInstanceOf("LoadInt");
+        st.add("regC", RegCounter);
+        st.add("val", Integer.valueOf(ctx.INT().getText()));
+        RegCounter++;
+        prog.add(st);
+        return Integer.valueOf(ctx.INT().getText());
+    }//end visitInt
+
+    /**
+     * Return ID Rule
+     */
+    public Object visitREID(GrammerParser.REIDContext ctx) {
+        if (scope.resolve(ctx.ID().getText()) != null) {
+            Object returnVal = scope.resolve(ctx.ID().getText()).getValue();
+            if(returnVal instanceof ArrayList){
+                st = template.getInstanceOf("LoadVecVar");
+                st.add("regC", RegCounter);
+                st.add("name", ctx.ID().getText());
+                RegCounter++;
+                prog.add(st);
+            } else {
+                st = template.getInstanceOf("LoadIntVar");
+                st.add("regC", RegCounter);
+                st.add("name", ctx.ID().getText());
+                RegCounter++;
+                prog.add(st);
+            }//END IF INT OR VEC
+            return returnVal;
+        } else {
+            throw new IllegalArgumentException("Variable was not declared");
+        }
+    }//end visitREID
+
+    /** visitINDEX */
+    public Object visitINDEX(GrammerParser.INDEXContext ctx){
+        Object temp = visit(ctx.mathexpr(1));
+        if(temp instanceof Integer){
+            int regI = RegCounter-1;
+            visit(ctx.mathexpr(0));
+            st = template.getInstanceOf("CalIndexI");
+            st.add("regC", RegCounter);
+            st.add("regV", RegCounter-1);
+            st.add("regI", regI);
+            prog.add(st);
+            RegCounter++;
+            return 0;
+        } else {
+            int regI = RegCounter-1;
+            visit(ctx.mathexpr(0));
+            st = template.getInstanceOf("CalIndexV");
+            st.add("regC", RegCounter);
+            st.add("regV", RegCounter-1);
+            st.add("regI", regI);
+            prog.add(st);
+            RegCounter++;
+            return new ArrayList<>();
+        }
+    }//end visitINDEX
+
+    /** RANGE Rule*/
+    public Object visitRANGE(GrammerParser.RANGEContext ctx){
+        ArrayList<Integer> vector = new ArrayList<Integer>();
+        int left = (int)visit(ctx.mathexpr(0));
+        int leftReg = RegCounter-1;
+        int right = (int)visit(ctx.mathexpr(1));
+        int rightReg = RegCounter-1;
+        st = template.getInstanceOf("CalRange");
+        st.add("regL", leftReg);
+        st.add("regR", rightReg);
+        st.add("regC", RegCounter);
+        RegCounter++;
+        prog.add(st);
+        if(left > right){
+            return vector;
+        }
+        for(int i = left; i < right+1; ++i){
+            vector.add(i);
+        }
+        return vector;
+    }//end visitRANGE
+
+    //========VISIT STATEMENT/ASSIGNEMENT ==========//
+
+    //========MATH EXPR==========//
+
+    /**
+     * ADD/SUB Rule
+     */
+    public Object visitADDSUB(GrammerParser.ADDSUBContext ctx) {
+        Object left = visit(ctx.mathexpr(0));
+        int leftReg = RegCounter-1;
+        Object right = visit(ctx.mathexpr(1));
+        int rightReg = RegCounter-1;
+        if (ctx.op.getType() == GrammerParser.ADD) {
+            return mathOp(left, right,1, leftReg, rightReg);
+        } else {
+            return mathOp(left, right,2, leftReg, rightReg);
+        }//end if - or +
+    }//end visitADDSUB
+
+    public Object visitMULTDIV(GrammerParser.MULTDIVContext ctx) {
+        Object left = visit(ctx.mathexpr(0));
+        int leftReg = RegCounter-1;
+        Object right = visit(ctx.mathexpr(1));
+        int rightReg = RegCounter-1;
+        if(ctx.op.getType() == GrammerParser.MUL){
+            return mathOp(left, right,3, leftReg, rightReg);
+        } else {
+            return mathOp(left, right,4, leftReg, rightReg);
+        }//end if
+    }//end visitMULTDIV
+
+
+    /**Greater Less than Rule*/
+    public Integer visitGRTLES(GrammerParser.GRTLESContext ctx){
+        Object left = visit(ctx.mathexpr(0));
+        int leftReg = RegCounter-1;
+        Object right = visit(ctx.mathexpr(1));
+        int rightReg = RegCounter-1;
+        if(ctx.op.getType() == GrammerParser.LES){
+            return (int)mathCmp(left, right,1, leftReg, rightReg);
+        } else {
+            return (int)mathCmp(left, right,2, leftReg, rightReg);
+        }//end if < or >
+    }//end visitGRTLES
+
+    /** Equal or not equal Rule */
+    public Integer visitEQNEQ(GrammerParser.EQNEQContext ctx){
+        Object left = visit(ctx.mathexpr(0));
+        int leftReg = RegCounter-1;
+        Object right = visit(ctx.mathexpr(1));
+        int rightReg = RegCounter-1;
+        if(ctx.op.getType() == GrammerParser.EQU){
+            return (int)mathCmp(left, right,3, leftReg, rightReg);
+        } else {
+            return (int)mathCmp(left, right,4, leftReg, rightReg);
+        }//end if
+    }//end visitEQNEQ
+
+    //=========END MATH EXPR============//
+
+    //=========GENERATOR AND FILTER=====//
+
+    /**Generator Rule*/
+    public ArrayList<Integer> visitGEN(GrammerParser.GENContext ctx){
+        ArrayList<Integer> generator = new ArrayList<Integer>();
+        this.scope = new Scope(this.scope);
+        if(scope.resolve(ctx.ID().getText()) == null) {
+            this.scope.define(ctx.ID().getText(), "int", null);
+            st = template.getInstanceOf("DeclareInt");
+            st.add("name",ctx.ID().getText());
+            prog.add(st);
+        }
+        //DECLARE TEMP VARIABLES TO HOLD RANGE, AND RETURN VALUE
+        String temp = ("temp" + tempCounter);
+        tempCounter++;
+        String returnN = ("return" + returnCounter);
+        returnCounter++;
+        st = template.getInstanceOf("DeclareVec");
+        st.add("name",temp);
+        prog.add(st);
+        st = template.getInstanceOf("DeclareVec");
+        st.add("name",returnN);
+        prog.add(st);
+
+        ArrayList<Integer> range = ((ArrayList<Integer>)visit(ctx.mathexpr(0)));
+        st = template.getInstanceOf("AssignVec");
+        st.add("name", temp);
+        st.add("regC", RegCounter-1);
+        prog.add(st);
+
+        int size = range.size();
+        //System.out.println("Size is: " + size);
+        for(int i = 0; i<size; ++i){
+            this.scope.define(ctx.ID().getText(), "int", range.get(i));
+            //ASSIGN TEMP VARIABLE IN EACH LOOP
+            st = template.getInstanceOf("CalgetVal");
+            st.add("regP", RegCounter);
+            st.add("regR", temp);
+            st.add("regC", RegCounter+1);
+            prog.add(st);
+            RegCounter += 2;
+            int regVal = RegCounter-1;
+            st = template.getInstanceOf("AssignInt");
+            st.add("name", ctx.ID().getText());
+            st.add("regC", regVal);
+            prog.add(st);
+
+            //VISIT MATHEXPR OF GENERATOR
+            visit(ctx.mathexpr(1));
+            //APPLY THE EXPR AND SAVE RESULT INTO RETURN VECTOR
+            int val = RegCounter-1;
+            st = template.getInstanceOf("LoadVecVar");
+            st.add("regC", RegCounter);
+            st.add("name", returnN);
+            RegCounter++;
+            prog.add(st);
+            st = template.getInstanceOf("CalInsert");
+            st.add("regP", RegCounter-1);
+            st.add("regC", RegCounter);
+            st.add("regV", val);
+            prog.add(st);
+            RegCounter++;
+            st = template.getInstanceOf("AssignVec");
+            st.add("name", returnN);
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+            //IF YOU ARE LAST VALUE DON'T HAVE TO ITERATE TO NEXT VALUE
+            if(i < size-1) {
+                st = template.getInstanceOf("LoadVecVar");
+                st.add("regC", RegCounter);
+                st.add("name", temp);
+                RegCounter++;
+                prog.add(st);
+                st = template.getInstanceOf("CalmoveP");
+                st.add("regV", RegCounter-1);
+                st.add("regC", RegCounter);
+                prog.add(st);
+                RegCounter++;
+                st = template.getInstanceOf("AssignVec");
+                st.add("name", temp);
+                st.add("regC", RegCounter-1);
+                prog.add(st);
+            }//END LAST ELEMENT
+        }//end forloop
+        //LOAD RETURN VALUE TO CURRENT REG
+        st = template.getInstanceOf("LoadVecVar");
+        st.add("regC", RegCounter);
+        st.add("name", returnN);
+        RegCounter++;
+        prog.add(st);
+        this.scope = this.scope.getEnclosingScope();
+        return generator;
+    }//end visitGEN
+
+
+    public ArrayList<Integer> visitFILTER(GrammerParser.FILTERContext ctx){
+        ArrayList<Integer> filter = new ArrayList<Integer>();
+        this.scope = new Scope(this.scope);
+        if(scope.resolve(ctx.ID().getText()) == null) {
+            this.scope.define(ctx.ID().getText(), "int", null);
+            st = template.getInstanceOf("DeclareInt");
+            st.add("name",ctx.ID().getText());
+            prog.add(st);
+        }
+
+        //=====ASSIGN TEMP VARIABLE AND RANGE
+        String temp = ("temp" + tempCounter);
+        tempCounter++;
+        String returnN = ("return" + returnCounter);
+        returnCounter++;
+        st = template.getInstanceOf("DeclareVec");
+        st.add("name",temp);
+        prog.add(st);
+        st = template.getInstanceOf("DeclareVec");
+        st.add("name",returnN);
+        prog.add(st);
+
+        ArrayList<Integer> range = ((ArrayList<Integer>)visit(ctx.mathexpr(0)));
+        st = template.getInstanceOf("AssignVec");
+        st.add("name", temp);
+        st.add("regC", RegCounter-1);
+        prog.add(st);
+        int size = range.size();
+
+        for(int i = 0; i<size; ++i){
+            this.scope.define(ctx.ID().getText(), "int", range.get(i));
+            //ASSIGN THE TEMP VAR ELEMENT IN RANGE
+            st = template.getInstanceOf("CalgetVal");
+            st.add("regP", RegCounter);
+            st.add("regR", temp);
+            st.add("regC", RegCounter+1);
+            prog.add(st);
+            RegCounter += 2;
+            int regVal = RegCounter-1;
+            st = template.getInstanceOf("AssignInt");
+            st.add("name", ctx.ID().getText());
+            st.add("regC", regVal);
+            prog.add(st);
+            //IF STATEMENT TO CHECK RESULT
+            checkINT();
+            int regCmp = RegCounter-1;
+            int placement = prog.size();
+            int regC = RegCounter;
+            st = template.getInstanceOf("IFHOLDER");
+            prog.add(st);
+            RegCounter++;
+
+            int val = RegCounter-1;
+            st = template.getInstanceOf("LoadVecVar");
+            st.add("regC", RegCounter);
+            st.add("name", returnN);
+            RegCounter++;
+            prog.add(st);
+            st = template.getInstanceOf("CalInsert");
+            st.add("regP", RegCounter-1);
+            st.add("regC", RegCounter);
+            st.add("regV", regVal);
+            prog.add(st);
+            RegCounter++;
+            st = template.getInstanceOf("AssignVec");
+            st.add("name", returnN);
+            st.add("regC", RegCounter-1);
+            prog.add(st);
+
+            st = template.getInstanceOf("IF");
+            st.add("regCmp", regCmp);
+            st.add("regC", regC);
+            st.add("regE", RegCounter);
+            prog.set(placement, st);
+
+            st = template.getInstanceOf("ENDIF");
+            st.add("regC", regC);
+            st.add("regE", RegCounter);
+            prog.add(st);
+            RegCounter++;
+            //END IF STATEMENT TO SEE IF NEED TO ADD
+
+            //LAST ELEMENT
+            if(i < size-1) {
+                st = template.getInstanceOf("LoadVecVar");
+                st.add("regC", RegCounter);
+                st.add("name", temp);
+                RegCounter++;
+                prog.add(st);
+                st = template.getInstanceOf("CalmoveP");
+                st.add("regV", RegCounter-1);
+                st.add("regC", RegCounter);
+                prog.add(st);
+                RegCounter++;
+                st = template.getInstanceOf("AssignVec");
+                st.add("name", temp);
+                st.add("regC", RegCounter-1);
+                prog.add(st);
+            }//END LAST ELEMENT
+        }//end forloop
+
+        st = template.getInstanceOf("LoadVecVar");
+        st.add("regC", RegCounter);
+        st.add("name", returnN);
+        RegCounter++;
+        prog.add(st);
+        this.scope = this.scope.getEnclosingScope();
+        return filter;
+    }//end visitFILTER
+
+
+
+    //==============END GENERATOR AND FILTER==========//
+
+}//end LLVMVisitor
+

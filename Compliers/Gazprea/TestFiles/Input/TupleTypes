@@ -1,0 +1,13 @@
+procedure main() returns integer {
+var out = std_output();
+
+    tuple ( integer, real, boolean , real i , character) mytuple = (1, 2.0, true , 4.0, 'a');
+
+    mytuple.i -> out;
+    mytuple.2 -> out;
+    mytuple.3 -> out;
+    mytuple.5 -> out;
+
+    return 0;
+
+}

@@ -1,0 +1,10 @@
+procedure returnOne(integer a, integer b) returns integer = a+b;
+
+
+
+procedure main() returns integer {
+    var out = std_output();
+    integer s = returnOne(1,2);
+    s -> out;
+    return 0;
+}

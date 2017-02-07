@@ -1,0 +1,17 @@
+procedure main() returns integer {
+
+    var out = std_out();
+
+    tuple ( integer, integer, integer , integer i) mytuple = (1,2);
+
+    integer i = 0;
+    integer k = 0;
+
+    i, k = mytuple;
+
+    i -> out;
+    j -> out;
+
+    return 0;
+
+}

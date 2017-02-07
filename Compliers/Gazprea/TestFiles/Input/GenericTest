@@ -1,0 +1,14 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer x = 7;
+real y = 10.0;
+
+x -> out;
+y -> out;
+
+boolean z = true;
+z -> out;
+
+return 0;
+}

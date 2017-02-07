@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/background_light"
+    android:id="@+id/outer"
+    android:focusableInTouchMode="false">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:layout_margin="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/darker_gray"
+        android:id="@+id/middle">
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="260dp"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:weightSum="1"
+            android:id="@+id/inner">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:gravity="center|top"
+                android:text="It's a PopupWindow"
+                android:layout_weight="0.90"
+                android:id="@+id/poptext"
+                android:textSize="20dp" />
+            <Button
+                android:id="@+id/okay"
+                android:layout_width="260dp"
+                android:layout_height="80dp"
+                android:text="Okay"
+                android:layout_gravity="bottom"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+    <!-- http://android-er.blogspot.ca/2012/03/example-of-using-popupwindow.html
+    http://android-er.blogspot.ca/2012/03/example-of-using-popupwindow.html
+    http://developer.android.com/reference/android/widget/PopupWindow.html
+    -->

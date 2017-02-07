@@ -1,0 +1,413 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef struct vector{
+	int value;
+	struct vector * nextVec;
+}vector;
+
+void getNextVec(vector * v){
+    if(v != NULL){
+        if(v->nextVec != NULL){
+            printf("%d ", v->value);
+            getNextVec(v->nextVec);
+        } else {
+            printf("%d", v->value);
+        }
+    }
+}
+
+void printVec(vector * v){
+    printf("[");
+    if(v != NULL){
+        getNextVec(v);
+    }
+    printf("]\n");
+}
+
+
+vector * Range(int left, int right){
+    vector *current = (struct vector *)malloc(sizeof(struct vector));
+    vector *Rvec = current;
+    if (left > right){
+        return Rvec = NULL;
+    }
+    for(int i = left; i < right+1; ++i){
+        current->value = i;
+        if(i == right){
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->nextVec = newNode;
+            current=newNode;
+        }
+    }//end for loop
+    return Rvec;
+}
+
+int returnIndex(vector * v, int target, int count){
+    if(v != NULL){
+        if(count == target){
+            return v->value;
+        } else {
+            int r = returnIndex(v->nextVec, target, count+1);
+            return r;
+        }
+    } else if (v == NULL && count < target){
+        return 0;
+    }
+    return 0;
+}
+
+int sizeVector(vector * v, int count){
+    if(v != NULL){
+        if(v->nextVec == NULL){
+            return count+1;
+        } else {
+            int result = sizeVector(v->nextVec, count+1);
+            return result;
+        }
+    }
+    return 0;
+}
+
+vector * returnIndexV(vector * v, vector * index){
+    vector * current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    if(v == NULL && index == NULL){
+        return Rvec = NULL;
+    } else {
+        int sizeV = sizeVector(v, 0);
+        int sizeI = sizeVector(index, 0);
+        if(sizeI == 0){
+            return Rvec = NULL;
+        }
+        for(int i = 0; i < sizeI; ++i){
+            current->value = returnIndex(v, returnIndex(index, i, 0), 0);
+            if(i == sizeI-1){
+                current->nextVec = NULL;
+            } else {
+                vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+                current->nextVec = newNode;
+                current = newNode;
+            }
+        }
+        return Rvec;
+    }
+}
+
+vector * clone(vector * v){
+    vector * current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    if(v == NULL){
+        return Rvec;
+    }
+    while(1){
+        int val = v->value;
+        current->value = val;
+        if(v->nextVec == NULL){
+            current->nextVec = NULL;
+            break;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->nextVec = newNode;
+            current = newNode;
+            v = v->nextVec;
+        }
+    }
+    return Rvec;
+}
+
+vector * vectorE(vector * v, int size, int type){
+    vector * Rvec;
+    vector * current;
+    if(v == NULL){
+        current = (struct vector *)malloc(sizeof(struct vector));
+        current->nextVec = NULL;
+        Rvec = current;
+    } else {
+        vector * temp = clone(v);
+        current = temp;
+        Rvec = current;
+    }
+    while(1){
+        if(current->nextVec != NULL){
+            current = current->nextVec;
+        } else {
+            current->nextVec = NULL;
+            break;
+        }
+    }
+    vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+    current->nextVec = newNode;
+    current = newNode;
+
+    int a = sizeVector(v, 0);
+    int dif = size - a;
+    for(int i = 0; i < dif; ++i){
+        if(i == dif-1){
+            if(type != 0){
+                current->value = 1;
+            } else {
+                current->value = 0;
+            }
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            if(type != 0){
+                current->value = 1;
+            } else {
+                current->value = 0;
+            }
+            current->nextVec = newNode;
+            current = newNode;
+        }
+    }
+    return Rvec;
+}
+
+vector * intPromote(int value, int size){
+    vector *current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    for(int i = 0; i<size; ++i){
+        if(i == size-1){
+            current->value = value;
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->value = value;
+            current->nextVec = newNode;
+            current = newNode;
+        }
+    }
+    return Rvec;
+}
+
+vector * vecAdd(vector * left, vector * right){
+    vector *current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    int size =sizeVector(left, 0);
+    for (int i = 0; i < size; ++i){
+        current->value = left->value + right->value;
+        if(i == size-1){
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->nextVec = newNode;
+            current = newNode;
+            left = left->nextVec;
+            right = right->nextVec;
+        }
+    }
+    return Rvec;
+}
+
+vector * vecDiv(vector * left, vector * right){
+    vector *current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    int size =sizeVector(left, 0);
+    for (int i = 0; i < size; ++i){
+        current->value = left->value / right->value;
+        if(i == size-1){
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->nextVec = newNode;
+            current = newNode;
+            left = left->nextVec;
+            right = right->nextVec;
+        }
+    }
+    return Rvec;
+}
+
+vector * vecSub(vector * left, vector * right){
+    vector *current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    int size =sizeVector(left, 0);
+    for (int i = 0; i < size; ++i){
+        current->value = left->value - right->value;
+        if(i == size-1){
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->nextVec = newNode;
+            current = newNode;
+            left = left->nextVec;
+            right = right->nextVec;
+        }
+    }
+    return Rvec;
+}
+
+vector * vecMul(vector * left, vector * right){
+    vector *current = (struct vector *)malloc(sizeof(struct vector));
+    vector * Rvec = current;
+    int size =sizeVector(left, 0);
+    for (int i = 0; i < size; ++i){
+        current->value = left->value * right->value;
+        if(i == size-1){
+            current->nextVec = NULL;
+        } else {
+            vector *newNode = (struct vector *)malloc(sizeof(struct vector));
+            current->nextVec = newNode;
+            current = newNode;
+            left = left->nextVec;
+            right = right->nextVec;
+        }
+    }
+    return Rvec;
+}
+
+int vecLES(vector * left, vector * right){
+    int size =sizeVector(left, 0);
+    if(left == NULL && right == NULL){
+        return 0;
+    }
+    for (int i = 0; i < size; ++i){
+            if(left->value < right->value){
+                if(left->nextVec == NULL){
+                    return 1;
+                }
+                left = left->nextVec;
+                right = right->nextVec;
+            } else {
+                return 0;
+            }
+    }
+    return 1;
+}
+
+int vecGRE(vector * left, vector * right){
+    int size =sizeVector(left, 0);
+    if(left == NULL && right == NULL){
+        return 0;
+    }
+    for (int i = 0; i < size; ++i){
+            if(left->value > right->value){
+                if(left->nextVec == NULL){
+                    return 1;
+                }
+                left = left->nextVec;
+                right = right->nextVec;
+            } else {
+                return 0;
+            }
+    }
+    return 1;
+}
+
+int vecEQ(vector * left, vector * right){
+    int size =sizeVector(left, 0);
+    if(left == NULL && right == NULL){
+        return 1;
+    }
+    for (int i = 0; i < size; ++i){
+            if(left->value == right->value){
+                if(left->nextVec == NULL){
+                    return 1;
+                }
+                left = left->nextVec;
+                right = right->nextVec;
+            } else {
+                return 0;
+            }
+    }
+    return 1;
+}
+
+int vecNEQ(vector * left, vector * right){
+    int size =sizeVector(left, 0);
+    if(left == NULL && right == NULL){
+        return 0;
+    }
+    for (int i = 0; i < size; ++i){
+            if(left->value != right->value){
+                if(left->nextVec == NULL){
+                    return 1;
+                }
+                left = left->nextVec;
+                right = right->nextVec;
+            } else {
+                return 0;
+            }
+    }
+    return 1;
+}
+
+int bigger(vector * left, vector * right){
+    int a = sizeVector(left, 0);
+    int b = sizeVector(right, 0);
+    if(a >= b){
+        return a;
+    } else {
+        return b;
+    }
+
+}
+
+
+int vecVal(vector * v){
+    int val = v->value;
+    return val;
+}
+
+vector * insert(vector * v, int val){
+    vector * Rvec;
+    vector * current;
+    if(v == NULL){
+        current = (struct vector *)malloc(sizeof(struct vector));
+        current->nextVec = NULL;
+        current->value = val;
+        Rvec = current;
+        return Rvec;
+    } else {
+        current = v;
+        Rvec = current;
+    }
+    while (current->nextVec != NULL) {
+        current = current->nextVec;
+    }//end while
+    vector * newNode = (struct vector *)malloc(sizeof(struct vector));
+    newNode->value = val;
+    newNode->nextVec = NULL;
+    current->nextVec = newNode;
+
+    return Rvec;
+}
+
+vector * move(vector * v){
+    if(v->nextVec == NULL){
+            vector * Rvec  = (struct vector *)malloc(sizeof(struct vector));
+            return Rvec;
+    } else {
+           return v->nextVec;
+    }
+}
+
+int main(){
+
+     vector *y = Range(1, 3);
+     printVec(y);
+     vector *u = Range(1, 3);
+
+     printVec(u);
+     printVec(y);
+     printVec(u);
+     printf("%d\n", vecLES(u,y));
+     printf("%d\n", vecGRE(u,y));
+     printf("%d\n", vecEQ(u,y));
+     printf("%d\n", vecNEQ(u,y));
+
+     printf("%d\n", vecVal(y));
+     y = move(y);
+     printf("%d\n", vecVal(y));
+     y = move(y);
+      printf("=========%d\n", vecVal(y));
+     //y = move(y);
+     //printVec(y);
+     printf("%d\n", sizeVector(y,0));
+     y = insert(y, 1);
+    printVec(y);
+}

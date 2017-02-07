@@ -1,0 +1,12 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    integer x = 3;
+    if(x == 3){
+        real x = x + 2.3;
+        x -> out;
+    }
+
+
+    return 0;
+}

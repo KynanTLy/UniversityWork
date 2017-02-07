@@ -1,0 +1,26 @@
+procedure main() returns integer {
+var out = std_output();
+integer x = 12;
+real y = 1.0;
+x = 24;
+x -> out;
+x = 36;
+x -> out;
+
+y = 2.0;
+y = 3.0;
+
+y -> out;
+
+boolean z = true;
+z -> out;
+z = false;
+z -> out;
+
+character f = 'a';
+f -> out;
+f = 'b';
+f -> out;
+
+return 0;
+}

@@ -1,0 +1,13 @@
+
+procedure main() returns integer {
+var out = std_output();
+
+vector s = [ 2, 4];
+
+vector mm = [ 1, 2];
+mm = s;                             //Vector reassign
+mm->out;
+'\n' -> out;
+
+return 0;
+}

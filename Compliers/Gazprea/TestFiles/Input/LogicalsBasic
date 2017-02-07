@@ -1,0 +1,19 @@
+procedure main() returns integer {
+    boolean x = true;
+    boolean y = false;
+
+    var out = std_output();
+
+    x or y -> out;
+    y or y -> out;
+    x and y -> out;
+    not y -> out;
+    x xor x -> out;
+    x xor y -> out;
+    x and x -> out;
+    x and y xor x -> out;
+    x or y xor y -> out;
+
+    return 0;
+}
+

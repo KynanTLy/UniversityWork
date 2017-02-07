@@ -1,0 +1,1 @@
+An Android app currently in development for CMPUT 301 at the University of Alberta by team 4. An initial UML diagram has been made to outline our class relationships within the app.

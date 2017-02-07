@@ -1,0 +1,15 @@
+const b = true;
+const i = 12;
+const r = 1.0;
+const c = 'a';
+
+procedure main() returns integer {
+    var out = std_output();
+
+
+    b -> out;
+    i -> out;
+    r -> out;
+    c -> out;
+    return 0;
+}

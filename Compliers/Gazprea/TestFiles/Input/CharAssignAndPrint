@@ -1,0 +1,13 @@
+procedure main() returns integer {
+var out = std_output();
+
+character x = 'A';
+character y = '\n';
+'c' -> out;
+'\n' -> out;
+y -> out;
+x -> out;
+'\"' -> out;
+
+return 0;
+}

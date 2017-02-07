@@ -1,0 +1,31 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p[5] = null;
+p -> out;
+'\n' -> out;
+
+real vector r[5] = null;
+r -> out;
+'\n' -> out;
+
+boolean vector h[5] = null;
+h -> out;
+'\n' -> out;
+
+
+integer vector pa[5] = identity;
+pa -> out;
+'\n' -> out;
+
+real vector ra[5] = identity;
+ra -> out;
+'\n' -> out;
+
+
+boolean vector ha[5] = identity;
+ha -> out;
+'\n' -> out;
+
+return 0;
+}

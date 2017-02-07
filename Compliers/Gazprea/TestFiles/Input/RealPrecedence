@@ -1,0 +1,36 @@
+procedure main() returns integer {
+    real x = 1.0;
+    real y = 2.0;
+
+    boolean z;
+    real r;
+    var out = std_output();
+
+    r = -x ^ y * y / x + x - x;
+    r -> out;
+    '\n' -> out;
+    r = x - x + x / 2 * -x ^ x;
+    r -> out;
+    '\n' -> out;
+    r = x ^ (x + y) - (y - -x) % 2;
+    r -> out;
+    '\n' -> out;
+    r = y ^ (y + 2 ^ (x + 2));
+    r -> out;
+    '\n' -> out;
+    r = -y ^ -y % -y;
+    r -> out;
+    '\n' -> out;
+    r = -y % (-y - 1);
+    r -> out;
+    '\n' -> out;
+
+    real g = null;
+    real w = identity;
+    g -> out;
+    '\n' -> out;
+    w -> out;
+
+    return 0;
+}
+

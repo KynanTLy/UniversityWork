@@ -1,0 +1,22 @@
+procedure main() returns integer {
+    var x = 2;
+    const y = x * 2;
+    var z = null + 1 + null +  identity;
+    var fdf = true;
+    var df = 3.5 * 2;
+    var d = as<integer>(df);
+
+    var out = std_output();
+
+    x -> out;
+    y -> out;
+    '\n' -> out;
+    z -> out;
+    '\n' -> out;
+    fdf -> out;
+    df -> out;
+    d -> out;
+
+    return 0;
+}
+

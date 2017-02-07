@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cmput301t4.gameswap.Activities.MineInventoryActivity"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="Select items to trade"
+        android:id="@+id/selectItemtoTrade" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="402dp"
+        android:id="@+id/mineInventoryListView"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:onClick="doneButtonClicked"
+        android:id="@+id/done"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>

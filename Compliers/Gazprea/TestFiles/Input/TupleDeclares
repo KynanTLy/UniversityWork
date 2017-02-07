@@ -1,0 +1,15 @@
+
+
+procedure main() returns integer {
+var out = std_output();
+
+    tuple ( integer, integer, integer , integer i) mytuple = (1,2,3,4);
+
+    mytuple.1 -> out;
+    mytuple.2 -> out;
+    mytuple.3 -> out;
+    mytuple.i -> out;
+
+    return 0;
+
+}

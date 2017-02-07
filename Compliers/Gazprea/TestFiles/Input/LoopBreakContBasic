@@ -1,0 +1,23 @@
+procedure main() returns integer {
+    integer x = 2;
+    var out = std_output();
+    loop while x < 5{
+        x -> out;
+        x = x + 1;
+        if(x == 4){
+            99->out;
+            break;
+        }
+    }
+    integer y = 1;
+    loop while y < 5{
+        y -> out;
+        if(y == 3){
+            y = 5;
+            continue;
+        }
+        y = y + 1;
+    }
+
+    return 0;
+}

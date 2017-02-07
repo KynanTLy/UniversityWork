@@ -1,0 +1,40 @@
+procedure main() returns integer {
+    integer x = 2;
+    var out = std_output();
+
+    loop x -> out; while x == 0;
+
+    loop {
+        x = x + 1;
+        x -> out;
+        if(x == 3){
+            continue;
+        }
+        integer x = 5;
+        x -> out;
+
+    } while x < 4;
+
+    integer y = 6;
+    loop {
+        integer g = 4;
+        loop {
+           if(g == 5){
+              y = 7;
+              97 -> out;
+           } else {
+             if(g == 4){
+                break;
+             }
+           }
+        } while g < 5;
+        y = y + 1;
+        continue;
+        99 -> out;
+    } while y < 7;
+
+
+
+
+    return 0;
+}

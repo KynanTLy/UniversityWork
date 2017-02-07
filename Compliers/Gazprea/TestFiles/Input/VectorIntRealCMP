@@ -1,0 +1,47 @@
+procedure main() returns integer {
+    var out = std_output();
+
+
+    boolean vector u[*] = [1, 2, 3] < [1, 1, 3];
+    boolean vector o[*] = [1, 2, 3] > [1, 1, 3];
+    boolean vector k[*] = [1, 2, 3] <= [1, 1, 3];
+    boolean vector w[*] = [1, 2, 3] >= [1, 1, 3];
+
+    u -> out;
+    '\n' -> out;
+    o -> out;
+    '\n' -> out;
+    k -> out;
+    '\n' -> out;
+    w -> out;
+    '\n' -> out;
+
+    boolean vector u2[*] = [1.1, 2.1, 3.1] < [1.1, 1.1, 3.1];
+    boolean vector o2[*] = [1.1, 2.1, 3.1] > [1.1, 1.1, 3.1];
+    boolean vector k2[*] = [1.1, 2.1, 3.1] <= [1.1, 1.1, 3.1];
+    boolean vector w2[*] = [1.1, 2.1, 3.1] >= [1.1, 1.1, 3.1];
+
+    u2 -> out;
+    '\n' -> out;
+    o2 -> out;
+    '\n' -> out;
+    k2 -> out;
+    '\n' -> out;
+    w2 -> out;
+    '\n' -> out;
+
+    u2 == u -> out;
+    o2 == o -> out;
+    k2 == k -> out;
+    w2 == w -> out;
+
+    '\n' -> out;
+
+    boolean ty = [1.1, 2.1, 3.1] >= [1.1, 1.1, 3.1] == [false, false, false];
+
+    ty -> out;
+    '\n' -> out;
+
+    return 0;
+}
+

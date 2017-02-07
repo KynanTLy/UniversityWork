@@ -1,0 +1,255 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cmput301t4.gameswap.Activities.ViewItemActivity"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/newgametext">
+
+            <ImageView
+                android:layout_width="175dp"
+                android:layout_height="match_parent"
+                android:id="@+id/gameImageView"
+                android:layout_gravity="right|center_vertical"
+                android:clickable="false" />
+
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Game"
+            android:id="@+id/newgametext"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:textSize="19dp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="290dp"
+        android:id="@+id/scrollView">
+        <TableLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow>
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/gameTitle"
+                    android:id="@+id/Title"
+                    android:layout_gravity="bottom"
+                    android:layout_column="6"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/viewItemName"
+                    android:layout_column="7"
+                    android:textSize="19dp" />
+
+            </TableRow>
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp"
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/release_date"
+                    android:id="@+id/releaseDate"
+                    android:layout_gravity="bottom"
+                    android:layout_column="6"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/viewItemDate"
+                    android:layout_column="7"
+                    android:textSize="19dp" />
+            </TableRow>
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp"
+                />
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/platform"
+                    android:singleLine="false"
+                    android:id="@+id/Platform"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="6"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/viewItemPlatform"
+                    android:entries="@array/Console"
+                    android:layout_column="7"
+                    android:textSize="19dp" />
+            </TableRow>
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp"
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/quality"
+                    android:singleLine="false"
+                    android:id="@+id/Quality"
+                    android:layout_gravity="center_vertical"
+                    android:layout_column="6"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/viewItemQuality"
+                    android:entries="@array/Quality"
+                    android:layout_column="7"
+                    android:textSize="19dp" />
+
+            </TableRow>
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp"
+                />
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/private_public"
+                    android:singleLine="false"
+                    android:id="@+id/Private"
+                    android:layout_column="6"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/viewStatus"
+                    android:textSize="19dp" />
+
+            </TableRow>
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp"
+                />
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/description"
+                    android:id="@+id/description"
+                    android:layout_column="6"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:id="@+id/viewItemDesciption"
+                    android:layout_column="7"
+                    android:textSize="19dp" />
+            </TableRow>
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp"
+                />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Location"
+                    android:id="@+id/location"
+                    android:layout_column="6"
+                    android:textSize="19dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/locationDescription"
+                    android:layout_column="7" />
+            </TableRow>
+
+            <Space
+                android:layout_width="20px"
+                android:layout_height="23dp" />
+
+
+        </TableLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

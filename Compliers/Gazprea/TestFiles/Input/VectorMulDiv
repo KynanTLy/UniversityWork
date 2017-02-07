@@ -1,0 +1,22 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    integer vector v = [1, 2, 3];
+    integer vector f = [2, 2, 2];
+
+    v*f -> out;
+    '\n' -> out;
+    v/f -> out;
+    '\n' -> out;
+
+    real vector r = [1.0, 2.0, 3.0];
+    real vector c = [2.0, 2.0, 2.0];
+
+    c*r -> out;
+    '\n' -> out;
+    r/c -> out;
+    '\n' -> out;
+
+    return 0;
+}
+

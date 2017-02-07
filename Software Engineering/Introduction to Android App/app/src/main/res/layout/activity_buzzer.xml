@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/background_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="BUZZER GAME PRACTICE"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/play1"
+            android:layout_gravity="center_horizontal"
+            android:textSize="50dp"
+            android:onClick="play2"
+            android:text="2 Players" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 Players"
+            android:id="@+id/play2"
+            android:layout_gravity="center_horizontal"
+            android:textSize="50dp"
+            android:onClick="play3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 Players"
+            android:id="@+id/play4"
+            android:layout_gravity="center_horizontal"
+            android:textSize="50dp"
+            android:onClick="play4" />
+    </LinearLayout>
+</LinearLayout>
+
+    <!-- http://android-er.blogspot.ca/2012/03/example-of-using-popupwindow.html
+    http://android-er.blogspot.ca/2012/03/example-of-using-popupwindow.html
+    http://developer.android.com/reference/android/widget/PopupWindow.html
+    -->

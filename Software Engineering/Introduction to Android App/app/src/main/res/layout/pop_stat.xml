@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/background_light">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:layout_margin="1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/darker_gray">
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="260dp"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:gravity="center|top"
+                android:text="Choose Stat"
+                android:textSize="40dp" />
+            <Button
+                android:id="@+id/singlestat"
+                android:layout_width="260dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:text="Single Player Statistics" />
+
+            <Button
+                android:id="@+id/buzzstat"
+                android:layout_width="260dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:text="Buzzer Count Statistics" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+    <!-- http://android-er.blogspot.ca/2012/03/example-of-using-popupwindow.html
+    http://android-er.blogspot.ca/2012/03/example-of-using-popupwindow.html
+    http://developer.android.com/reference/android/widget/PopupWindow.html
+    -->

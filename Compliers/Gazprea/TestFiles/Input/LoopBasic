@@ -1,0 +1,10 @@
+procedure main() returns integer {
+    integer x = 2;
+    var out = std_output();
+    loop while x < 5{
+        x -> out;
+        x = x + 1;
+    }
+    10 -> out;
+    return 0;
+}

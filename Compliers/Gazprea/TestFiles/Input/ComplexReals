@@ -1,0 +1,19 @@
+procedure main() returns integer {
+var out = std_output();
+integer x = 1_2;
+real y = 0.__5;
+real u = 2_.0e+10;
+real w = 1._0e-5;
+real r = 1434__51__23.0e-5;
+
+x -> out;
+'\n' -> out;
+y -> out;
+'\n' -> out;
+u -> out;
+'\n' -> out;
+r -> out;
+'\n' -> out;
+return 0;
+}
+

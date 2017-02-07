@@ -1,0 +1,14 @@
+const integer i = 12*5*9;
+const boolean b = true;
+const real r = 1.0;
+const character c = 'a';
+
+
+procedure main() returns integer {
+    var out = std_output();
+    i -> out;
+    b -> out;
+    r -> out;
+    c -> out;
+    return 0;
+}

@@ -1,0 +1,35 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p = [ 1 , 2 ]; //Basic Vector
+p -> out;
+'\n' -> out;
+
+integer vector x[*] = [1, 2];     //[*] vector
+x -> out;
+'\n' -> out;
+
+integer vector y = [];        //Empty Vector
+y -> out;
+'\n' -> out;
+
+integer f = 5;
+integer vector z = [f,f,f,9];    //Vector with variables
+z -> out;
+'\n' -> out;
+
+integer vector m = [3, 1+1];    //Vector with math
+m -> out;
+'\n' -> out;
+
+integer vector s[5] = [1,2,3,4,5];    //Vector with a size
+s -> out;
+'\n' -> out;
+
+vector g = s;                          //Vector assign
+g -> out;
+'\n' -> out;
+
+
+return 0;
+}

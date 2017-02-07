@@ -1,0 +1,20 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    boolean g = true;
+    boolean u = false;
+
+    if(g){
+        2 -> out;
+    } else {
+        3 -> out;
+    }
+
+    if(u){
+        0 -> out;
+    } else {
+        1 -> out;
+    }
+
+    return 0;
+}

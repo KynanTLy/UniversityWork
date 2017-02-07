@@ -1,0 +1,28 @@
+procedure main() returns integer {
+     var out = std_output();
+    integer x = 12;
+    {
+        x ->out;
+        integer x = 2;
+        x-> out;
+        {
+            x->out;
+            integer x = 4;
+            x->out;
+
+        }
+        x->out;
+
+
+        {
+            integer x = 3;
+            x->out;
+
+        }
+
+
+    }
+    x->out;
+    return 0;
+}
+

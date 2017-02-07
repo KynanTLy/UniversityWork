@@ -1,0 +1,20 @@
+procedure main() returns integer {
+     integer x = 3;
+     real y = 5.0;
+
+     if(x < y){
+        x -> out;
+        integer x = 12;
+        x -> out;
+        if(x < y){
+            99 -> out;
+        } else {
+            5 -> out;
+            x = x + x;
+        }
+        x -> out;
+     }
+     x -> out;
+
+    return 0;
+}

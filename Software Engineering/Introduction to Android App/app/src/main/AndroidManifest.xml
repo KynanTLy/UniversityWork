@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kynan.assignment_1" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SPlayerActivity"
+            android:label="@string/title_activity_splayer" >
+        </activity>
+        <activity
+            android:name=".SingleActivity"
+            android:label="@string/title_activity_single" >
+        </activity>
+        <activity
+            android:name=".SStatActivity"
+            android:label="@string/title_activity_sstat" >
+        </activity>
+        <activity
+            android:name=".mstatActivity"
+            android:label="@string/title_activity_mstat" >
+        </activity>
+        <activity
+            android:name=".twoplayerActivity"
+            android:label="@string/title_activity_twoplayer" >
+        </activity>
+        <activity
+            android:name=".BuzzerActivity"
+            android:label="@string/title_activity_buzzer" >
+        </activity>
+        <activity
+            android:name=".threeplayerActivity"
+            android:label="@string/title_activity_threeplayer" >
+        </activity>
+        <activity
+            android:name=".fourplayerActivity"
+            android:label="@string/title_activity_fourplayer" >
+        </activity>
+    </application>
+
+</manifest>

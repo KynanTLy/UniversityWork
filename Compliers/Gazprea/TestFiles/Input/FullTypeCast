@@ -1,0 +1,55 @@
+procedure main() returns integer {
+
+    integer tI;
+    real tR;
+    boolean tB;
+    character tC;
+    var out = std_output();
+
+    boolean x = true;
+    tI = as<integer>(x);
+    tR = as<real>(x);
+    tB = as<boolean>(x);
+    tC = as<character>(x);
+
+    tI -> out;
+    tR -> out;
+    tB -> out;
+    tC -> out;
+    '\n' -> out;
+
+    integer y = 46;
+    tI = as<integer>(y);
+    tR = as<real>(y);
+    tB = as<boolean>(y);
+    tC = as<character>(y);
+
+    tI -> out;
+    tR -> out;
+    tB -> out;
+    tC -> out;
+    '\n' -> out;
+
+    real z = 3.23235;
+    tI = as<integer>(z);
+    tR = as<real>(z);
+    tI -> out;
+    tR -> out;
+    '\n' -> out;
+
+    character o = 'a';
+    tI = as<integer>(o);
+    tR = as<real>(o);
+    tB = as<boolean>(o);
+    tC = as<character>(o);
+
+    tI -> out;
+    tR -> out;
+    tB -> out;
+    tC -> out;
+    '\n' -> out;
+
+
+    return 0;
+}
+

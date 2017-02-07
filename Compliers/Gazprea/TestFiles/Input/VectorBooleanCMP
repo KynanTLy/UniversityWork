@@ -1,0 +1,41 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    boolean x = [0.1, 2.0, 0.3] == [0.1, 1.1, 5.2];
+    boolean y = [1, 2, 3] == [1, 2, 3];
+    boolean z = [1.6, 2.0, 0.3] != [0.1, 1.1, 5.2];
+    boolean q = [1, 2, 3] != [1, 2, 3];
+
+    integer vector u[*] = [1, 2];
+    integer vector o[*] = [1, 3];
+    integer vector k[*] = [1, 2];
+
+    boolean sd = u == o;
+    boolean sdd = k == u;
+    boolean sddd = k != o;
+
+    boolean qwe = [true, true] == [true, true];
+    boolean qwee = [true, true] == [true, false];
+
+    x -> out;
+    y -> out;
+     '\n' -> out;
+    z -> out;
+    q -> out;
+     '\n' -> out;
+    sd -> out;
+    sdd -> out;
+    sddd ->out;
+     '\n' -> out;
+    qwe -> out;
+    qwee -> out;
+
+    boolean xqwe = [true, true] != [true, true];
+    boolean xqwee = [true, true] != [true, false];
+    '\n' -> out;
+    xqwe -> out;
+    xqwee -> out;
+
+    return 0;
+}
+

@@ -1,0 +1,7 @@
+procedure main() returns integer {
+    var out = std_output();
+    integer x;      //<------ Testing this.  Should this even work?
+    x = 12;
+    x -> out;
+    return 0;
+}

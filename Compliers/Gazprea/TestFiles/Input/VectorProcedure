@@ -1,0 +1,14 @@
+function geter(var real vector a, integer b) returns real {
+    return a[b];
+}
+
+
+procedure main() returns integer {
+    real vector p = [ 1.0 , 2.0 ];
+
+
+    real z = geter(p, 1);
+
+    z -> out;
+    return 0;
+}

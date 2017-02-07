@@ -1,0 +1,1303 @@
+//==============LLVM OVERHEAD==================//
+
+StartProgOverhead()::=<<
+target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+@.Str99 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
+@.Str98 = private unnamed_addr constant [3 x i8] c"%f\00", align 1
+
+%struct.integermatrix = type { i32, i32, i32** }
+%struct.realmatrix = type { i32, i32, float** }
+%struct.booleanmatrix = type { i32, i32, i8** }
+%struct.charactermatrix = type { i32, i32, i8** }
+
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture, i8* nocapture readonly, i64, i32, i1)
+>>
+
+main()::=<<
+define i32 @main()
+{
+    call void @__init__global__()
+    %1 = call i32 @m_0main()
+    ret i32 %1
+}
+>>
+
+EndProgOverhead()::=<<
+declare i32 @printf(i8*, ...)
+
+%struct.vector = type { i32, %struct.vector* }
+
+declare void @getNextVec(%struct.vector* %v);
+declare void @printVec(%struct.vector* %v);
+declare %struct.vector* @Range(i32 %left, i32 %right);
+declare i32 @returnIndex(%struct.vector* %v, i32 %target, i32 %count);
+declare i32 @sizeVector(%struct.vector* %v, i32 %count);
+declare %struct.vector* @returnIndexV(%struct.vector* %v, %struct.vector* %index);
+declare %struct.vector* @clone(%struct.vector* %v);
+declare %struct.vector* @vectorE(%struct.vector* %v, i32 %size, i32 %type);
+declare %struct.vector* @intPromote(i32 %value, i32 %size);
+declare %struct.vector* @vecAdd(%struct.vector* %left, %struct.vector* %right);
+declare %struct.vector* @vecDiv(%struct.vector* %left, %struct.vector* %right);
+declare %struct.vector* @vecSub(%struct.vector* %left, %struct.vector* %right);
+declare %struct.vector* @vecMul(%struct.vector* %left, %struct.vector* %right);
+declare i32 @vecLES(%struct.vector* %left, %struct.vector* %right);
+declare i32 @vecGRE(%struct.vector* %left, %struct.vector* %right);
+declare i32 @vecEQ(%struct.vector* %left, %struct.vector* %right);
+declare i32 @vecNEQ(%struct.vector* %left, %struct.vector* %right);
+declare i32 @bigger(%struct.vector* %left, %struct.vector* %right);
+declare i32 @vecVal(%struct.vector* %v);
+declare %struct.vector* @insert(%struct.vector* %v, i32 %val);
+declare %struct.vector* @move(%struct.vector* %v);
+declare double @pow(double, double);
+declare float @promote(i32 %i);
+declare void @printReal(float %x);
+declare void @printBool(i8 signext %x);
+declare void @printChar(i8 signext %x);
+declare void @readInt(i32* %x);
+declare void @readFloat(float* %x);
+declare void @readChar(i8* %x);
+declare void @readBool(i8* %x);
+declare void @dealWithFloats(float* %x, i8* %s);
+declare signext i8 @promoteNC(i32 %i);
+declare signext i8 @promoteNB(i32 %i);
+declare float @promoteNR(i32 %i);
+declare signext i8 @Boolxor(i8 signext %left, i8 signext %right);
+declare signext i8 @Boolor(i8 signext %left, i8 signext %right);
+declare signext i8 @Booland(i8 signext %left, i8 signext %right);
+declare signext i8 @Boolnot(i8 signext %boolean)
+declare i32 @promoteBI(i8 signext %i);
+declare float @promoteBR(i8 signext %i);
+declare signext i8 @promoteBC(i8 signext %i);
+declare signext i8 @promoteIB(i32 %i);
+declare signext i8 @promoteIC(i32 %c);
+declare i32 @promoteRI(float %r);
+declare signext i8 @promoteCB(i8 signext %c);
+declare i32 @promoteCI(i8 signext %c);
+declare float @promoteCR(i8 signext %c);
+
+declare i32* @allocateIntegerVector(i32 %size);
+declare float* @allocateRealVector(i32 %size);
+declare i8* @allocateCharacterVector(i32 %size);
+declare i8* @allocateBoolVector(i32 %size);
+declare i32* @allocateIdentityIntegerVector(i32 %size);
+declare float* @allocateIdentityRealVector(i32 %size);
+declare i8* @allocateIdentityCharacterVector(i32 %size);
+declare i8* @allocateIdentityBoolVector(i32 %size);
+
+declare i32* @addIntegerVectors(i32* %left, i32* %right);
+declare i32* @subIntegerVectors(i32* %left, i32* %right);
+declare i32* @mulIntegerVectors(i32* %left, i32* %right);
+declare i32* @divIntegerVectors(i32* %left, i32* %right);
+declare i32* @exponIntegerVectors(i32* %left, i32* %right);
+declare i32* @modIntegerVectors(i32* %left, i32* %right);
+declare i32* @unNIntegerVectors(i32* %vector);
+declare i32* @unPIntegerVectors(i32* %vector);
+
+declare float* @addRealVectors(float* %left, float* %right);
+declare float* @subRealVectors(float* %left, float* %right);
+declare float* @mulRealVectors(float* %left, float* %right);
+declare float* @divRealVectors(float* %left, float* %right);
+declare float* @exponRealVectors(float* %left, float* %right);
+declare float* @modRealVectors(float* %left, float* %right);
+declare float* @unNRealVectors(float* %vector);
+declare float* @unPRealVectors(float* %vector);
+
+declare i32* @concatIntegerVectors(i32* %left, i32* %right);
+declare float* @concatRealVectors(float* %left, float* %right);
+declare i8* @concatCharacterVectors(i8* %left, i8* %right);
+declare i8* @concatBooleanVectors(i8* %left, i8* %right);
+
+declare i32 @dotIntegerVector(i32* %left, i32* %right);
+declare float @dotRealVector(float* %left, float* %right);
+
+declare void @storeIntegerInVector(i32* %vector, i32 %value, i32 %position);
+declare void @storeRealInVector(float* %vector, float %value, i32 %position);
+declare void @storeCharacterInVector(i8* %vector, i8 %value, i32 %position);
+declare void @storeBoolInVector(i8* %vector, i8 %value, i32 %position);
+declare void @printIntegerVector(i32* %vector);
+declare void @printRealVector(float* %vector);
+declare void @printCharacterVector(i8* %vector);
+declare void @printBoolVector(i8* %vector);
+declare float @realMod(float %left, float %right);
+declare float @realExpon(float %left, float %right);
+
+declare i32 @powerII(i32 %l, i32 %r);
+declare signext i8 @Boolneq(i8 signext %left, i8 signext %right);
+declare signext i8 @Booleq(i8 signext %left, i8 signext %right);
+declare i32 @IunaryPlus(i32 %val);
+declare i32 @IunaryNeg(i32 %val);
+declare float @RunaryNeg(float %val);
+declare float @RunaryPlus(float %val);
+
+declare i32* @indexIntegerVectorWithVector(i32* %x, i32* %indexer);
+declare float* @indexRealVectorWithVector(float* %x, i32* %indexer);
+declare i8* @indexCharacterVectorWithVector(i8* %x, i32* %indexer);
+declare i8* @indexBooleanVectorWithVector(i8* %x, i32* %indexer);
+
+declare i32* @intervalToVector(i32 %a, i32 %b);
+
+declare { i64, i32** } @allocateIntegerMatrix(i32 %row, i32 %col);
+declare %struct.realmatrix* @allocateRealMatrix(i32 %row, i32 %col);
+declare %struct.charactermatrix* @allocateCharacterMatrix(i32 %row, i32 %col);
+declare %struct.booleanmatrix* @allocateBooleanMatrix(i32 %row, i32 %col);
+
+declare void @storeIntegerVectorInMatrix(%struct.integermatrix* %mat, i32* %value, i32 %position);
+
+declare i32 @getIntVectorLength(i32 * %vector);
+declare i32 @getRealVectorLength(float * %vector);
+declare i32 @getCharVectorLength(i8 * %vector);
+declare i32 @getBoolVectorLength(i8 * %vector);
+declare signext i8 @boolVectorEQII(i32* %left, i32* %right);
+declare signext i8 @boolVectorEQFF(float* %left, float* %right);
+declare signext i8 @boolVectorNEQII(i32* %left, i32* %right);
+declare signext i8 @boolVectorNEQFF(float* %left, float* %right);
+declare signext i8 @boolVectorEQBool(i8* %left, i8* %right);
+declare signext i8 @boolVectorNEQBool(i8* %left, i8* %right);
+declare i8* @IVectorLES(i32* %left, i32* %right);
+declare i8* @IVectorLESEQ(i32* %left, i32* %right);
+declare i8* @IVectorGRT(i32* %left, i32* %right);
+declare i8* @IVectorGRTEQ(i32* %left, i32* %right);
+declare i8* @FVectorLES(float* %left, float* %right);
+declare i8* @FVectorLESEQ(float* %left, float* %right);
+declare i8* @FVectorGRT(float* %left, float* %right);
+declare i8* @FVectorGRTEQ(float* %left, float* %right);
+declare i8* @boolVectorand(i8* %left, i8* %right);
+declare i8* @boolVectorxor(i8* %left, i8* %right);
+declare i8* @boolVectoror(i8* %left, i8* %right);
+declare i8* @boolVectornot(i8* %booleanV);
+
+
+>>
+
+
+
+//===========FUNCTION DECLARE========//
+MethodDeclare(type, Mname, parameter)::=<<
+define <type> @<Mname> (<parameter>)
+>>
+
+ReturnState(type, val)::=<<
+    ret <type> %<val>
+>>
+
+ReturnVoid()::=<<
+    ret void
+>>
+
+BlockStart()::=<<
+{
+>>
+
+BlockEnd()::=<<
+}
+>>
+
+MethodCall(name, type, parameter, regC)::=<<
+    %<regC> = call <type> @<name>(<parameter>)
+>>
+
+
+ProCall(name, type, parameter)::=<<
+    call <type> @<name>(<parameter>)
+>>
+
+
+Unreachable()::=<<
+    unreachable
+>>
+
+//========END FUNCTION DECLARE=======//
+
+
+//==========GLOBAL==========//
+InitGlobalStart()::=<<
+define void @__init__global__() #0 {
+>>
+InitGlobalEnd()::=<<
+    ret void
+}
+>>
+
+CallInitGlobal()::=<<
+    call void @__init__global__()
+>>
+
+GlobalDeclareStruct(name, type)::=<<
+@<name> = common global %struct.<type> zeroinitializer, align 4
+>>
+
+GlobalDeclareInt(name)::=<<
+@<name> = common global i32 0, align 4
+>>
+
+GlobalDeclareChar(name)::=<<
+@<name> = common global i8 0, align 1
+>>
+
+GlobalDeclareReal(name)::=<<
+@<name> = common global float 0.000000e+00, align 4
+>>
+
+GlobalDeclareBoolean(name)::=<<
+@<name> = common global i8 0, align 1
+>>
+
+LoadGlobalIntVar(regC, name)::=<<
+    ;LOAD GLOBAL INT VAR
+    %<regC> = load i32* @<name>, align 4
+>>
+
+LoadGlobalRealVar(regC, name)::=<<
+    ;LOAD GLOBAL REAL
+    %<regC> = load float* %<name>, align 4
+>>
+
+LoadGlobalBoolVar(regC, name)::=<<
+    ;LOAD GLOBAL BOOL
+    %<regC> = load i8* %<name>, align 1
+>>
+
+LoadGlobalCharVar(regC, name)::= <<
+    ;LOAD GLOBAL CHAR
+    %<regC> = load i8* %<name>, align 1
+>>
+
+//=============ASSIGNMENT============//
+
+
+DeclareReal(name)::=<<
+    ;DECLARE REAL
+    %<name> = alloca float, align 4
+>>
+
+AssignReal(name, regC)::=<<
+    ;ASSIGN REAL
+    store float %<regC>, float* %<name>, align 4
+>>
+
+LoadRealVar(regC, name)::=<<
+    ;LOAD REAL
+    %<regC> = load float* %<name>, align 4
+>>
+
+
+DeclareBool(name)::=<<
+    ;DECLARE BOOL
+    %<name> = alloca i8, align 1
+>>
+
+AssignBool(name, regC)::=<<
+    ;ASSIGN BOOL
+    store i8 %<regC>, i8* %<name>, align 1
+>>
+
+AssignIntVector(name, regC) ::= <<
+    store i32* %<regC>, i32** %<name>, align 8
+>>
+
+AssignRealVector(name, regC) ::= <<
+    store float* %<regC>, float** %<name>, align 8
+>>
+
+AssignCharVector(name, regC) ::= <<
+    store i8* %<regC>, i8** %<name>, align 8
+>>
+
+AssignBoolVector(name, regC) ::= <<
+    store i8* %<regC>, i8** %<name>, align 8
+>>
+
+LoadBoolVar(regC, name)::=<<
+    ;LOAD BOOL
+    %<regC> = load i8* %<name>, align 1
+>>
+
+PrintBool(regC)::=<<
+    ;PRINT BOOL RESULT
+    call void @printBool(i8 signext %<regC>)
+>>
+
+BoolConvertilToi8(regC, regV)::=<<
+     %<regC> = zext i1 %<regV> to i8
+>>
+
+DeclareChar(name)::=<<
+    ;DECLARE CHAR
+    %<name> = alloca i8, align 1
+>>
+
+AssignChar(name, regC)::=<<
+    ;ASSIGN CHAR
+    store i8 %<regC>, i8* %<name>, align 1
+>>
+
+LoadCharVar(regC, name)::= <<
+    ;LOAD CHAR
+    %<regC> = load i8* %<name>, align 1
+>>
+
+PrintChar(regC)::= <<
+    ;PRINT CHAR
+    call void @printChar(i8 signext %<regC>)
+>>
+
+ReadInt(varName) ::= <<
+    ; READ INT
+    call void @readInt(i32*  %<varName>)
+>>
+
+ReadFloat(varName) ::= <<
+    ; READ FLOAT
+    call void @readFloat(float*  %<varName>)
+>>
+
+ReadChar(varName) ::= <<
+    ; READ CHAR
+    call void @readChar(i8* %<varName>)
+>>
+
+ReadBool(varName) ::= <<
+    ; READ BOOL
+    call void @readBool(i8* %<varName>)
+>>
+
+//========Intervals============//
+
+DeclareInterval(regC, name, t1, a, b) ::=<<
+    ;Declare Interval
+    %<name> = alloca i32*, align 8
+    %<t1> = call i32* @intervalToVector(i32 %<a>, i32 %<b>)
+    store i32* %<t1>, i32** %<name>, align 8
+    %<regC> = load i32** %<name>, align 8
+>>
+
+
+
+//=========Vector ====================//
+
+DeclareIntegerVector(name) ::=<<
+    ; Declare Integer Vector
+    %<name> = alloca i32*, align 8
+>>
+
+DeclareRealVector(name) ::= <<
+    ; Declare Real Vector
+    %<name> = alloca float*, align 8
+>>
+
+DeclareCharacterVector(name) ::= <<
+    ; Declare Character Vector
+    %<name> = alloca i8*, align 8
+>>
+
+DeclareBooleanVector(name) ::= <<
+    ; Declare Boolean Vector
+    %<name> = alloca i8*, align 8
+>>
+
+
+AllocateIntegerVector(regC, size) ::= <<
+    ; Allocate Integer vector
+    %<regC> = call i32* @allocateIntegerVector(i32 <size>)
+>>
+
+AllocateRealVector(regC, size) ::= <<
+    ; Allocate Real vector
+    %<regC> = call float* @allocateRealVector(i32 <size>)
+>>
+
+AllocateCharacterVector(regC, size) ::= <<
+    ; Allocate Character vector
+    %<regC> = call i8* @allocateCharacterVector(i32 <size>)
+>>
+
+AllocateBooleanVector(regC, size) ::= <<
+    ; Allocate Boolean vector
+    %<regC> = call i8* @allocateBoolVector(i32 <size>)
+>>
+
+AllocateIntegerVectorIdentity(regC, size) ::= <<
+    ; Allocate Identity Integer vector
+    %<regC> = call i32* @allocateIdentityIntegerVector(i32 <size>)
+>>
+
+AllocateRealVectorIdentity(regC, size) ::= <<
+    ; Allocate Identity Real vector
+    %<regC> = call float* @allocateIdentityRealVector(i32 <size>)
+>>
+
+AllocateCharacterVectorIdentity(regC, size) ::= <<
+    ; Allocate Identity Character vector
+    %<regC> = call i8* @allocateIdentityCharacterVector(i32 <size>)
+>>
+
+AllocateBooleanVectorIdentity(regC, size) ::= <<
+    ; Allocate Boolean vector
+    %<regC> = call i8* @allocateIdentityBoolVector(i32 <size>)
+>>
+
+
+
+StoreIntegerInVector(vecReg, regC, position) ::= <<
+    ; Store Integer in vector
+    call void @storeIntegerInVector(i32* %<vecReg>, i32 %<regC>, i32 <position>)
+>>
+
+StoreRealInVector(vecReg, regC, position) ::= <<
+    ; Store Real in vector
+    call void @storeRealInVector(float* %<vecReg>, float %<regC>, i32 <position>)
+>>
+
+StoreCharacterInVector(vecReg, regC, position) ::= <<
+    ; Store Character in vector
+    call void @storeCharacterInVector(i8* %<vecReg>, i8 %<regC>, i32 <position>)
+>>
+
+StoreBooleanInVector(vecReg, regC, position) ::= <<
+    ; Store Boolean in vector
+    call void @storeBoolInVector(i8* %<vecReg>, i8 %<regC>, i32 <position>)
+>>
+
+PrintIntegerVector(regC) ::= <<
+    ; Print Integer vector
+    call void @printIntegerVector(i32* %<regC>)
+>>
+
+PrintRealVector(regC) ::= <<
+    ; Print Real vector
+    call void @printRealVector(float* %<regC>)
+>>
+
+PrintCharacterVector(regC) ::= <<
+    ; Print Character vector
+    call void @printCharacterVector(i8* %<regC>)
+>>
+
+PrintBooleanVector(regC) ::= <<
+    ; Print Boolean vector
+    call void @printBoolVector(i8* %<regC>)
+>>
+
+StoreIntegerVector(oldReg, regC) ::= <<
+    ; Store Integer Vector
+    store i32* %<oldReg>, i32** %<regC>, align 8
+>>
+
+StoreRealVector(oldReg, regC) ::= <<
+    ; Store Real Vector
+    store float* %<oldReg>, float** %<regC>, align 8
+>>
+
+
+StoreCharacterVector(oldReg, regC) ::= <<
+    ; Store Character Vector
+    store i8* %<oldReg>, i8** %<regC>, align 8
+>>
+
+StoreBooleanVector(oldReg, regC) ::= <<
+    ; Store Boolean Vector
+    store i8* %<oldReg>, i8** %<regC>, align 8
+>>
+
+LoadIntegerVector(name, regC) ::= <<
+    ; Load Integer Vector
+    %<regC> = load i32** %<name>, align 8
+>>
+
+LoadRealVector(name, regC) ::= <<
+    ; Load Real Vector
+    %<regC> = load float** %<name>, align 8
+>>
+
+LoadCharacterVector(name, regC) ::= <<
+    ; Load Character Vector
+    %<regC> = load i8** %<name>, align 8
+>>
+
+LoadBooleanVector(name, regC) ::= <<
+    ; Load Boolean Vector
+    %<regC> = load i8** %<name>, align 8
+>>
+
+IndexIntegerVectorWithInteger(regC, oldReg, t1, pos) ::= <<
+    ; Index Interger Vector with Integer
+    %<t1> = getelementptr inbounds i32* %<oldReg>, i32 %<pos>
+    %<regC> = load i32* %<t1>, align 4
+>>
+
+IndexRealVectorWithInteger(regC, oldReg, t1, pos) ::= <<
+    ; Index Real Vector with Integer
+    %<t1> = getelementptr inbounds float* %<oldReg>, i32 %<pos>
+    %<regC> = load float* %<t1>, align 4
+>>
+
+IndexCharacterVectorWithInteger(regC, oldReg, t1, pos) ::= <<
+    ; Index Character Vector with Integer
+    %<t1> = getelementptr inbounds i8* %<oldReg>, i32 %<pos>
+    %<regC> = load i8* %<t1>, align 4
+>>
+
+IndexBooleanVectorWithInteger(regC, oldReg, t1, pos) ::= <<
+    ; Index Boolean Vector with Integer
+    %<t1> = getelementptr inbounds i8* %<oldReg>, i32 %<pos>
+    %<regC> = load i8* %<t1>, align 4
+>>
+
+IndexIntegerVectorWithVector(regC, regV, regI) ::= <<
+    ; Index integer vector with integer vector
+    %<regC> = call i32* @indexIntegerVectorWithVector(i32* %<regV>, i32* %<regI>)
+>>
+
+IndexRealVectorWithVector(regC, regV, regI) ::= <<
+    ; Index real vector with integer vector
+    %<regC> = call float* @indexRealVectorWithVector(float* %<regV>, i32* %<regI>)
+>>
+
+IndexCharacterVectorWithVector(regC, regV, regI) ::= <<
+    ; Index Character vector with integer vector
+    %<regC> = call i8* @indexCharacterVectorWithVector(i8* %<regV>, i32* %<regI>)
+>>
+
+IndexBooleanVectorWithVector(regC, regV, regI) ::= <<
+    ; Index Boolean vector with integer vector
+    %<regC> = call i8* @indexBooleanVectorWithVector(i8* %<regV>, i32* %<regI>)
+>>
+
+BVectorAND(regC, regL, regR)::= <<
+    ; BOOL VEC AND
+    %<regC> = call i8* @boolVectorand(i8* %<regL>, i8* %<regR>)
+>>
+
+BVectorXOR(regC, regL, regR)::= <<
+    ; BOOL VEC XOR
+    %<regC> = call i8* @boolVectorxor(i8* %<regL>, i8* %<regR>)
+>>
+
+BVectorOR(regC, regL, regR)::= <<
+    ; BOOL VEC OR
+    %<regC> = call i8* @boolVectoror(i8* %<regL>, i8* %<regR>)
+>>
+
+BVectorNOT(regC, regV) ::= <<
+    ; BOOL VEC NOT
+    %<regC> = call i8* @boolVectornot(i8* %<regV>)
+>>
+
+IVectorLES(regC, regL, regR) ::= <<
+    ; INT VEC LES
+    %<regC> = call i8* @IVectorLES(i32* %<regL>, i32* %<regR>)
+>>
+
+IVectorLESEQ(regC, regL, regR) ::= <<
+    ; INT VEC LESEQ
+    %<regC> = call i8* @IVectorLESEQ(i32* %<regL>, i32* %<regR>)
+>>
+
+IVectorGRT(regC, regL, regR) ::= <<
+    ; REAL VEC GRT
+    %<regC> = call i8* @IVectorGRT(i32* %<regL>, i32* %<regR>)
+>>
+
+IVectorGRTEQ(regC, regL, regR) ::= <<
+    ; INT VEC GRTEQ
+    %<regC> = call i8* @IVectorGRTEQ(i32* %<regL>, i32* %<regR>)
+>>
+
+FVectorLES(regC, regL, regR) ::= <<
+    ; INT VEC LES
+    %<regC> = call i8* @FVectorLES(float* %<regL>, float* %<regR>)
+>>
+
+FVectorLESEQ(regC, regL, regR) ::= <<
+    ; INT VEC LESEQ
+    %<regC> = call i8* @FVectorLESEQ(float* %<regL>, float* %<regR>)
+>>
+
+FVectorGRT(regC, regL, regR) ::= <<
+    ; REAL VEC GRT
+    %<regC> = call i8* @FVectorGRT(float* %<regL>, float* %<regR>)
+>>
+
+FVectorGRTEQ(regC, regL, regR) ::= <<
+    ; INT VEC GRTEQ
+    %<regC> = call i8* @FVectorGRTEQ(float* %<regL>, float* %<regR>)
+>>
+
+RealVectorsEQ(regC, regL, regR) ::= <<
+    ; REAL VEC EQ
+    %<regC> = call signext i8 @boolVectorEQFF(float* %<regL>, float* %<regR>)
+>>
+
+RealVectorsNEQ(regC, regL, regR) ::= <<
+    ; REAL VEC NEQ
+    %<regC> = call signext i8 @boolVectorNEQFF(float* %<regL>, float* %<regR>)
+>>
+
+IntegerVectorsNEQ(regC, regL, regR) ::= <<
+    ; REAL VEC EQ
+    %<regC> = call signext i8 @boolVectorNEQII(i32* %<regL>, i32* %<regR>)
+>>
+
+IntegerVectorsEQ(regC, regL, regR) ::= <<
+    ; REAL VEC NEQ
+    %<regC> = call signext i8 @boolVectorEQII(i32* %<regL>, i32* %<regR>)
+>>
+
+BoolVectorsEQ(regC, regL, regR) ::= <<
+    ; Bool VEC EQ
+    %<regC> = call signext i8 @boolVectorEQBool(i8* %<regL>, i8* %<regR>)
+>>
+
+BoolVectorsNEQ(regC, regL, regR) ::= <<
+    ; Bool VEC NEQ
+    %<regC> = call signext i8 @boolVectorNEQBool(i8* %<regL>, i8* %<regR>)
+>>
+
+AddIntegerVectors(regC, regL, regR) ::= <<
+    ; Add integer vectors
+    %<regC> = call i32* @addIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+SubIntegerVectors(regC, regL, regR) ::= <<
+    ; sub integer vectors
+    %<regC> = call i32* @subIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+MulIntegerVectors(regC, regL, regR) ::= <<
+    ; Mul integer vectors
+    %<regC> = call i32* @mulIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+DivIntegerVectors(regC, regL, regR) ::= <<
+    ; Div integer vectors
+    %<regC> = call i32* @divIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+ExponIntegerVectors(regC, regL, regR) ::= <<
+    ; Expon integer vectors
+    %<regC> = call i32* @exponIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+ModIntegerVectors(regC, regL, regR) ::= <<
+    ; Mod integer vectors
+    %<regC> = call i32* @modIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+AddRealVectors(regC, regL, regR) ::= <<
+    ; Add real vectors
+    %<regC> = call float* @addRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+SubRealVectors(regC, regL, regR) ::= <<
+    ; sub real vectors
+    %<regC> = call float* @subRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+MulRealVectors(regC, regL, regR) ::= <<
+    ; Mul real vectors
+    %<regC> = call float* @mulRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+DivRealVectors(regC, regL, regR) ::= <<
+    ; Div real vectors
+    %<regC> = call float* @divRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+ExponRealVectors(regC, regL, regR) ::= <<
+    ; Expon real vectors
+    %<regC> = call float* @exponRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+ModRealVectors(regC, regL, regR) ::= <<
+    ; Mod real vectors
+    %<regC> = call float* @modRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+ConcatIntegerVectors(regC, regL, regR) ::= <<
+    ; Concat integer vectors
+    %<regC> = call i32* @concatIntegerVectors(i32* %<regL>, i32* %<regR>)
+>>
+
+ConcatRealVectors(regC, regL, regR) ::= <<
+    ; Concat real vectors
+    %<regC> = call float* @concatRealVectors(float* %<regL>, float* %<regR>)
+>>
+
+ConcatCharacterVectors(regC, regL, regR) ::= <<
+    ; Concat character vectors
+    %<regC> = call i8* @concatCharacterVectors(i8* %<regL>, i8* %<regR>)
+>>
+
+ConcatBooleanVectors(regC, regL, regR) ::= <<
+    ; Concat bool vectors
+    %<regC> = call i8* @concatBooleanVectors(i8* %<regL>, i8* %<regR>)
+>>
+
+DotIntegerVector(regC, regL, regR) ::= <<
+    ; Dot integer vectors
+    %<regC> = call i32 @dotIntegerVector(i32* %<regL>, i32* %<regR>)
+>>
+
+DotRealVector(regC, regL, regR) ::= <<
+    ; Dot real vectors
+    %<regC> = call float @dotRealVector(float* %<regL>, float* %<regR>)
+>>
+
+GetIntVectorLength(regC, regV) ::= <<
+    ; Get lenght of int vector
+    %<regC> = call i32 @getIntVectorLength(i32 * %<regV>)
+>>
+
+GetRealVectorLength(regC, regV) ::= <<
+    ; Get lenght of Real vector
+    %<regC> = call i32 @getRealVectorLength(float * %<regV>)
+>>
+
+GetCharVectorLength(regC, regV) ::= <<
+    ; Get lenght of Char vector
+    %<regC> = call i32 @getBoolVectorLength(i8 * %<regV>)
+>>
+
+GetBoolVectorLength(regC, regV) ::= <<
+    ; Get lenght of Bool vector
+    %<regC> = call i32 @getBoolVectorLength(i8 * %<regV>)
+>>
+
+//===========Matrix===============//
+DeclareIntegerMatrix(name) ::= <<
+    ; Declare Integer Matrix
+    %<name> = alloca %struct.integermatrix, align 8
+>>
+
+AllocateIntegerMatrix(regC, oldReg, rows, cols, t1, t2, t3, t4, t5) ::= <<
+    ; Allocate Integer Matrix
+    %<regC> = call { i64, i32** } @allocateIntegerMatrix(i32 <rows>, i32 <cols>)
+    %<t1> = bitcast %struct.integermatrix* %<oldReg> to { i64, i32** }*
+    %<t2> = getelementptr { i64, i32** }* %<t1>, i32 0, i32 0
+    %<t3> = extractvalue { i64, i32** } %<regC>, 0
+    store i64 %<t3>, i64* %<t2>, align 1
+    %<t4> = getelementptr { i64, i32** }* %<t1>, i32 0, i32 1
+    %<t5> = extractvalue { i64, i32** } %<regC>, 1
+    store i32** %<t5>, i32*** %<t4>, align 1
+>>
+
+BitcastIntegerMatrix(oldReg, regC) ::=<<
+    ; Bitcast Integer Matrix
+    %<regC> = bitcast %struct.integermatrix* %<oldReg> to { i64, i32** }*
+    %3 = getelementptr { i64, i32** }* %2, i32 0, i32 0
+    %4 = extractvalue { i64, i32** } %1, 0
+    store i64 %4, i64* %3, align 1
+>>
+
+StoreIntegerVectorInMatrix(matReg, regC, position) ::= <<
+    ; Store IntegerVector in Matrix
+    call void @storeIntegerVectorInMatrix(%struct.integermatrix* %<matReg>, i32* %<regC>, i32 <position>)
+>>
+
+LoadIntegerMatrix(regC, name) ::=<<
+    ; Load Integer Matrix
+    %<regC> = bitcast %struct.integermatrix* %<name> to i8*
+>>
+
+StoreIntegerMatrix(regC,oldReg,name) ::=<<
+    ; Store Integer Matrix
+    %<regC> = bitcast %struct.integermatrix* %<name> to i8*
+    call void @llvm.memcpy.p0i8.p0i8.i64(i8* %<oldReg>, i8* %<regC>, i64 16, i32 8, i1 false)
+>>
+
+
+
+//===========END ASSIGNMENT==========//
+
+//===============ATOM================//
+
+AtomInt(regC, val)::=<<
+    ;LOAD INT
+    %<regC> = add nsw i32 0, <val>
+>>
+
+AtomReal(regC, regC2, stringNum, size)::=<<
+    ;LOAD FLOAT
+    %<regC> = alloca float, align 4
+    call void @dealWithFloats(float* %<regC>, i8* getelementptr inbounds ([<size> x i8]* @.str<stringNum>, i32 0, i32 0))
+    %<regC2> = load float* %<regC>, align 4
+>>
+
+AtomString(regC, stringNum, size)::=<<
+    store i8* getelementptr inbounds ([<size> x i8]* @.str<stringNum>, i32 0, i32 0), i8** %<regC>, align 8
+>>
+
+AtomChar(regC, val )::=<<
+    ;AtomChar
+    %<regC> = add nsw i8 <val>, 0
+>>
+
+AtomBool(regC, val)::=<<
+    ;LOAD BOOL
+    %<regC> = add nsw i8 <val>, 0
+>>
+
+
+StringLit(stringNum, size, stringLit)::=<<
+    @.str<stringNum> = private unnamed_addr constant [<size> x i8] c"<stringLit>\00", align 1
+>>
+
+//=============Start Tuple==============//
+
+DeclareTupleStruct(name, types) ::=<<
+%struct.tuple_<name> = type { <types; separator=","> };
+>>
+
+InitTuple(name) ::=<<
+    ;Init Tuple
+    %<name> = alloca %struct.tuple_<name>, align 4
+>>
+
+AssignIntTuple(regC, regV, name, index) ::=<<
+    ;Assign Int Tuple
+    %<regC> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    store i32 %<regV>, i32* %<regC>, align 4
+>>
+
+AssignFloatTuple(regC, regV, name, index) ::=<<
+    ;Assign Float Tuple
+    %<regC> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    store float %<regV>, float* %<regC>, align 4
+>>
+
+AssignBoolTuple(regC, regV, name, index) ::=<<
+    ;Assign Bool Tuple
+    %<regC> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    store i8 %<regV>, i8* %<regC>, align 4
+>>
+
+AssignCharTuple(regC, regV, name, index) ::=<<
+    ;Assign Char Tuple
+    %<regC> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    store i8 %<regV>, i8* %<regC>, align 4
+>>
+
+LoadIntFromStruct(name, index, regC, t0, t1)::=<<
+    ;Load Int from Struct
+    %<t0> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    %<t1> = load i32* %<t0>, align 4
+    %<regC> = add nsw i32 0, %<t1>
+>>
+
+LoadFloatFromStruct(name, index, regC, t0, t1)::=<<
+    ;Load Float from Struct
+    %<t0> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    %<t1> = load float* %<t0>, align 4
+    %<regC> = fadd float 0.0, %<t1>
+>>
+
+LoadBoolFromStruct(name, index, regC, t0, t1)::=<<
+    ;Load Bool from Struct
+    %<t0> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    %<t1> = load i8* %<t0>, align 4
+    %<regC> = add nsw i8 0, %<t1>
+>>
+
+LoadCharFromStruct(name, index, regC, t0, t1)::=<<
+    ;Load Char from Struct
+    %<t0> = getelementptr inbounds %struct.tuple_<name>* %<name>, i32 0, i32 <index>
+    %<t1> = load i8* %<t0>, align 4
+    %<regC> = add nsw i8 0, %<t1>
+>>
+
+
+
+
+//=============END Tuple==============//
+
+
+
+
+//==============Begin old non-C functions ==============//
+
+DeclareInt(name)::= <<
+    ;DECLARE INT
+    %<name> = alloca i32, align 4
+>>
+
+AssignInt(name, regC)::=<<
+    ;ASSIGN INT
+    store i32 %<regC>, i32* %<name>, align 4
+>>
+
+PrintInt(regC, regV)::=<<
+    ;PRINT INT RESULT
+    %<regC> = call i32 (i8*, ...)* @printf(i8* getelementptr inbounds ([3 x i8]* @.Str99, i32 0, i32 0), i32 %<regV>)
+>>
+
+PrintReal(regC)::=<<
+    ;PRINT REAL RESULT
+    call void @printReal(float %<regC>)
+>>
+
+
+LoadIntVar(regC, name)::=<<
+    ;LOAD INT VAR
+    %<regC> = load i32* %<name>, align 4
+>>
+
+
+//========PROMOTION==============//
+
+ProIR(regC, regV)::=<<
+    %<regC> = call float @promote(i32 %<regV>)
+>>
+
+ProNR(regC, regV)::=<<
+    %<regC> = call float @promoteNR(i32 %<regV>)
+>>
+
+ProNI(regC, regV)::=<<
+    ;NULL TO INT
+    %<regC> = add nsw i32 0, %<regV>
+>>
+
+ProNC(regC, regV)::=<<
+    %<regC> = call i8 @promoteNC(i32 %<regV>)
+>>
+
+ProNB(regC, regV)::=<<
+    %<regC> = call i8 @promoteNB(i32 %<regV>)
+>>
+
+ProIB(regC, regV)::=<<
+    %<regC> = call signext i8 @promoteIB(i32 %<regV>)
+>>
+
+ProIC(regC, regV)::=<<
+    %<regC> = call signext i8 @promoteIC(i32 %<regV>)
+>>
+
+ProBI(regC, regV)::=<<
+    %<regC> = call i32 @promoteBI(i8 signext %<regV>)
+>>
+
+ProBR(regC, regV)::=<<
+    %<regC> = call float @promoteBR(i8 signext %<regV>)
+>>
+
+ProBC(regC, regV)::=<<
+    %<regC> = call signext i8 @promoteBC(i8 signext %<regV>)
+>>
+
+ProRI(regC, regV)::=<<
+    %<regC> = call i32 @promoteRI(float %<regV>)
+>>
+
+ProCB(regC, regV)::=<<
+    %<regC> = call signext i8 @promoteCB(i8 signext %<regV>)
+>>
+
+ProCI(regC, regV)::=<<
+    %<regC> = call i32 @promoteCI(i8 signext %<regV>)
+>>
+
+ProCR(regC, regV)::=<<
+    %<regC> = call float @promoteCR(i8 signext %<regV>)
+>>
+
+
+
+
+//=========END PROMOTION=========//
+
+
+//========MATH EXPR==============//
+ModII(regL, regR, regC)::=<<
+    ;MODI
+    %<regC> = srem i32 %<regL>, %<regR>
+>>
+
+ModFF(regL, regR, regC)::=<<
+    ;MODFF
+     %<regC> = call float @realMod(float %<regL>, float %<regR>)
+
+>>
+
+AddII(regL, regR, regC)::=<<
+    ;ADDI
+    %<regC> = add nsw i32 %<regL>, %<regR>
+>>
+
+AddFF(regL, regR, regC)::=<<
+    ;ADDFF
+    %<regC> = fadd float %<regL>, %<regR>
+>>
+
+
+SubII(regL, regR, regC)::=<<
+    ;SUBI
+    %<regC> = sub nsw i32 %<regL>, %<regR>
+>>
+
+SubFF(regL, regR, regC)::=<<
+    ;SUBFF
+    %<regC> = fsub float %<regL>, %<regR>
+>>
+
+
+MulII(regL, regR, regC)::=<<
+    %<regC> = mul nsw i32 %<regL>, %<regR>
+>>
+
+MulFF(regL, regR, regC)::=<<
+    ;MULFF
+    %<regC> = fmul float %<regL>, %<regR>
+>>
+
+
+DivII(regL, regR, regC)::=<<
+    %<regC> = sdiv i32 %<regL>, %<regR>
+>>
+
+DivFF(regL, regR, regC)::=<<
+    ;DIVFF
+    %<regC> = fdiv float %<regL>, %<regR>
+>>
+
+
+ExponII(regC, regL, regR)::=<<
+    %<regC> = call i32 @powerII(i32 %<regL>, i32 %<regR>)
+>>
+
+ExponFF(regC, regL, regR)::=<<
+    %<regC> = call float @realExpon(float %<regL>, float %<regR>)
+>>
+
+//========END MATH EXPR==============//
+
+
+//=======LOGIC===============//
+
+BXOR(regC, regL, regR)::=<<
+    %<regC> = call signext i8 @Boolxor(i8 signext %<regL>, i8 signext %<regR>)
+>>
+
+BOR(regC, regL, regR)::=<<
+    %<regC> = call signext i8 @Boolor(i8 signext %<regL>, i8 signext %<regR>)
+>>
+
+BAND(regC, regL, regR)::=<<
+    %<regC> = call signext i8 @Booland(i8 signext %<regL>, i8 signext %<regR>)
+>>
+
+BNOT(regC, regV)::=<<
+    %<regC> = call signext i8 @Boolnot(i8 signext %<regV>)
+>>
+
+BEQ(regC, regL, regR)::=<<
+    %<regC> = call signext i8 @Booleq(i8 signext %<regL>, i8 signext %<regR>)
+>>
+
+BNEQ(regC, regL, regR)::=<<
+    %<regC> = call signext i8 @Boolneq(i8 signext %<regL>, i8 signext %<regR>)
+>>
+
+IUNARYPLUS(regC, regP)::=<<
+    %<regC> = call i32 @IunaryPlus(i32 %<regP>)
+>>
+
+IUNARYNEG(regC, regP)::=<<
+    %<regC> = call i32 @IunaryNeg(i32 %<regP>)
+>>
+
+RUNARYPLUS(regC, regP)::=<<
+    %<regC> = call float @RunaryPlus(float %<regP>)
+>>
+
+RUNARYNEG(regC, regP)::=<<
+    %<regC> = call float @RunaryNeg(float %<regP>)
+>>
+
+UnNIntegerVectors(regC, regP) ::= <<
+    %<regC> = call i32* @unNIntegerVectors(i32* %<regP>)
+>>
+
+UnPIntegerVectors(regC, regP) ::= <<
+    %<regC> = call i32* @unPIntegerVectors(i32* %<regP>)
+>>
+
+UnNRealVectors(regC, regP) ::= <<
+    %<regC> = call float* @unNRealVectors(float* %<regP>)
+>>
+
+UnPRealVectors(regC, regP) ::= <<
+    %<regC> = call float* @unPRealVectors(float* %<regP>)
+>>
+
+//========COMPARE==============//
+
+
+ILES(regL, regR, regC)::=<<
+    ;INT LESS THAN
+    %<regC> = icmp slt i32 %<regL>, %<regR>
+>>
+
+IGRE(regL, regR, regC)::=<<
+    ;INT GRE THAN
+    %<regC> = icmp sgt i32 %<regL>, %<regR>
+>>
+
+INEQ(regL, regR, regC)::=<<
+    ;INT NOT EQUAL
+    %<regC> = icmp ne i32 %<regL>, %<regR>
+>>
+
+IEQ(regL, regR, regC)::=<<
+    ;INT EQUAL
+    %<regC> = icmp eq i32 %<regL>, %<regR>
+>>
+
+IGEQ(regL, regR, regC)::=<<
+    ;INT GRE OR EQ
+    %<regC> = icmp uge i32 %<regL>, %<regR>
+
+>>
+
+ILEQ(regL, regR, regC)::=<<
+    ;INT LES OR EQ
+    %<regC> = icmp ule i32 %<regL>, %<regR>
+>>
+
+RLES(regL, regR, regC)::=<<
+    ;REAL LESS THAN
+    %<regC> = fcmp olt float %<regL>, %<regR>
+>>
+
+RGRE(regL, regR, regC)::=<<
+    ;REAL GRE THAN
+    %<regC> = fcmp ogt float %<regL>, %<regR>
+>>
+
+RNEQ(regL, regR, regC)::=<<
+    ;REAL NOT EQUAL
+    %<regC> = fcmp one float %<regL>, %<regR>
+>>
+
+REQ(regL, regR, regC)::=<<
+    ;REAL EQUAL
+    %<regC> = fcmp oeq float %<regL>, %<regR>
+>>
+
+RGEQ(regL, regR, regC)::=<<
+    ;REAL GRE OR EQ
+    %<regC> = fcmp oge float %<regL>, %<regR>
+
+>>
+
+RLEQ(regL, regR, regC)::=<<
+    ;REAL LES OR EQ
+    %<regC> = fcmp ole float %<regL>, %<regR>
+>>
+
+//========END COMPARE==============//
+
+//===========IF============//
+IFHOLDER()::=<<
+    I AM A HOLDER
+>>
+
+
+IF(regCmp, regC, regE)::=<<
+    ;START IF
+    br i1  %<regCmp>, label %<regC>, label %<regE>
+
+>>
+
+ENDIF(regE)::=<<
+    ;END IF
+    br label %<regE>
+>>
+
+IFELSE(regCmp, regIf, regElse)::=<<
+    ;IF ELSE
+    br i1  %<regCmp>, label %<regIf>, label %<regElse>
+>>
+
+ENDIFELSE(regEnd)::=<<
+    ;END IF PORTION
+    br label %<regEnd>
+
+>>
+
+ENDELSE(regC)::=<<
+    ;END ELSE PORTION
+    br label %<regC>
+
+>>
+
+//=========END IF================//
+
+//===========LOOP============//
+
+LOOPHOLDER()::=<<
+    LOOP HOLDER
+>>
+
+LOOP(regC)::=<<
+    ;START LOOP
+    br label %<regC>
+>>
+
+CONDLOOP(regP, regC, regLE)::=<<
+    ;START AFTER EVAL
+    br i1 %<regP>, label %<regC>, label %<regLE>
+>>
+
+CONDBACKLOOP(regP, regLE, regLS)::=<<
+    ;CONDBACK LOOP
+    br i1 %<regP>, label %<regLS>, label %<regLE>
+>>
+
+ENDBACKLOOP(regC)::=<<
+    ;END BACKLOOP
+    br label %<regC>
+>>
+
+ENDLOOP(regLS)::=<<
+    ;END LOOP
+    br label %<regLS>
+>>
+
+HOLDER()::=<<
+    I AM HOLDER
+>>
+
+BREAKCONT(reg)::=<<
+    ;BREAK/CONT
+    br label %<reg>
+>>
+
+
+//===========END LOOP============//
+
+
+//===========HELPER TEMPLATE=====//
+CHECKBOOL(regC, regV)::=<<
+    %<regC> = icmp ne i8 %<regV>, 0
+>>
+
+CHECKINT(regC, regV)::=<<
+    %<regC> = icmp ne i32 %<regV>, 0
+>>
+
+
+// Casting ======================== //
+CastNullToFloat(regSource, regC) ::= <<
+
+>>
+
+
+
+//=======END HELPER TEMPLATE=====//
+
+
+
+
+//==============End old non-C functions ===============//

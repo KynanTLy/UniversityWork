@@ -1,0 +1,1 @@
+clang -std=c11 -L./ -g -lm -s -o tmp tmp.ll -lruntime && ./tmp

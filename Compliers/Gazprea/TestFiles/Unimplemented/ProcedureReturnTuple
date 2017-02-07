@@ -1,0 +1,12 @@
+procedure return12() tuple(integer, integer) {
+    tuple(integer, integer) t = (1,2)
+	return t;
+}
+
+procedure main() returns integer {
+    var out = std_output();
+    tuple(integer, integer) t = return12();
+    t.1 -> out;
+    t.2 -> out;
+    return 0;
+}

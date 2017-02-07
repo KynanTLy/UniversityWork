@@ -1,0 +1,21 @@
+procedure main() returns integer {
+    var out = std_output();
+
+    real vector v = [1.6, 2.0, 0.3];
+    real vector f = [0.1, 1.1, 5.2];
+
+    [4.0, 5.0, 6.0] -> out;
+    '\n' -> out;
+    v -> out;
+    '\n' -> out;
+    f -> out;
+    '\n' -> out;
+    v+f -> out;
+    '\n' -> out;
+    v-f -> out;
+    '\n' -> out;
+    f-v -> out;
+
+    return 0;
+}
+

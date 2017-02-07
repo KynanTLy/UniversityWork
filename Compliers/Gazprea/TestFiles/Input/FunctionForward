@@ -1,0 +1,12 @@
+/* Forward declaration, no body */
+function f(integer x) returns integer;
+
+procedure main() returns integer {
+  integer y = f(5);
+  /* Can use this in main, even though the definition is below */
+  var out = std_output();
+  y -> out;
+  return 0;
+}
+
+function f(integer x) returns integer = x^2;

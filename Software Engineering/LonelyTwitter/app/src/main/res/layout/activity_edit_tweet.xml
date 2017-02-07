@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/oldTweetsTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Tweet"
+        android:textSize="50dp" />
+
+    <TextView
+        android:id="@+id/OLDTWEET"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="100dp" />
+
+    <EditText
+        android:id="@+id/EDITTWEET"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal" />
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clear" />
+
+    <Button
+        android:id="@+id/SAVE"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+
+</LinearLayout>

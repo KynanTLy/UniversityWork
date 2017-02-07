@@ -1,0 +1,35 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p = [ 1 , 2 ]; //Basic Vector
+p -> out;
+'\n' -> out;
+
+p = [3, 4, 5, 6];
+p -> out;
+'\n' -> out;
+
+var vector f = [1.0, 2.0];
+f -> out;
+'\n' -> out;
+f = [3.5];
+f -> out;
+'\n' -> out;
+
+
+character vector c = ['a', 'b'];
+c -> out;
+'\n' -> out;
+c = ['r', 'd', '7'];
+c -> out;
+'\n' -> out;
+
+boolean vector b = [true, false, true, true];
+b -> out;
+'\n' -> out;
+b = [false];
+b -> out;
+'\n' -> out;
+
+return 0;
+}

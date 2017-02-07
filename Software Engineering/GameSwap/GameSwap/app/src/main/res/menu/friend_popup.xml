@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="View Profile"
+        android:id="@+id/viewFriendProfileMenuId"
+        />
+    <item
+        android:title="Trade"
+        android:id="@+id/tradeFriendMenuId"
+        />
+    <item
+        android:title="Remove"
+        android:id="@+id/removeFriendMenuId"
+        />
+
+</menu>

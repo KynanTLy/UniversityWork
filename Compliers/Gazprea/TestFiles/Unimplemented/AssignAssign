@@ -1,0 +1,14 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer a = 9;
+
+integer b = a = 8;
+
+a = b = 99;
+
+b -> out;
+a -> out;
+
+return 0;
+}

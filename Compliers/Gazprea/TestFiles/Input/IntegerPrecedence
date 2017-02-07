@@ -1,0 +1,30 @@
+procedure main() returns integer {
+    integer x = 1;
+    integer y = 2;
+
+    boolean z;
+    integer r;
+    var out = std_output();
+
+    r = -x ^ y * y / x + x - x;
+    r -> out;
+    r = x - x + x / 2 * -x ^ x;
+    r -> out;
+    r = x ^ (x + y) - (y - -x) % 2;
+    r -> out;
+    r = y ^ (y + 2 ^ (x + 2));
+    r -> out;
+    r = -y ^ -y % -y;
+    r -> out;
+    r = -y % (-y - 1);
+    r -> out;
+    '\n' -> out;
+
+    integer g = null;
+    integer w = identity;
+    g -> out;
+    w -> out;
+
+    return 0;
+}
+

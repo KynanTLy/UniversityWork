@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView13"
+        android:layout_weight="0.01" />
+
+    <Button
+    android:layout_width="274dp"
+    android:layout_height="wrap_content"
+    android:text="Inventory"
+    android:id="@+id/inventory"
+        android:layout_gravity="center_horizontal"
+        android:onClick="openInventoryButton"
+        android:layout_weight="0.02" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView9"
+        android:layout_weight="0.01" />
+
+    <Button
+    android:layout_width="274dp"
+    android:layout_height="wrap_content"
+    android:text="Traders"
+    android:id="@+id/friends"
+        android:layout_gravity="center_horizontal"
+    android:onClick="openFriendsButton"
+        android:layout_weight="0.02" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView14"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.01" />
+
+    <Button
+    android:layout_width="274dp"
+    android:layout_height="wrap_content"
+    android:text="Trade Offers"
+    android:id="@+id/tradeOffers"
+    android:layout_gravity="center_horizontal"
+        android:onClick="tradeOffersButton"
+        android:layout_weight="0.02" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView15"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.01" />
+
+
+</LinearLayout>
+
+

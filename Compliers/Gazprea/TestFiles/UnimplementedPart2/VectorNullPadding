@@ -1,0 +1,17 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p = [ 1 , 2 ]; //Basic Vector
+p -> out;
+'\n' -> out;
+
+integer vector x[5] = [1, 2];    //Should this be null padded?
+x->out;
+'\n' -> out;
+
+integer vector z[5] = p;        //This should be null padded
+z->out;
+'\n' -> out;
+
+return 0;
+}

@@ -1,0 +1,12 @@
+procedure main() returns integer {
+var out = std_output();
+var in = std_input();
+
+//char z <- in;
+//z -> out;
+
+//const char y <- in;
+//y -> out;
+
+return 0;
+}

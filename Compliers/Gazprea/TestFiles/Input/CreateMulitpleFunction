@@ -1,0 +1,12 @@
+procedure main() returns integer { return 0; }
+
+procedure multipleParameter(var integer first, var integer hello) returns integer {
+	return 0;
+}
+
+procedure voidfunction(var integer first, var real hello) {
+}
+
+procedure floatfunction(var integer first, var integer hello, var real sdsa) returns real {
+	return 0.0;
+}

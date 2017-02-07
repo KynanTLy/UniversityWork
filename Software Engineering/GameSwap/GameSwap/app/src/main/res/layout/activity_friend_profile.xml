@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cmput301t4.gameswap.Activities.FriendProfile"
+    android:weightSum="1"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="0.19">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/tweety"
+            android:id="@+id/imageView"
+            android:layout_weight="0.20"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove Trader"
+            android:id="@+id/removeTraderButton"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:onClick="removeTraderButtonClicked"/>
+
+    </RelativeLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.23" />
+
+    <TextView
+        android:layout_width="133dp"
+        android:layout_height="41dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/traderNameTextView"
+        android:text="Name"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="City"
+        android:id="@+id/traderCityTextView"
+        android:layout_weight="0.12" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Phone"
+        android:id="@+id/traderPhoneTextView"
+        android:layout_weight="0.12" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="E-mail"
+        android:id="@+id/traderEmailTextView"
+        android:layout_weight="0.12" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inventory"
+        android:id="@+id/friendInventoryButton"
+        android:layout_weight="0.10"
+        android:onClick="friendInventoryButton" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trade"
+        android:id="@+id/friendTradeButton"
+        android:onClick="tradeButtonClicked"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10" />
+
+</LinearLayout>

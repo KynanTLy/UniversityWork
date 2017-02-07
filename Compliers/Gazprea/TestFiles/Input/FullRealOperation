@@ -1,0 +1,95 @@
+procedure main() returns integer {
+    real x = 1.__5;
+    real y = 3__.0;
+    integer g = 3;
+
+    boolean z;
+    real r;
+    var out = std_output();
+
+    z = x == y;
+    z -> out;
+    z = x >= y;
+    z -> out;
+    z = x <= y;
+    z -> out;
+    z = x != y;
+    z -> out;
+    z = x > y;
+    z -> out;
+    z = x < y;
+    z -> out;
+    '\n' -> out;
+
+    r = x % y;
+    r -> out;
+    r = y % x;
+    r -> out;
+    '\n' -> out;
+    r = x ^ y;
+    r -> out;
+     '\n' -> out;
+    r = y ^ x;
+    r -> out;
+    '\n' -> out;
+    r = -x;
+    r -> out;
+    r = -y;
+    r -> out;
+    r = -+-x;
+    r -> out;
+    r = -+-y;
+    r -> out;
+
+    '\n' -> out;
+    r = x + y;
+     r -> out;
+    r = y - x;
+     r -> out;
+    r = x * y;
+     r -> out;
+    r = y / x;
+     r -> out;
+
+    '\n' -> out;
+
+    z = x == g;
+    z -> out;
+    z = x >= g;
+    z -> out;
+    z = x <= g;
+    z -> out;
+    z = x != g;
+    z -> out;
+    z = x > g;
+    z -> out;
+    z = x < g;
+    z -> out;
+    '\n' -> out;
+
+    r = x % g;
+    r -> out;
+    r = g % x;
+    r -> out;
+    '\n' -> out;
+    r = x ^ g;
+    r -> out;
+     '\n' -> out;
+    r = g ^ x;
+    r -> out;
+
+
+    '\n' -> out;
+    r = x + g;
+     r -> out;
+    r = g - x;
+     r -> out;
+    r = x * g;
+     r -> out;
+    r = g / x;
+     r -> out;
+
+
+    return 0;
+}
+

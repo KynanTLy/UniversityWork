@@ -1,0 +1,15 @@
+procedure main() returns integer {
+    integer x = 2;
+    var out = std_output();
+
+    loop x -> out; while x == 0;
+
+    loop {
+        x = x + 1;
+        x -> out;
+        integer x = 5;
+        x -> out;
+    } while x < 4;
+
+    return 0;
+}

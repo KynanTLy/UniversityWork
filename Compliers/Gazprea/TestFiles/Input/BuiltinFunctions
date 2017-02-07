@@ -1,0 +1,31 @@
+procedure main() returns integer {
+var out = std_output();
+
+integer vector p = [ 1 , 2 ]; //Basic Vector
+integer l = length(p);
+l -> out;
+'\n' -> out;
+
+integer vector f = [];
+l = length(f);
+l -> out;
+'\n' -> out;
+
+l = length([1,2,3]);
+l -> out;
+'\n' -> out;
+
+l = length([1.5,2.3,3.6, 5.7]);
+l -> out;
+'\n' -> out;
+
+l = length(['a',' ']);
+l -> out;
+'\n' -> out;
+
+l = length([true, false, true]);
+l -> out;
+'\n' -> out;
+
+return 0;
+}

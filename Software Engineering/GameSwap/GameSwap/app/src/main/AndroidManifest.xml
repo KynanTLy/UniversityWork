@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cmput301t4.gameswap" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- - http://www.c-sharpcorner.com/UploadFile/e14021/capture-image-from-camera-and-selecting-image-from-gallery-o/ -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" >
+ //android:theme="@style/AppTheme"
+        <activity android:name=".Activities.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.selectTaskActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.CreateProfileActivity"
+            android:parentActivityName=".Activities.MainActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.myInventoryActivity"
+            android:parentActivityName=".Activities.selectTaskActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.FriendsNTradingActivity"
+            android:parentActivityName=".Activities.selectTaskActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.TradesActivity"
+            android:parentActivityName=".Activities.selectTaskActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.SearchFriendActivity"
+            android:parentActivityName=".Activities.FriendsNTradingActivity" >
+        </activity>
+
+        <!-- -http://sampleprogramz.com/android/searchview.php -->
+        <activity
+            android:name=".Activities.SearchPeopleActivity"
+            android:parentActivityName=".Activities.FriendsNTradingActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.FriendProfileActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.EditProfileActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".Activities.myInventoryActivity" >
+        </activity>
+        <activity
+            android:name=".Activities.EditItemActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.MyProfileActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.AddItemActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.ViewItemActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Activities.AddFriendActivity"
+            android:label="@string/title_activity_add_friend" >
+        </activity>
+        <activity
+            android:name=".Activities.OfferTradeActivity"
+            android:label="@string/title_activity_offer_trade" >
+        </activity>
+        <activity
+            android:name=".Activities.FriendInventoryActivity"
+            android:label="@string/title_activity_friend_inventory" >
+        </activity>
+        <activity
+            android:name=".Activities.MineInventoryActivity"
+            android:label="@string/title_activity_mine_inventory" >
+        </activity>
+        <activity
+            android:name=".Activities.SelectFromFriendInventoryActivity"
+            android:label="@string/title_activity_select_from_friend_inventory" >
+        </activity>
+        <activity
+            android:name=".Activities.DecideTradeActivity"
+            android:label="@string/title_activity_decide_trade" >
+        </activity>
+        <activity
+            android:name=".Activities.CancelCreateTradeActivity"
+            android:label="@string/title_activity_cancel_create_trade" >
+        </activity>
+        <activity
+            android:name=".Activities.CounterTradeActivity"
+            android:label="@string/title_activity_counter_trade" >
+        </activity>
+    </application>
+
+</manifest>

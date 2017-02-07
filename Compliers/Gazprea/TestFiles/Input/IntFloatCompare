@@ -1,0 +1,16 @@
+procedure main() returns integer {
+
+    var out = std_output();
+
+    real a = 3.0;
+    integer y = 3;
+
+    a <  y -> out;
+    a <= y -> out;
+    a == y -> out;
+    a != y -> out;
+    a >  y->  out;
+    a >= y -> out;
+
+    return 0;
+}

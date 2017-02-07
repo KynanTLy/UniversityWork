@@ -1,0 +1,14 @@
+procedure returnOne() returns integer {
+	return 1;
+}
+
+procedure main() returns integer {
+    integer x = 2;
+    integer y = 2;
+    var out = std_output();
+    y -> out;
+    x -> out;
+    integer z = returnOne();
+    z -> out;
+    return 0;
+}

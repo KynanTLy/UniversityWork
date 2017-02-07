@@ -1,0 +1,23 @@
+procedure p(var integer a, var integer b, const integer c, const integer d) {
+   a = a + 1;
+   b = b + 1;
+   c = c + 1;
+   d = d + 1;
+}
+
+procedure main() returns integer {
+        integer x = 0;
+        integer y = 0;
+        integer z = 0;
+         var out = std_output();
+        call p(x, y, x, x);
+        x -> out;
+        y -> out;
+
+        call p(x, y, z, z);
+        y -> out;
+        x -> out;
+        z -> out;
+
+        return 0;
+}

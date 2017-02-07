@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cmput301t4.gameswap.Activities.OfferTradeActivity"
+    android:id="@+id/countertextmyinventory">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:text="My Inventory"
+        android:gravity="center"
+        android:id="@+id/myinventorycounterview"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/counteritemsMyInventory"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:text="Friend Inventory"
+        android:gravity="center"
+        android:id="@+id/counterfriendofferinventory"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:id="@+id/counteritemsFromFriendInventory"
+        android:layout_gravity="center_horizontal" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="81dp">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend Inventory"
+            android:id="@+id/counterFriendInventoryButton"
+            android:layout_alignParentStart="true"
+            android:onClick="rejectTradeButtonClicked"
+            android:layout_toStartOf="@+id/counterSaveButton"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Inventory"
+            android:id="@+id/counterMyInventoryButton"
+            android:onClick="acceptTradeButtonClicked"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/counterSaveButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="        Save        "
+            android:onClick="counterTradeButton"
+            android:id="@+id/counterSaveButton"
+            android:layout_toStartOf="@+id/counterMyInventoryButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/counterFriendInventoryButton" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+procedure copy(var integer x, var integer y);
+
+procedure copy(const integer x, boolean r) returns integer;
+
+procedure copy(var integer z, const real x, const integer d) returns real{
+    return z + x + d;
+}
+
+
+
+procedure main() returns integer {
+    integer x = 3;
+    integer y = 2;
+    var out = std_output();
+    call copy(x, y);
+    x -> out;
+    y -> out;
+    integer z = copy(x, true);
+    x -> out;
+    z -> out;
+    real g = 3.2;
+    real df = copy(x, y, 5);
+    character te = '5';
+    real dsf = copy(x, 3.5, as<integer>(te));
+    df -> out;
+    dsf -> out;
+    return 0;
+}
+
+procedure copy(var integer x, var integer y){
+    x = x + 1;
+    y = y + 1;
+}
+
+
+procedure copy(const integer x, boolean r) returns integer {
+    if(r){
+        return x + 1;
+    } else {
+        return x - 1;
+    }
+}
+

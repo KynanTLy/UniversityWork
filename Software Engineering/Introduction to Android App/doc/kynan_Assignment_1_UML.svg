@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="124cm" height="83cm" viewBox="-223 -1181 2465 1647" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="8.64258" y="-1159.61" width="2021.98" height="339.996"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="8.64258" y="-1159.61" width="2021.98" height="339.996"/>
+    <rect style="fill: #ffffff" x="8.64258" y="-1179.61" width="40" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="8.64258" y="-1179.61" width="40" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="10.6426" y="-1165.61"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="8.10708" y="-778.214" width="2131.1" height="335.62"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="8.10708" y="-778.214" width="2131.1" height="335.62"/>
+    <rect style="fill: #ffffff" x="8.10708" y="-798.214" width="40" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="8.10708" y="-798.214" width="40" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="10.1071" y="-784.214"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-221.96" y="-400.19" width="2462.35" height="865.29"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-221.96" y="-400.19" width="2462.35" height="865.29"/>
+    <rect style="fill: #ffffff" x="-221.96" y="-420.19" width="40" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-221.96" y="-420.19" width="40" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-219.96" y="-406.19">UI</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="503.94" y="-232.292" width="302.6" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="503.94" y="-232.292" width="302.6" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="655.24" y="-216.292">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="655.24" y="-197.292">MainActivity</text>
+    <rect style="fill: #ffffff" x="503.94" y="-188.292" width="302.6" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="503.94" y="-188.292" width="302.6" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-174.292">+mc: MultiControl</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-158.292">+cal: Calculator</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-142.292">+gc: GameController</text>
+    <rect style="fill: #ffffff" x="503.94" y="-136.292" width="302.6" height="116"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="503.94" y="-136.292" width="302.6" height="116"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-122.292">+&lt;&lt;Button&gt;&gt; Stat(v:View): void </text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-106.292">+&lt;&lt;Button&gt;&gt; MultiPlayer(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-90.292">+&lt;&lt;Button&gt;&gt; singlePlayer(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-74.292">+&lt;&lt;Button&gt;&gt; Email(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-58.292">+popStat(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-42.292">+convertEmail(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="506.94" y="-26.292">+popinstruc(instructions:String): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1310.87" y="-155.339" width="279.5" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1310.87" y="-155.339" width="279.5" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1450.62" y="-139.339">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1450.62" y="-120.339">SingleActivity</text>
+    <rect style="fill: #ffffff" x="1310.87" y="-111.339" width="279.5" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1310.87" y="-111.339" width="279.5" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1313.87" y="-97.3386">+handle: Handler</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1313.87" y="-81.3386">+gc: GameController</text>
+    <rect style="fill: #ffffff" x="1310.87" y="-75.3386" width="279.5" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1310.87" y="-75.3386" width="279.5" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1313.87" y="-61.3386">+popMessage(message:String): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1313.87" y="-45.3386">+&lt;&lt;Button&gt;&gt; beginGame(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1313.87" y="-29.3386">+runGame(): Runnable</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1313.87" y="-13.3386">+&lt;&lt;Button&gt;&gt; HitGame(v:View): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="227.02" y="83.6624" width="248.7" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="227.02" y="83.6624" width="248.7" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="351.37" y="99.6624">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="351.37" y="118.662">BuzzerActivity</text>
+    <rect style="fill: #ffffff" x="227.02" y="127.662" width="248.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="227.02" y="127.662" width="248.7" height="8"/>
+    <rect style="fill: #ffffff" x="227.02" y="135.662" width="248.7" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="227.02" y="135.662" width="248.7" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="230.02" y="149.662">+&lt;&lt;Button&gt;&gt; play2(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="230.02" y="165.662">+&lt;&lt;Button&gt;&gt; play3(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="230.02" y="181.662">+&lt;&lt;Button&gt;&gt; play4(v:View): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1698.9" y="-331.714" width="395" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1698.9" y="-331.714" width="395" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1896.4" y="-315.714">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1896.4" y="-296.714">SStatActivity</text>
+    <rect style="fill: #ffffff" x="1698.9" y="-287.714" width="395" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1698.9" y="-287.714" width="395" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-273.714">+cal: Calculator </text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-257.714">+currentmode: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-241.714">+currenttype: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-225.714">+currentVal: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-209.714">+currentcount: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-193.714">+reCalMode: int</text>
+    <rect style="fill: #ffffff" x="1698.9" y="-187.714" width="395" height="180"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1698.9" y="-187.714" width="395" height="180"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-173.714">+updatetext(currenttype:String,currentmode:String,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-157.714">            currentVal:long): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-141.714">+reCal(reCalMode:int): long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-125.714">+&lt;&lt;Button&gt;&gt; ten(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-109.714">+&lt;&lt;Button&gt;&gt; all(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-93.714">+&lt;&lt;Button&gt;&gt; hundred(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-77.714">+&lt;&lt;Button&gt;&gt; min(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-61.714">+&lt;&lt;Button&gt;&gt; max(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-45.714">+&lt;&lt;Button&gt;&gt; avg(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-29.714">+&lt;&lt;Button&gt;&gt; med(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1701.9" y="-13.714">+&lt;&lt;Button&gt;&gt; clear(v:View): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1006.62" y="-139.414" width="248.7" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1006.62" y="-139.414" width="248.7" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1130.97" y="-123.414">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1130.97" y="-104.414">mstatAcitivty</text>
+    <rect style="fill: #ffffff" x="1006.62" y="-95.414" width="248.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1006.62" y="-95.414" width="248.7" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1009.62" y="-81.414">+mc: MultiControl</text>
+    <rect style="fill: #ffffff" x="1006.62" y="-75.414" width="248.7" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1006.62" y="-75.414" width="248.7" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1009.62" y="-61.414">+&lt;&lt;Button&gt;&gt; p2(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1009.62" y="-45.414">+&lt;&lt;Button&gt;&gt; p3(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1009.62" y="-29.414">+&lt;&lt;Button&gt;&gt; p4(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1009.62" y="-13.414">+&lt;&lt;Button&gt;&gt; clear(v:View): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="501.908" y="290.862" width="264.1" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="501.908" y="290.862" width="264.1" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="633.958" y="306.862">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="633.958" y="325.862">twoplayerActivity</text>
+    <rect style="fill: #ffffff" x="501.908" y="334.862" width="264.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="501.908" y="334.862" width="264.1" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="504.908" y="348.862">+mc: MultiControl</text>
+    <rect style="fill: #ffffff" x="501.908" y="354.862" width="264.1" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="501.908" y="354.862" width="264.1" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="504.908" y="368.862">+&lt;&lt;Button&gt;&gt; player1(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="504.908" y="384.862">+&lt;&lt;Button&gt;&gt; player2(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="504.908" y="400.862">+popMessage(message:String): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="220.012" y="290.858" width="264.1" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="220.012" y="290.858" width="264.1" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="352.062" y="306.858">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="352.062" y="325.858">threeplayerActivity</text>
+    <rect style="fill: #ffffff" x="220.012" y="334.858" width="264.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="220.012" y="334.858" width="264.1" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="223.012" y="348.858">+mc: MultiControl</text>
+    <rect style="fill: #ffffff" x="220.012" y="354.858" width="264.1" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="220.012" y="354.858" width="264.1" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="223.012" y="368.858">+&lt;&lt;Button&gt;&gt; player1(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="223.012" y="384.858">+&lt;&lt;Button&gt;&gt; player2(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="223.012" y="400.858">+&lt;&lt;Button&gt;&gt; player3(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="223.012" y="416.858">+popMessage(message:String): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-51.1016" y="289.32" width="264.1" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51.1016" y="289.32" width="264.1" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="80.9484" y="305.32">&lt;&lt;Activity&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="80.9484" y="324.32">fourplayerActivity</text>
+    <rect style="fill: #ffffff" x="-51.1016" y="333.32" width="264.1" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51.1016" y="333.32" width="264.1" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-48.1016" y="347.32">+mc: MultiControl</text>
+    <rect style="fill: #ffffff" x="-51.1016" y="353.32" width="264.1" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-51.1016" y="353.32" width="264.1" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-48.1016" y="367.32">+&lt;&lt;Button&gt;&gt; player1(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-48.1016" y="383.32">+&lt;&lt;Button&gt;&gt; player2(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-48.1016" y="399.32">+&lt;&lt;Button&gt;&gt; player3(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-48.1016" y="415.32">+&lt;&lt;Button&gt;&gt; player4(v:View): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-48.1016" y="431.32">+popMessage(message:String): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1530.04" y="-756.648" width="302.6" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1530.04" y="-756.648" width="302.6" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1681.34" y="-740.648">&lt;&lt;Controller/Method&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1681.34" y="-721.648">Calculator </text>
+    <rect style="fill: #ffffff" x="1530.04" y="-712.648" width="302.6" height="132"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1530.04" y="-712.648" width="302.6" height="132"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-698.648">+statList: StatList = null</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-682.648">+min: String = Minimum Value:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-666.648">+max: String = Maximum Value:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-650.648">+avg: String = Average Value:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-634.648">+med: String = Median Value:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-618.648">+all: String = Total:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-602.648">+ten: String = Recent 10</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-586.648">+hundred: String = Recent 100</text>
+    <rect style="fill: #ffffff" x="1530.04" y="-580.648" width="302.6" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1530.04" y="-580.648" width="302.6" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-566.648">+&lt;&lt;Singleton&gt;&gt; getstatList(): StatList</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-550.648">+minCal(count:int): long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-534.648">+maxCal(count:int): long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-518.648">+avgCal(count:int): long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1533.04" y="-502.648">+medCal(count:int): long</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="943.472" y="-615.356" width="387.3" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="943.472" y="-615.356" width="387.3" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1137.12" y="-599.356">&lt;&lt;Controller&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1137.12" y="-580.356">GameController</text>
+    <rect style="fill: #ffffff" x="943.472" y="-571.356" width="387.3" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="943.472" y="-571.356" width="387.3" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="946.472" y="-557.356">+timer: Timer = null</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="946.472" y="-541.356">+instruc: String = Instructions for Single Player</text>
+    <rect style="fill: #ffffff" x="943.472" y="-535.356" width="387.3" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="943.472" y="-535.356" width="387.3" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="946.472" y="-521.356">+&lt;&lt;Singleton&gt;&gt; getTimer(): Timer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="946.472" y="-505.356">+gameON(): String</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="305.408" y="-1120.49" width="472" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="305.408" y="-1120.49" width="472" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="541.408" y="-1104.49">&lt;&lt;Method&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="541.408" y="-1085.49">MStat</text>
+    <rect style="fill: #ffffff" x="305.408" y="-1076.49" width="472" height="164"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="305.408" y="-1076.49" width="472" height="164"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-1062.49">+multiResult: ArrayList&lt;Integer&gt; = new ArrayList&lt;Integer&gt;(9)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-1046.49">+FILENAME: String = Multi.sav</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-1030.49">+player1: String = Player 1</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-1014.49">+player2: String = Player 2</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-998.488">+player3: String = Player 3</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-982.488">+player4: String = Player 4</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-966.488">+buzz1: String  = Player 1 Buzzed:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-950.488">+buzz2: String = Player 2 Buzzed:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-934.488">+buzz3: String = Player 3 Buzzed:</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-918.488">+buzz4: String = Player 4 Buzzed:</text>
+    <rect style="fill: #ffffff" x="305.408" y="-912.488" width="472" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="305.408" y="-912.488" width="472" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-898.488">+&lt;&lt;Constructor &gt;&gt; MStat()</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-882.488">+loadFromFile(context:Context): static void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-866.488">+saveInFile(context:Context): static void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="308.408" y="-850.488">+clearFile(context:Context): static void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="377.128" y="-599.042" width="325.7" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="377.128" y="-599.042" width="325.7" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="539.978" y="-583.042">&lt;&lt;Controller&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="539.978" y="-564.042">MultiControl</text>
+    <rect style="fill: #ffffff" x="377.128" y="-555.042" width="325.7" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="377.128" y="-555.042" width="325.7" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="380.128" y="-541.042">+multiResult: MStat</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="380.128" y="-525.042">+currentplayers: int</text>
+    <rect style="fill: #ffffff" x="377.128" y="-519.042" width="325.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="377.128" y="-519.042" width="325.7" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="380.128" y="-505.042">+saveResult(players:int,winner:int): void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1418.24" y="-1103.03" width="341.1" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1418.24" y="-1103.03" width="341.1" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1588.79" y="-1087.03">&lt;&lt;Method&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1588.79" y="-1068.03">StatList</text>
+    <rect style="fill: #ffffff" x="1418.24" y="-1059.03" width="341.1" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1418.24" y="-1059.03" width="341.1" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-1045.03">+statslist: Arraylist&lt;Long&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-1029.03">+clear: Arraylist&lt;long&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-1013.03">+FILENAME: String = file.sav</text>
+    <rect style="fill: #ffffff" x="1418.24" y="-1007.03" width="341.1" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1418.24" y="-1007.03" width="341.1" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-993.032">+getCount(): int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-977.032">+isEmpty(): boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-961.032">+loadFromFile(context:Context): static void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-945.032">+saveInFile(context:Context): static void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1421.24" y="-929.032">+clearFile(context:Context): static void</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1004.52" y="-1117.64" width="264.1" height="44"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1004.52" y="-1117.64" width="264.1" height="44"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1136.57" y="-1101.64">&lt;&lt;Method&gt;&gt;</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1136.57" y="-1082.64">Timer</text>
+    <rect style="fill: #ffffff" x="1004.52" y="-1073.64" width="264.1" height="116"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1004.52" y="-1073.64" width="264.1" height="116"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-1059.64">+startTime: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-1043.64">+endTime: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-1027.64">+randTime: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-1011.64">+delay: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-995.642">+reaction: long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-979.642">+anyReaction: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-963.642">+game: boolean</text>
+    <rect style="fill: #ffffff" x="1004.52" y="-957.642" width="264.1" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1004.52" y="-957.642" width="264.1" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-943.642">+startTimer(): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-927.642">+EndTimer(): String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-911.642">+startDelay(startTime:long): long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1007.52" y="-895.642">+randomTime(): void</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1896.4,-6.70405 1896.4,31.2959 655.24,31.2959 655.24,-7.12043 "/>
+    <polygon style="fill: #ffffff" points="655.24,-20.292 663.24,-12.292 655.24,-4.292 647.24,-12.292 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-20.292 663.24,-12.292 655.24,-4.292 647.24,-12.292 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1069.56" y="83.1272">
+      <tspan x="1069.56" y="83.1272"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="351.37,83.6624 351.37,31.6852 655.24,31.6852 655.24,-7.12043 "/>
+    <polygon style="fill: #ffffff" points="655.24,-20.292 663.24,-12.292 655.24,-4.292 647.24,-12.292 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-20.292 663.24,-12.292 655.24,-4.292 647.24,-12.292 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="352.556" y="64.7424">
+      <tspan x="352.556" y="64.7424"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1130.97,-7.414 1130.97,30.586 655.24,30.586 655.24,-7.12043 "/>
+    <polygon style="fill: #ffffff" points="655.24,-20.292 663.24,-12.292 655.24,-4.292 647.24,-12.292 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-20.292 663.24,-12.292 655.24,-4.292 647.24,-12.292 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1434.42" y="71.8136">
+      <tspan x="1434.42" y="71.8136"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1450.62,-7.3386 1450.62,30.6614 655.24,30.6614 655.24,-6.1139 "/>
+    <polygon style="fill: #ffffff" points="655.24,-19.2855 663.24,-11.2855 655.24,-3.28547 647.24,-11.2855 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-19.2855 663.24,-11.2855 655.24,-3.28547 647.24,-11.2855 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1735.65" y="64.7424">
+      <tspan x="1735.65" y="64.7424"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="80.9484,289.32 80.9484,238.491 351.37,238.491 351.37,200.834 "/>
+    <polygon style="fill: #ffffff" points="351.37,187.662 359.37,195.662 351.37,203.662 343.37,195.662 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="351.37,187.662 359.37,195.662 351.37,203.662 343.37,195.662 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="81.0284" y="269.802">
+      <tspan x="81.0284" y="269.802"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="352.062,289.85 352.062,238.756 351.37,238.756 351.37,200.834 "/>
+    <polygon style="fill: #ffffff" points="351.37,187.662 359.37,195.662 351.37,203.662 343.37,195.662 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="351.37,187.662 359.37,195.662 351.37,203.662 343.37,195.662 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="365.284" y="271.216">
+      <tspan x="365.284" y="271.216"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="633.958,289.855 633.958,238.759 351.37,238.759 351.37,200.834 "/>
+    <polygon style="fill: #ffffff" points="351.37,187.662 359.37,195.662 351.37,203.662 343.37,195.662 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="351.37,187.662 359.37,195.662 351.37,203.662 343.37,195.662 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="612.77" y="264.146">
+      <tspan x="612.77" y="264.146"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1137.12,-498.363 1137.12,-364.856 655.24,-364.856 655.24,-246.47 "/>
+    <polygon style="fill: #ffffff" points="655.24,-233.298 647.24,-241.298 655.24,-249.298 663.24,-241.298 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-233.298 647.24,-241.298 655.24,-249.298 663.24,-241.298 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="945.416" y="-127.31">
+      <tspan x="945.416" y="-127.31"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1681.34,-496.648 1681.34,-364.973 655.24,-364.973 655.24,-246.47 "/>
+    <polygon style="fill: #ffffff" points="655.24,-233.299 647.24,-241.299 655.24,-249.299 663.24,-241.299 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-233.299 647.24,-241.299 655.24,-249.299 663.24,-241.299 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="706.108" y="-247.798">
+      <tspan x="706.108" y="-247.798"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="703.833,-549.042 854.722,-549.042 854.722,-73.414 992.439,-73.414 "/>
+    <polygon style="fill: #ffffff" points="1005.61,-73.414 997.61,-65.414 989.61,-73.414 997.61,-81.414 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="1005.61,-73.414 997.61,-65.414 989.61,-73.414 997.61,-81.414 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1008.75" y="-90.8202">
+      <tspan x="1008.75" y="-90.8202"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="1330.77,-545.356 1450.62,-545.356 1450.62,-168.51 "/>
+    <polygon style="fill: #ffffff" points="1450.62,-155.339 1442.62,-163.339 1450.62,-171.339 1458.62,-163.339 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="1450.62,-155.339 1442.62,-163.339 1450.62,-171.339 1458.62,-163.339 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1447.15" y="-174.259">
+      <tspan x="1447.15" y="-174.259"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="1832.64,-622.648 1896.4,-622.648 1896.4,-345.896 "/>
+    <polygon style="fill: #ffffff" points="1896.4,-332.724 1888.4,-340.724 1896.4,-348.724 1904.4,-340.724 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="1896.4,-332.724 1888.4,-340.724 1896.4,-348.724 1904.4,-340.724 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="2079.22" y="-366.478">
+      <tspan x="2079.22" y="-366.478"></tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="-139.948,-218.528 355.652,-218.528 367.652,-206.528 367.652,-115.861 -139.948,-115.861 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-139.948,-218.528 355.652,-218.528 367.652,-206.528 367.652,-115.861 -139.948,-115.861 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="355.652,-218.528 355.652,-206.528 367.652,-206.528 "/>
+    <text font-size="16.9333" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-132.948" y="-189.778">
+      <tspan x="-132.948" y="-189.778">Note:</tspan>
+      <tspan x="-132.948" y="-168.611"></tspan>
+      <tspan x="-132.948" y="-147.445">Getter/Setter Methods are ignored in UML Diagram</tspan>
+      <tspan x="-132.948" y="-126.278">as well as Oncreate() method</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="-220.03,-400.19 -146.03,-400.19 -134.03,-388.19 -134.03,-311.634 -220.03,-311.634 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-220.03,-400.19 -146.03,-400.19 -134.03,-388.19 -134.03,-311.634 -220.03,-311.634 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="-146.03,-400.19 -146.03,-388.19 -134.03,-388.19 "/>
+    <text font-size="56.4444" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="-213.03" y="-334.79">
+      <tspan x="-213.03" y="-334.79">UI</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="8.10708,-778.214 354.107,-778.214 366.107,-766.214 366.107,-689.658 8.10708,-689.658 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="8.10708,-778.214 354.107,-778.214 366.107,-766.214 366.107,-689.658 8.10708,-689.658 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="354.107,-778.214 354.107,-766.214 366.107,-766.214 "/>
+    <text font-size="56.4444" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="15.1071" y="-712.814">
+      <tspan x="15.1071" y="-712.814">Controller</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="12.6425,-1151.61 256.643,-1151.61 268.643,-1139.61 268.643,-1063.06 12.6425,-1063.06 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="12.6425,-1151.61 256.643,-1151.61 268.643,-1139.61 268.643,-1063.06 12.6425,-1063.06 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="256.643,-1151.61 256.643,-1139.61 268.643,-1139.61 "/>
+    <text font-size="56.4444" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:700" x="19.6425" y="-1086.21">
+      <tspan x="19.6425" y="-1086.21">Methods</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="539.978,-498.036 539.978,-365.164 655.24,-365.164 655.24,-245.464 "/>
+    <polygon style="fill: #ffffff" points="655.24,-232.292 647.24,-240.292 655.24,-248.292 663.24,-240.292 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="655.24,-232.292 647.24,-240.292 655.24,-248.292 663.24,-240.292 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="505.138" y="-518.43">
+      <tspan x="505.138" y="-518.43"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="541.408,-844.488 541.408,-722.268 539.978,-722.268 539.978,-613.22 "/>
+    <polygon style="fill: #ffffff" points="539.978,-600.048 531.978,-608.048 539.978,-616.048 547.978,-608.048 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="539.978,-600.048 531.978,-608.048 539.978,-616.048 547.978,-608.048 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="538.856" y="-865.978">
+      <tspan x="538.856" y="-865.978"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1136.57,-889.642 1136.57,-753.003 1137.12,-753.003 1137.12,-629.535 "/>
+    <polygon style="fill: #ffffff" points="1137.12,-616.363 1129.12,-624.363 1137.12,-632.363 1145.12,-624.363 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1137.12,-616.363 1129.12,-624.363 1137.12,-632.363 1145.12,-624.363 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1135.39" y="-907.476">
+      <tspan x="1135.39" y="-907.476"></tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1588.79,-923.032 1588.79,-840.344 1681.34,-840.344 1681.34,-770.828 "/>
+    <polygon style="fill: #ffffff" points="1681.34,-757.656 1673.34,-765.656 1681.34,-773.656 1689.34,-765.656 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="1681.34,-757.656 1673.34,-765.656 1681.34,-773.656 1689.34,-765.656 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="1587.99" y="-939.896">
+      <tspan x="1587.99" y="-939.896"></tspan>
+    </text>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="326.856" y="203.996">
+    <tspan x="326.856" y="203.996">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="64.5228" y="280.468">
+    <tspan x="64.5228" y="280.468">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="335.538" y="283.204">
+    <tspan x="335.538" y="283.204">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="617.85" y="282.372">
+    <tspan x="617.85" y="282.372">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="627.484" y="7.17076">
+    <tspan x="627.484" y="7.17076">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1110.03" y="16.8865">
+    <tspan x="1110.03" y="16.8865">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1433.53" y="17.3491">
+    <tspan x="1433.53" y="17.3491">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1873.67" y="20.125">
+    <tspan x="1873.67" y="20.125">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1865.79" y="-350.65">
+    <tspan x="1865.79" y="-350.65">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1476.81" y="-173.122">
+    <tspan x="1476.81" y="-173.122">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="974.118" y="-95.5456">
+    <tspan x="974.118" y="-95.5456">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="684.24" y="-248.576">
+    <tspan x="684.24" y="-248.576">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1341.61" y="-561.008">
+    <tspan x="1341.61" y="-561.008">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="716.854" y="-563.108">
+    <tspan x="716.854" y="-563.108">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1854.38" y="-637.548">
+    <tspan x="1854.38" y="-637.548">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="512.284" y="-621.304">
+    <tspan x="512.284" y="-621.304">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="561.04" y="-831.786">
+    <tspan x="561.04" y="-831.786">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1156.81" y="-874.596">
+    <tspan x="1156.81" y="-874.596">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1159.19" y="-632.006">
+    <tspan x="1159.19" y="-632.006">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1603.94" y="-909.082">
+    <tspan x="1603.94" y="-909.082">1</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1707.39" y="-762.814">
+    <tspan x="1707.39" y="-762.814">1</tspan>
+  </text>
+</svg>

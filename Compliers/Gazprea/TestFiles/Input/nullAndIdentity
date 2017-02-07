@@ -1,0 +1,35 @@
+procedure main() returns integer {
+
+character a = null;
+a = identity;
+//a -> out;
+//'\n' -> out;
+//a = null;
+//a -> out;
+//'\n' -> out;
+
+real f = 10.5;
+f -> out;
+'\n' -> out;
+f = null;
+f -> out;
+'\n' -> out;
+
+integer r = identity;
+r -> out;
+'\n' -> out;
+r = null;
+r -> out;
+'\n' -> out;
+
+boolean b = identity;
+b -> out;
+'\n' -> out;
+b = null;
+b -> out;
+'\n' -> out;
+
+
+return 0;
+}
+

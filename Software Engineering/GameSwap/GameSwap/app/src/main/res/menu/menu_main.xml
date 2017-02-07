@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>
+<!--
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="@string/Username"
+        android:inputType="text"
+        android:id="@+id/textView"
+        android:layout_weight="0" />
+
+    <TextView
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:hint="@string/Password"
+        android:inputType="textPassword"
+        android:id="@+id/textView2"
+        android:layout_weight="0" />
+
+    <Button
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Login"
+        android:id="@+id/button" />
+
+    <Button
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Register"
+        android:id="@+id/button2" />
+
+</LinearLayout>
+
+
+
+
+-->

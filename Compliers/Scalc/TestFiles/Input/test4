@@ -1,0 +1,11 @@
+int x = 1;
+int y = 1;
+if (x == 1) print(x); fi;
+if (y == 1) print(y); fi;
+if (x == 1) print(x); fi;
+if (x == 1) print(x); fi;
+if (y == 1) print(y); fi;
+loop (x == y)
+print(x);
+x = x +1;
+pool;
