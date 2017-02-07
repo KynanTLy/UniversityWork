@@ -1,4 +1,0 @@
-int i = 1000;
-print(i);
-i = 1000;
-print(i);
